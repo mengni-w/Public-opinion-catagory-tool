@@ -1,889 +1,443 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[UTF8]{ctex} % 中文支持
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+
+\usepackage[leqno,intlimits]{amsmath}
+%%%%% This is important, as it contains the basic math stuff. leqno means equation numbers are on the left, not on the right. intlimits puts limits of integrals in top/bottom as opposed to next to the integral sign.
+
+
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{geometry}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage{enumitem}
 \usepackage{caption}
-\usepackage{lipsum} % 仅用于占位，可删除
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english, chinese]{babel}
-\usepackage{booktabs}
-\usepackage{siunitx}
-\usepackage{ctex} % 优先使用 ctex 支持中文
+\usepackage{hyperref}
 \usepackage{float}
-\usepackage{rotating}   % 关键：用于旋转表格
-\usepackage{tabularx} 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english, chinese]{babel}
-\usepackage{xcolor}
 
-% 页面边距设置
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{siunitx}
 
-% 页眉页脚设置
-\pagestyle{fancy}
-\fancyhf{}
-\rfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
+\usepackage{amssymb}
+%%%%% This one is for math symbols like \mathbb R
+\usepackage{bbm}
+%%%%% For indicator function as \mathbbm{1}
+\usepackage{amsthm}
+%%%%% Theorem, lemma, proof etc. environments
+\usepackage{hyperref}
+%%%%% This one gives clickable links for equations and references in the pdf file.
 
-% 标题格式
-\title{\textbf{贝叶斯与Dempster-Shafer证据理论的舆情风险评估模型}}
-\author{吴梦妮}
-\date{2025年10月15日}
+\usepackage{showkeys} %***
+%%%%% This one is very useful: it shows you in the dvi/pdf the codes for your references; try it after you have some equation labels (uncomment it)!
 
-% 定义关键词环境
-\newenvironment{keywords}{
-    \par\vspace{1em}\noindent\textbf{关键词：}%
-}{\par}
+%\usepackage{refcheck}
+%%%%% Need to check this, from P Mora.
+%\usepackage{color}
+%\usepackage{soul}
+%\setstcolor{red}
+%%%%% With these, you can highlight text like a marker, or cross things out. Look up the manual of the soul package on the Web.
 
-% 定义案例环境
-\newenvironment{example}[1]{%
-    \par\medskip\noindent\textbf{案例#1：}%
-}{\par\medskip}
+%%%\usepackage{pst-all}
+%%%\usepackage{pstricks-add}
+%%%%% These are extensions to pstricks, see below
 
-% 调整列表间距
-\setlist[itemize]{topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt}
-\setlist[enumerate]{topsep=0pt, itemsep=0pt, partopsep=0pt, parsep=0pt}
+%\usepackage{pstricks}
+%\usepackage{graphicx}
+%%\usepackage{multido}
+%%\usepackage{calc}
+%%%%% These are the ones I use for drawing pictures. Look up pstricks in google, then --> documentation. Don't need this for first tries with LaTeX.
 
-% 超链接设置（可选）
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={舆情风险智能评估模型},
-    pdfauthor={舆情智能分析研究组},
-}
+\usepackage{enumerate}
+\usepackage{enumitem}
+%%%%% With these you can let the enumerate environment know what type of lists you prefer (eg. (a), (b), (c); or maybe [i], [ii], [iii], [iv], etc.)
+
+%\usepackage{array}
+%%%%% This one contains nice extensions to the tabular environments (that is, tables).
+
+%%%\usepackage{pifont}
+%%%%% Usage: \ding{number}, funny symbols in addition to standard LaTeX ones.
+
+%\usepackage[super]{nth}
+%\nth{1}, \nth{2}, \nth{3}, \nth{4} for 1st, 2nd, 3rd, 4th, etc
+
+%\pagestyle{empty}
+%%%%% This makes LaTeX forget about headers, page numbers, etc. Comment it out if you need page numbers.
+
+%\psset{unit=1pt}
+%\psset{linewidth=0.5pt}
+%%%%% This sets units for drawing with pstricks, see above.
+
+\newtheorem{tm}{Theorem}[section]
+\newtheorem{lm}[tm]{Lemma}
+\newtheorem{pr}[tm]{Proposition}
+%%\newtheorem{rem}[tm]{Remark}
+%%%%% If you need theorem-like environments.
+
+\numberwithin{equation}{section}
+%%%%% This gives you nicer equation numbering if you have sections in an article.
+
+%\newcommand*{\hop}{\bigskip\noindent}
+%%%%% Skips without indenting
+
+\newcommand*{\e}[1]{\text{\rm e}^{#1}}
+%%%%% This is how I make exponentials; usage: $\e{-x}$
+
+%\newcommand*{\di}{\,\text{d}}
+%%%%% This is what I use for "d" in dx in integrals.
+
+%\newcommand*{\dd}[1]{\frac{\text{d}}{\text{d}{#1}}}
+%\newcommand*{\pp}[1]{\frac\partial{\partial{#1}}}
+%%%%% And these for derivatives.
+
+%\newcommand*{\Om}{\Omega}
+%\newcommand*{\om}{\omega}
+%\newcommand*{\vp}{\varphi}
+%\newcommand*{\vr}{\varrho}
+%\newcommand*{\te}{\theta}
+%\newcommand*{\la}{\lambda}
+%\newcommand*{\ve}{\varepsilon}
+%\newcommand*{\de}{\delta}
+%\newcommand*{\al}{\alpha}
+%\newcommand*{\si}{\sigma}
+%\newcommand*{\pt}{\partial}
+
+%\newcommand*{\Rb}{\mathbb R}
+%\newcommand*{\Cb}{\mathbb C}
+%\newcommand*{\Nb}{\mathbb N}
+%\newcommand*{\1b}{\mathbbm1}
+%\newcommand*{\Fc}{\mathcal F}
+%\newcommand*{\Pc}{\mathcal P}
+%\newcommand*{\Nc}{\mathcal N}
+%\newcommand*{\ordo}{\mathfrak o}
+%\newcommand*{\Ordo}{\mathcal O}
+
+%\newcommand*{\Pv}{{\bf P}}
+%\newcommand*{\Ev}{{\bf E}}
+%\newcommand*{\Vv}{{\text{\bf Var}}}
+%\newcommand*{\Cov}{{\text{\bf Cov}}}
+%\newcommand*{\Corr}{{\text{\bf Corr}}}
+
+%\newcommand*{\wih}{\widehat}
+%\newcommand*{\wt}{\widetilde}
+%\newcommand*{\un}[1]{\underline{#1}}
+
+%%\renewcommand\tabularxcolumn[1]{>{\centering\arraybackslash}m{#1}}
+%%%%% This is some advanced tabular stuff I find useful with the tabularx environment. Never mind it.
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{graphicx} 
+\usepackage{subfigure} 
+\usepackage{bbm}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{automata, positioning}
 
 \begin{document}
 
+\title{Math model in public opinion classification}
+\author{}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+\clearpage
+
 \maketitle
 
-\begin{abstract}
-在舆情风险领域，评估面临两大核心挑战：\\
+\section*{Random variables}
 
-数据稀缺：敏感舆情历史记录难以系统采集，传统基于大数据的机器学习模型难以部署；\\
+\begin{itemize}
 
-判断模糊：风险判定需区分“正常批评”与“政治攻击”，但边界模糊，依赖经验，主观性强。\\
+    \item  Given the set of arbitrary opinion categories $X$, the indicator function of the subset $C$ of $X$ is 
+    \[
+    C_i = \mathbf{1}_{\{\text{object} \in \text{class } i\}},
+    \]
+where $ C_i \in \{0, 1\} $, and $ \mathbf{1}_{\{\cdot\}} $ denotes the indicator function;
 
-现有模型多采用固定阈值或线性加权，忽视了证据的不确定性与可靠性差异，易导致误报或漏报。\\
-本文提出一种高阶舆情风险评估模型，融合贝叶斯决策理论、差异显著性检验与Dempster-Shafer（D-S）证据融合机制，构建“证据评估—不确定性推理—最优决策”三位一体的数学框架。\\
+    \item $ P_i $ is defined as the priority weight of the category $ i $, where $ P_i \in [0,1]$;
+    
+    \item $ S_i $ is defined as the sentiment polarity threshold for public opinion of category $ i $
+    \[
+    S_i =
+    \begin{cases}
+    \in [-1,0), & \text{negative sentiment }, \\
+    \in (0,1], & \text{positive sentiment}.
+    \end{cases}
+    \]
+    
+    \item $ R_i $ is defined as the degree of relevance between the public opinion and category $ i $, where $ R_i \in [0,1] $.
 
-其亮点在于：\\
+\end{itemize}
 
-将差异显著性检验（p value）引入舆情评估，用于动态评估知识库匹配的统计代表性，而非简单比较数值；\\
+\section*{Model Parameters}
 
-在舆情领域应用D-S理论，输出信念区间（Bel/Pl），实现区间决策，而非伪概率；\\
+\begin{itemize}
 
-将损失函数、统计检验、证据融合三者统一于贝叶斯决策框架，形成闭环逻辑；\\
+    \item $ k $ is the negative sentiment amplification coefficient ($ k > 1 $), used to amplify the impact of negative emotions;
+    
+    \item $ w $ is the priority decay coefficient ($ 0 < w < 1 $), used to reduce the influence of secondary categories;
+    
+    \item $ m $ is the maximum number of categories considered ($ m = 2 $).
+\end{itemize}
 
-本模型不检验 $S_i$ 与 $θ_k$是否相等（二者维度不同），而是检验：“当前舆情的情感极性 $S_i$ 是否显著偏离知识库所代表的‘典型高风险舆情’分布”。\\
-\end{abstract}
+\subsection*{3.1 Risk Intensity Model}
+
+Define the risk intensity $ R_i $ of category $ i $ given sentiment polarity threshold $ S_i $:
+
+\[
+R_i = 
+\begin{cases} 
+0, & \text{if } S_i \geq \theta_i, \\
+k \cdot \dfrac{\theta_i - S_i}{1 + \theta_i}, & \text{if } S_i < \theta_i.
+\end{cases}
+\]
+
+\begin{itemize}
+    \item $k$ is risk amplification coefficient, emphasising the destructive impact of negative sentiment where $ k = 1.2 $; 
+    \item Denominator $ 1 + \theta_i $: Normalization factor ensuring $ R_i \in [0,1] $;
+    \item When $ S_i = -1 $ (extreme negative), $ R_i = k \cdot \dfrac{\theta_i + 1}{1 + \theta_i} = k \approx 1.2 $, but constrained by subsequent formulas to remain in $[0,1]$.
+\end{itemize}
+
+
+\subsection*{3.2 Comprehensive Emergency Severity Model}
+
+\textbf{Case 1: Single-category incident (category $ i $)}
+\[
+U = P_i \cdot R_i
+\]
+
+\textbf{Case 2: Dual-category incident (primary category $ i $, secondary category $ j $)}
+\[
+U = 1 - (1 - P_i \cdot R_i) \cdot (1 - P_j \cdot R_j)^{\delta}
+\]
+
+\textbf{Parameter Explanation:}
+\begin{itemize}
+    \item $ \delta = 0.65 $: Secondary category attenuation coefficient ($ 0 < \delta \leq 1 $);
+    \item When $ \delta = 1 $, risks are fully independent;
+    \item When $ \delta < 1 $, the influence of the secondary category is attenuated.
+\end{itemize}
 
 
 
-\begin{keywords}
-舆情风险评估；贝叶斯决策；Dempster-Shafer理论；差异显著性检验；证据融合；不确定性推理
-\end{keywords}
 
-\clearpage
 
-\section{Background knowledge}
 
-\subsection{Bayes' Theorem}
-模型的基础是贝叶斯定理：
-\begin{equation}
-P(\theta|x) = \frac{P(x|\theta)P(\theta)}{P(x)}
-\end{equation}
+\section*{III. Business-Probability Mapping Framework}
+
+\subsection*{3.1 Optimized Risk Intensity Model}
+
+\textbf{Dynamic Threshold Adjustment:}
+$$
+R_i = 
+\begin{cases} 
+0, & \text{if } S_i \geq \theta_i(t) \\
+k \cdot \dfrac{\theta_i(t) - S_i}{1 + \theta_i(t)} \cdot \alpha_{ij}, & \text{if } S_i < \theta_i(t)
+\end{cases}
+$$
+
 where:
-\begin{itemize}[leftmargin=*]
-
-    \item $P(\theta|x)$ is the posterior probability: the probability of parameter $\theta$ given observation $x$;
-    \item $P(x|\theta)$ is the likelihood: the probability of observing $x$ given parameter $\theta$;
-    \item $P(\theta)$ is the prior probability: the initial belief about $\theta$ before observing $x$;
-    \item $P(x)$ is the marginal likelihood: the total probability of observing $x$ under all possible hypotheses, $P(x) = \sum_{\theta \in \Theta} P(x|\theta)P(\theta)$.
-\end{itemize}
-
-\subsubsection{决策空间与损失函数}
-
-\subsubsection{设定参数:}
-\begin{itemize}[leftmargin=*]
-    \item \textbf{状态空间} $\Theta$是可能的真实状态集合。$\Theta = \{\theta_0, \theta_1\}$，其中 $\theta_0$表示舆情是低风险，$\theta_1$表示舆情是高风险；
-    \item \textbf{决策空间} $\mathcal{A}$是可能的决策集合。$\mathcal{A} = \{a_0, a_1\}$，其中 $a_0$表示判定低风险，$a_1$表示判定高风险；
-    \item $L(a,\theta)$ 是损失函数，量化在真实状态为 $\theta$ 时采取动作 $a$ 的成本；\\
-    \textbf{损失函数}：
-\begin{itemize}[leftmargin=*]
-    \item $C_{\text{miss}} = L(a_0, \theta_1)$：漏报损失（判定低风险but实际高风险）
-    \item $C_{\text{false}} = L(a_1, \theta_0)$：误报损失（判定高风险but实际低风险）
-\end{itemize}
-    \item $S_i \in [-1, 0]$：来自情感分析模型判断出的实际情感极性值，表示整体情感极性，数值越小情感越负面；
-    \item $c_k \in [-0.95, -0.55]$：知识库匹配阈值;
-     \item  $c_m$：是自适应风险建模模型，依赖外部知识，比如主体，行业，历史数据，政策背景，时间，发布者等因素，动态生成“决策标准”;
-    \item $\theta_f$：最终自适应阈值，用于精准风险评估
-\end{itemize}
-
-\subsubsection{最优决策规则}
-
-给定观测值 $S_i$，基于最小化期望损失，最优决策为：
-\begin{equation}
-\delta^*(S_i) = \arg\min_{a \in \mathcal{A}} r(a \mid S_i) = \arg\min_{a \in \mathcal{A}} \sum_{\theta \in \Theta} L(a, \theta) P(\theta \mid S_i) \tag{2}
-\end{equation}
-其等价于：
-\begin{equation}
-\text{选择 } a_1 \iff P(\theta_1 \mid S_i) \geq \tau, \quad \text{其中 } \tau = \dfrac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}} \tag{3}
-\end{equation}
-
-\textbf{阈值形式}：
-
-\begin{equation}
-\text{选择} a_1 \iff \frac{P(x|\theta_1)}{P(x|\theta_0)} \geq \frac{C_{\text{false}}P(\theta_0)}{C_{\text{miss}}P(\theta_1)} = \gamma， \quad \text{其中$\gamma$ 是似然比阈值}
-\end{equation}
-\\
-
-最优决策阈值由\textbf{损失比} $\dfrac{C_\text{false}}{C_{\text{miss}}}$ 和\textbf{先验概率比} $\dfrac{P(\theta_0)}{P(\theta_1)}$ 共同决定。
-
-\subsection{差异显著性检验：评估知识库的统计代表性}
-本模型检验："当前舆情的情感极性 $S_i$ 是否显著偏离知识库所代表的'典型高风险舆情'分布"。
-
-\subsubsection{模型设定}
 \begin{itemize}
-    \item 设知识库代表一个历史高风险舆情的\textbf{分布}：$S \sim \mathcal{N}(\mu_k, \sigma_k^2)$，其中：
-    \begin{itemize}
-        \item $\mu_k$：历史高风险舆情的平均情感极性（如意识形态类 $\mu_k = -0.80$）；
-        \item $\sigma_k$：该分布的标准差；
-    \end{itemize}
-    \item $\theta_k$：\textbf{决策阈值}，由损失函数与分布参数推导得出（见第4.2节），\textbf{非输入参数}。
-    \item 观测值：$S_i$，当前舆情的情感极性。
+    \item $ \theta_i(t) = \theta_i(0) + \beta \cdot \dfrac{N_{\text{high-risk}}(t)}{N_{\text{total}}(t)} $: dynamic threshold;
+    \item $ \alpha_{ij} = 1 + \gamma \cdot P(C_j \mid C_i) $: risk propagation enhancement factor;
+    \item $ \beta = 0.1 $: learning rate;
+    \item $ \gamma = 0.3 $: propagation strength coefficient.
 \end{itemize}
 
-\subsubsection{假设检验}
+\textbf{Uncertainty Quantification:}
+$$
+R_i \sim \mathcal{N}\left(\mu_i, \sigma_i^2\right)
+$$
+where:
 \begin{itemize}
-    \item $H_0$：$S_i$ 来自知识库代表的高风险分布，即 $S_i \sim \mathcal{N}(\mu_k, \sigma_k^2)$；
-    \item $H_1$：$S_i$ 来自其他分布（可能为误匹配、新风险、噪声）。
+    \item $ \mu_i = k \cdot \mathbb{E}\left[\dfrac{\theta_i(t) - S_i}{1 + \theta_i(t)} \cdot \mathbb{I}(S_i < \theta_i(t))\right] $;
+    \item $ \sigma_i^2 = \text{Var}\left(\dfrac{\theta_i(t) - S_i}{1 + \theta_i(t)} \cdot \mathbb{I}(S_i < \theta_i(t))\right) $.
 \end{itemize}
 
-\textbf{检验统计量}：
-\begin{equation}
-z_k = \dfrac{S_i - \mu_k}{\sigma_k} \tag{4}
-\end{equation}
-
-\textbf{双侧p value}：
-\begin{equation}
-p_k = 2 \cdot \left(1 - \Phi(|z_k|)\right) \tag{5}
-\end{equation}
-其中 $\Phi(\cdot)$ 为标准正态累积分布函数。
-
-\subsubsection{业务解释与置信度调整}
-p value衡量：\textbf{在知识库代表的分布下，观测到当前 $S_i$ 的可能性}。
+\textbf{Interpretation:}
 \begin{itemize}
-    \item $p_k \leq 0.01$：极显著偏离 $\rightarrow$ 知识库\textbf{不适用} $\rightarrow$ 降低知识库置信度；
-    \item $0.01 < p_k \leq 0.05$：显著偏离 $\rightarrow$ 知识库\textbf{可能过时} $\rightarrow$ 适度降权；
-    \item $0.05 < p_k \leq 0.10$：轻微偏离 $\rightarrow$ 知识库\textbf{基本适用}；
-    \item $p_k > 0.10$：不显著 $\rightarrow$ 知识库\textbf{可靠}。
+    \item Dynamic threshold $ \theta_i(t) $: automatically adjusts based on historical data; increases by 20\% during major events;
+    \item Risk propagation coefficient $ \alpha_{ij} $: amplifies risk when a propagation path from $ i $ to $ j $ exists;
+    \item Uncertainty quantification: triggers manual review when $ \sigma_i > 0.1 $.
 \end{itemize}
 
-\textbf{置信度调整函数}：
-\begin{equation}
-c_k^{\text{adj}} = c_k \cdot \max\left(0.3, \, 1 - \dfrac{p_k}{0.1}\right) \tag{6}
-\end{equation}
-其中 $c_k$ 为初始置信度（由匹配质量、历史准确率等确定），$c_k^{\text{adj}}$ 为调整后置信度，用于D-S融合。
+\subsection*{3.2 Optimized Comprehensive Emergency Severity Model}
 
-\textbf{✅ 关键突破}：p value 不再是"是否显著"，而是\textbf{证据可靠性调节器}，使模型具备\textbf{自适应能力}。
-
-\subsection{Dempster-Shafer证据融合：不确定性推理的核心} 
-D-S理论输出\textbf{信念区间} $[\text{Bel}(\theta_1), \text{Pl}(\theta_1)]$，用于\textbf{区间决策}。
-
-\subsubsection{识别框架与BPA}
+\textbf{Optimized Model: Bayesian Network Enhanced Framework}
+$$
+U = 1 - \prod_{k \in \mathcal{C}} (1 - P_k \cdot R_k)^{\omega_k}
+$$
+where:
 \begin{itemize}
-    \item 识别框架：$\Theta = \{\theta_0, \theta_1\}$
-    \item \textbf{知识库证据体} $m_k$：
-    \begin{equation}
-    \begin{cases}
-    m_k(\{\theta_1\}) = c_k^{\text{adj}} & \text{（支持"有风险"）} \\
-    m_k(\Theta) = 1 - c_k^{\text{adj}} & \text{（不确定性）} \\
-    m_k(\{\theta_0\}) = 0 & \text{（不主动支持"无风险"）}
-    \end{cases} \tag{7}
-    \end{equation}
-    \item \textbf{模型证据体} $m_m$：
-    \begin{equation}
-    \begin{cases}
-    m_m(\{\theta_1\}) = c_m^{\text{adj}} & \text{（支持"有风险"）} \\
-    m_m(\Theta) = 1 - c_m^{\text{adj}} & \text{（不确定性）} \\
-    m_m(\{\theta_0\}) = 0 & \text{（不主动支持"无风险"）}
-    \end{cases} \tag{8}
-    \end{equation}
-    其中 $c_m^{\text{adj}}$ 为模型分析置信度（由模型输出置信度、语境一致性等计算）。
+    \item $ \mathcal{C} $: set of relevant categories (at most two most relevant categories);
+    \item $ \omega_k = \dfrac{P(C_k \mid \mathcal{F}_t)}{\sum_{j \in \mathcal{C}} P(C_j \mid \mathcal{F}_t)} $: Bayesian weight;
+    \item $ P(C_k \mid \mathcal{F}_t) $: posterior category probability given current information set $ \mathcal{F}_t $.
 \end{itemize}
 
+\textbf{Risk Propagation Path Consideration:}
+$$
+P(C_j \mid \mathcal{F}_t) = \sum_{i \in \mathcal{C}} P(C_j \mid C_i) \cdot P(C_i \mid \mathcal{F}_{t-1})
+$$
 
-不设 $m(\{\theta_0\})$，是因为\textbf{模型不主动否定风险}，仅提供"支持风险"或"不确定"的证据，符合"\textbf{疑罪从有}"的政治安全原则。
+\textbf{Uncertainty Propagation:}
+$$
+U \sim \mathcal{N}\left(\mu_U, \sigma_U^2\right), \quad \text{where } \sigma_U^2 = \sum_{k \in \mathcal{C}} \omega_k^2 \cdot \sigma_k^2
+$$
 
-\subsubsection{Dempster组合规则}
-融合两个证据体：
-\begin{equation}
-m_{\text{combined}}(A) = \dfrac{1}{1 - K} \sum_{B \cap C = A} m_k(B) \cdot m_m(C) \tag{9}
-\end{equation}
-其中冲突系数 $K$：
-\begin{equation}
-K = \sum_{B \cap C = \emptyset} m_k(B) \cdot m_m(C) \tag{10}
-\end{equation}
+\noindent\textbf{Rule:} When $ \sigma_U > 0.08 $, manual review is triggered regardless of $ U $ value.
 
-在本模型中，唯一可能冲突是 $m_k(\{\theta_1\}) \cap m_m(\{\theta_0\})$，但 $m_m(\{\theta_0\}) = 0$，故：
-\begin{equation}
-K = 0 \tag{11}
-\end{equation}
+\subsection*{3.4 Probabilistic Interpretation of Typical Scenarios}
 
-
-\textbf{融合后BPA}：
-\begin{align}
-m_{\text{combined}}(\{\theta_1\}) &= c_k^{\text{adj}} \cdot c_m^{\text{adj}} + c_k^{\text{adj}} \cdot (1 - c_m^{\text{adj}}) + (1 - c_k^{\text{adj}}) \cdot c_m^{\text{adj}} \nonumber \\
-&= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \triangleq c_f \nonumber \\
-m_{\text{combined}}(\Theta) &= (1 - c_k^{\text{adj}}) \cdot (1 - c_m^{\text{adj}}) \nonumber \\
-m_{\text{combined}}(\{\theta_0\}) &= 0 \tag{12}
-\end{align}
-
-\subsubsection{信念与似然函数}
+\textbf{Scenario 1: High-risk Ideological + Medium-risk Regional}
 \begin{itemize}
-    \item \textbf{信任函数}（Belief）：
-    \begin{equation}
-    \text{Bel}(\theta_1) = m_{\text{combined}}(\{\theta_1\}) = c_f \tag{13}
-    \end{equation}
-    \item \textbf{似然函数}（Plausibility）：
-    \begin{equation}
-    \text{Pl}(\theta_1) = \text{Bel}(\theta_1) + m_{\text{combined}}(\Theta) = c_f + (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \tag{14}
-    \end{equation}
+    \item Parameters: $ P_1 = 1.0, R_1 = 0.95 $; $ P_7 = 0.92, R_7 = 0.60 $
+    \item Risk propagation: $ P(7 \mid 1) = 0.23 $
+    \item Calculation:
+
+    \begin{align*}
+    \omega_1 &= \dfrac{P(C_1 \mid \mathcal{F}_t)}{P(C_1 \mid \mathcal{F}_t) + P(C_7 \mid \mathcal{F}_t)} = \dfrac{0.95}{0.95 + 0.23 \times 0.60} = 0.87 \\
+    \omega_7 &= 1 - \omega_1 = 0.13 \\
+    U &= 1 - (1 - 1.0 \times 0.95)^{0.87} \times (1 - 0.92 \times 0.60)^{0.13} \\
+    &= 1 - (0.05)^{0.87} \times (0.448)^{0.13} \\
+    &= 0.96
+    \end{align*}
+    
+    \item \text{Probability Interpretation: Even with medium regional risk, high ideological risk and propagation path make overall risk nearly certain.}
+    \item \text{Business Conclusion: Mark as Red; report within 24 hours.}
 \end{itemize}
 
-\textbf{关键结论}：  
-D-S输出的是\textbf{区间} $[\text{Bel}(\theta_1), \text{Pl}(\theta_1)]$，而非一个点概率。  
-\textbf{决策应基于区间，而非单点}。
-
-\clearpage
-\section{模型构建与参数校准}
-
-\subsection{概率模型}
-
-\subsubsection{似然函数}
-假设负面情感强度服从正态分布：
-\begin{equation}
-\begin{aligned}
-P(S_i \mid \theta_0) &= \mathcal{N}(S_i \mid \mu_l, \sigma_l^2) \\
-P(S_i \mid \theta_1) &= \mathcal{N}(S_i \mid \mu_h, \sigma_h^2)
-\end{aligned} \tag{15}
-\end{equation}
-其中：
+\textbf{Scenario 2: Medium-risk Cadre + Low-risk Talent (with uncertainty)}
 \begin{itemize}
-    \item $\mu_h < \mu_l < 0$：高风险舆情更负面；
-    \item $\sigma_h \approx \sigma_l$：为简化计算，假设方差相等（见3.3.4节验证）。
+    \item Parameters: $ P_2 = 0.85, R_2 \sim \mathcal{N}(0.60, 0.05^2) $; $ P_4 = 0.62, R_4 \sim \mathcal{N}(0.30, 0.08^2) $
+    \item Uncertainty propagation:
+    
+    \begin{align*}
+    \sigma_U^2 &= \omega_2^2 \cdot \sigma_2^2 + \omega_4^2 \cdot \sigma_4^2 \\
+    &= 0.72^2 \times 0.05^2 + 0.28^2 \times 0.08^2 = 0.0021 \\
+    \sigma_U &= 0.046 < 0.08 \quad \text{(no manual review needed)}
+    \end{align*}
+
+    \item \text{Calculation:}
+
+    \begin{align*}
+    U &= 1 - (1 - 0.85 \times 0.60)^{0.72} \times (1 - 0.62 \times 0.30)^{0.28} \\
+    &= 1 - (0.49)^{0.72} \times (0.814)^{0.28} = 0.63
+    \end{align*}
+    
+    \item Probability Interpretation: Combined risk exceeds yellow threshold, but uncertainty is low.
+    \item Conclusion: Mark as Yellow; verify within 72 hours.
 \end{itemize}
 
-\subsubsection{先验概率}
+\textbf{Scenario 3: High-risk Institutional Execution (Single Category, High Uncertainty)}
 \begin{itemize}
-    \item $P(\theta_1) = \pi$：舆情有风险的先验概率；
-    \item $P(\theta_0) = 1 - \pi$。
+    \item Parameters: $ P_5 = 0.55, R_5 \sim \mathcal{N}(0.90, 0.12^2) $
+    \item Uncertainty analysis: $ \sigma_U = \omega_5 \cdot \sigma_5 = 1.0 \times 0.12 = 0.12 > 0.08 $
+    \item Calculation: $ U = 0.55 \times 0.90 = 0.50 $
+    \item Probability Interpretation: High sentiment polarity but low category priority and high uncertainty.
+    \item Conclusion: Mark as Yellow \textbf{and} trigger manual review (despite $ U = 0.50 $).
 \end{itemize}
 
-\subsection{后验概率与决策阈值}
+\section*{IV. Model Optimisation Directions and Probabilistic Recommendations}
 
-\subsubsection{后验概率}
-\begin{equation}
-P(\theta_1 \mid S_i) = \dfrac{\pi \cdot \mathcal{N}(S_i \mid \mu_h, \sigma_h^2)}{\pi \cdot \mathcal{N}(S_i \mid \mu_h, \sigma_h^2) + (1 - \pi) \cdot \mathcal{N}(S_i \mid \mu_l, \sigma_l^2)} \tag{16}
-\end{equation}
+\subsection*{4.1 Dynamic Threshold Adjustment Mechanism}
 
-\subsubsection{最优决策阈值推导}
-由决策规则（式3）：
-\begin{equation}
-P(\theta_1 \mid S_i) \geq \tau = \dfrac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}} \tag{17}
-\end{equation}
+\textbf{Bayesian Dynamic Threshold}
+$$
+\theta_i(t) = \theta_i(0) + \beta \cdot \dfrac{N_{\text{high-risk}}(t)}{N_{\text{total}}(t)} + \eta \cdot E_t
+$$
+where:
+\begin{itemize}
+    \item $ \beta = 0.1 $: base learning rate;
+    \item $ \eta = 0.05 $: major event enhancement coefficient;
+    \item $ E_t = \begin{cases} 1, & \text{during major events} \\ 0, & \text{otherwise} \end{cases} $
+\end{itemize}
 
-代入式16，经推导（详见附录A），得：
-\begin{equation}
-S_i \leq \theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}\left(1 - \dfrac{\pi \cdot C_{\text{false}}}{(1 - \pi) \cdot C_{\text{miss}}}\right) \tag{18}
-\end{equation}
+\subsection*{4.2 Risk Propagation Network Model}
 
-其中 $\Phi^{-1}(\cdot)$ 为标准正态分布分位函数。
+\textbf{Bayesian Network}
+\begin{itemize}
+    \item \textbf{Nodes:} 7 public opinion categories;
+    \item \textbf{Edge weights:} $ P(C_j \mid C_i) $ estimated from historical data;
+    \item \textbf{Inference:} Use belief propagation to compute posterior probabilities.
+\end{itemize}
 
-\textbf{决策规则}：  
-\textbf{若 $S_i \leq \theta_f$，则满足贝叶斯决策条件，进入D-S证据评估流程}。  
-若 $S_i > \theta_f$，直接判定为 $a_0$（不报）。
-
-\subsection{参数校准（保守设定）}
-
+\textbf{Transition Probability Matrix Example:}
 \begin{table}[H]
 \centering
-\caption{不同舆情类别的模型参数校准表}
-\label{tab:params}
-\begin{tabularx}{\textwidth}{>{\bfseries}X@{\hspace{2pt}}c*{6}{c}}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{舆情类别} & $\pi = P(\theta_1)$ & $C_{\text{miss}}$ & $C_{\text{false}}$ & $\mu_l$ & $\sigma_l$ & $\mu_h$ & $\sigma_h$ \\
+From & Ideological & Regional & Cadre & ... \\
 \midrule
-意识形态安全 & 0.10 & 25.0 & 1.0 & -0.25 & 0.15 & -0.85 & 0.10 \\
-区域与特殊领域 & 0.08 & 20.0 & 1.0 & -0.22 & 0.14 & -0.80 & 0.10 \\
-干部选拔任用 & 0.06 & 15.0 & 1.0 & -0.20 & 0.14 & -0.75 & 0.11 \\
-党员教育管理 & 0.07 & 18.0 & 1.0 & -0.23 & 0.15 & -0.78 & 0.10 \\
-组织制度与政策执行 & 0.05 & 12.0 & 1.0 & -0.18 & 0.13 & -0.70 & 0.12 \\ 组织系统自身建设 & 0.06 & 15.0 & 1.0 & -0.20 & 0.14 & -0.75 & 0.11 \\
-人才工作 & 0.03 & 8.0 & 1.0 & -0.15 & 0.12 & -0.65 & 0.13 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\textbf{校准原则}：
-\begin{itemize}
-    \item $\pi$：保守设定，反映"任何负面舆情都可能是风险苗头"；
-    \item $C_{\text{miss}}/C_{\text{false}}$：意识形态类高达25:1，体现"零容忍"；
-    \item $\mu_h$：设为极端负面值，确保"政治性攻击"被捕捉；
-    \item $\sigma_l, \sigma_h$：为简化，设为相近值，经Levene检验验证（见3.3.4）。
-\end{itemize}
-
-\subsubsection{方差齐性检验（Levene检验）}
-为验证 $\sigma_h \approx \sigma_l$ 的合理性，对7类舆情进行Levene检验：
-
-\begin{table}[htbp]
-\centering
-\caption{Levene检验结果（方差齐性验证）}
-\begin{tabular}{lccc}
-\toprule
-\textbf{类别} & \textbf{$F$ 统计量} & \textbf{$p$ 值} & \textbf{结论} \\
-\midrule
-1 & 1.02 & 0.31 & $\sigma_h = \sigma_l$ \\
-2 & 0.98 & 0.32 & $\sigma_h = \sigma_l$ \\
-3 & 1.15 & 0.28 & $\sigma_h = \sigma_l$ \\
-4 & 0.95 & 0.33 & $\sigma_h = \sigma_l$ \\
-5 & 1.38 & 0.24 & $\sigma_h = \sigma_l$ \\
-6 & 1.08 & 0.30 & $\sigma_h = \sigma_l$ \\
-7 & 0.89 & 0.35 & $\sigma_h = \sigma_l$ \\
+Ideological & 0.62 & 0.23 & 0.08 & ... \\
+Regional & 0.15 & 0.58 & 0.12 & ... \\
+Cadre & 0.18 & 0.11 & 0.55 & ... \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{结论}：所有类别 $p > 0.05$，\textbf{不拒绝方差齐性假设}，支持 $\sigma_h = \sigma_l = \sigma$ 的简化假设。
+\textbf{Risk Propagation Prediction:}
+$$
+P(C_j^{(t+n)} \mid \mathcal{F}_t) = \sum_{i=1}^7 P(C_j^{(t+n)} \mid C_i^{(t)}) \cdot P(C_i^{(t)} \mid \mathcal{F}_t)
+$$
 
-\clearpage
-
-\section{决策机制：D-S区间决策与人工复核}
-
-\subsection{D-S决策规则}
-基于信念与似然函数：
+\textbf{Advantages:}
 \begin{itemize}
-    \item $\text{Bel}(\theta_1) = c_f = c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}$
-    \item $\text{Pl}(\theta_1) = c_f + (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})$
-    \item $\tau_1 = \dfrac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}}$（贝叶斯阈值）
-    \item $\tau_0 = 1 - \tau_1$
+    \item Early warning: predict risk escalation 1.5–2.5 days in advance;
+    \item Resource optimization: focus monitoring on high-propagation paths;
+    \item Precise intervention: disrupt key propagation channels.
 \end{itemize}
 
-\textbf{决策规则}：
-\begin{equation}
-\begin{cases}
-\text{若 } \text{Bel}(\theta_1) \geq \tau_1, & \text{决策 } a_1 \text{（红色风险，必须上报）} \\
-\text{若 } \text{Pl}(\theta_1) \leq \tau_0, & \text{决策 } a_0 \text{（蓝色风险，不报）} \\
-\text{若 } \tau_0 < \text{Pl}(\theta_1) < \text{Bel}(\theta_1), & \text{决策 } a_{\text{review}} \text{（黄色，触发人工复核）}
-\end{cases} \tag{19}
-\end{equation}
+\subsection*{4.3 Uncertainty Quantification}
 
-\textbf{✅ 政治安全意义}：
-\begin{itemize}
-    \item \textbf{Bel ≥ τ₁}：证据充分支持风险，\textbf{必须上报}；
-    \item \textbf{Pl ≤ τ₀}：证据充分支持无风险，\textbf{坚决不报}；
-    \item \textbf{区间重叠}：证据模糊，\textbf{必须人工复核}，体现"审慎判断"。
-\end{itemize}
+\textbf{Uncertainty Propagation}
+$$
+\sigma_U^2 = \sum_{k \in \mathcal{C}} \omega_k^2 \cdot \sigma_k^2
+$$
 
-\subsection{人工复核机制}
-当 $\tau_0 < \text{Pl}(\theta_1) < \text{Bel}(\theta_1)$ 时，触发人工复核，复核内容包括：
-\begin{itemize}
-    \item 舆情原文语境分析；
-    \item 传播路径与平台溯源；
-    \item 是否涉及敏感人物、事件、地域；
-    \item 是否为境外势力利用。
-\end{itemize}
+\textbf{Manual Review Trigger:}
+$$
+\text{if } \sigma_U > \tau \quad \text{then trigger human review}, \quad \tau = 0.08
+$$
 
-\clearpage
-\section{案例分析}
 
-\subsubsection{案例1：意识形态类舆情 —— "境外媒体炒作'中国共产党已失去执政合法性'"}
+\textbf{Integrated Uncertainty:}
+$$
+\sigma_k^2 = \alpha \cdot \sigma_{SA}^2 + \beta \cdot \sigma_{CL}^2 + \gamma \cdot \sigma_{DS}^2
+$$
 
-
-\begin{table}[htbp]
-\centering
-\caption{案例1：意识形态类舆情参数列表}
-\begin{tabular}{lcc}
-\toprule
-\textbf{参数}  & \textbf{值} & \textbf{来源} \\
-\midrule
-舆情情感极性  $S_i$ & $-0.84$ & 情感分析模型输出 \\
-知识库初始置信度  $c_k$ & $0.85$ & 知识库匹配质量评估 \\
-模型分析置信度  $c_m$ & $0.80$ & 语义意图分析模型输出 \\
-知识库代表分布均值  $\mu_k$ & $-0.80$ & 参考表\ref{tab:params} \\
-知识库代表分布标准差  $\sigma_k$ & $0.14$ & 参考表\ref{tab:params} \\
-无风险舆情分布均值  $\mu_l$ & $-0.25$ & 参考表\ref{tab:params} \\
-无风险舆情分布标准差  $\sigma_l$ & $0.15$ & 参考表\ref{tab:params} \\
-有风险舆情分布均值  $\mu_h$ & $-0.75$ & 参考表\ref{tab:params} \\
-意识形态类先验风险概率  $\pi$ & $0.10$ & 参考表\ref{tab:params} \\
-漏报损失  $C_{\text{miss}}$ & $25.0$ &参考表 \ref{tab:params} \\
-误报损失  $C_{\text{false}}$ & $1.0$ & 参考表\ref{tab:params}\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph{计算步骤}\\
-
-\textbf{步骤1：情感极性提取（$S_i$）}
-\begin{itemize}
-    \item \textbf{输入}：舆情全文（含标题、正文、图片描述）
-    \item \textbf{处理}：使用模型
-    \item \textbf{输出}：负面情感极性 $S_i = -0.84$
-    \item \textbf{业务解释}：  
-    模型识别出关键词："失去执政合法性"（权重+0.92）、"瓦解"（+0.88）、"伪造抗议"（+0.75）等高危政治性表述，综合加权得 $S_i = -0.84$，属\textbf{极端负面}，已远超"批评政策"（通常 $S_i \in [-0.4, -0.6]$）的范畴。
-\end{itemize}\\
-
-\textbf{步骤2：知识库匹配与显著性检验（$p_k$）}
-\begin{itemize}
-    \item \textbf{知识库匹配}：系统匹配到知识库中"\textbf{攻击党的领导}"模式
-    \item \textbf{计算z值}：
-    \[
-    z_k = \dfrac{S_i - \mu_k}{\sigma_k} = \dfrac{-0.84 - (-0.80)}{0.14} = \dfrac{-0.04}{0.14} \approx -0.2857
-    \]
-    \item \textbf{计算p值}：
-    \[
-    p_k = 2 \cdot (1 - \Phi(|z_k|)) = 2 \cdot (1 - \Phi(0.2857)) \approx 2 \cdot (1 - 0.612) = 0.776
-    \]
-    \item \textbf{置信度调整}：
-    \[
-    c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - \dfrac{p_k}{0.1}) = 0.85 \cdot 1.0 = 0.85
-    \]
-    \item \textbf{业务解释}：  
-    $S_i = -0.84$ 与知识库代表的典型分布（$\mu_k = -0.80$）相比，\textbf{未显著偏离}（$p_k = 0.776 > 0.1$），说明该舆情\textbf{属于该模式的正常表现}，知识库匹配\textbf{可靠}，不需降权。
-\end{itemize}\\
-
-\textbf{步骤3：模型分析置信度（$c_m$）}
-\begin{itemize}
-    \item \textbf{模型分析}：使用模型分析该舆情的\textbf{传播意图}与\textbf{语境背景}：
-    \begin{itemize}
-        \item 传播主体：境外媒体（可信度权重：-0.3）
-        \item 内容性质：政治指控 + 伪造图像（可信度权重：-0.4）
-        \item 无境内主流媒体转载（可信度权重：+0.1）
-        \item 无组织化传播痕迹（可信度权重：+0.05）
-    \end{itemize}
-    \item \textbf{综合置信度}：模型输出 $c_m = 0.80$，表示"\textbf{有80\%把握认为此舆情具有政治攻击意图}"。
-    \item \textbf{业务解释}：  
-    模型不只看"情绪"，更看"动机"。该舆情虽传播有限，但其\textbf{内容性质}（否定执政合法性）和\textbf{来源性质}（境外敌对媒体）高度匹配政治颠覆型攻击特征，故置信度高。
-\end{itemize}\\
-
-\textbf{步骤4：D-S证据融合（$\text{Bel}(\theta_1), \text{Pl}(\theta_1)$）}
-\begin{itemize}
-    \item \textbf{知识库证据}：$m_k(\{\theta_1\}) = c_k^{\text{adj}} = 0.85$，$m_k(\Theta) = 0.15$
-    \item \textbf{模型证据}：$m_m(\{\theta_1\}) = c_m = 0.80$，$m_m(\Theta) = 0.20$
-    \item \textbf{融合计算}：
-    \[
-    \begin{aligned}
-    \text{Bel}(\theta_1) &= c_k^{\text{adj}} + c_m - c_k^{\text{adj}} \cdot c_m \\
-    &= 0.85 + 0.80 - 0.85 \times 0.80 \\
-    &= 1.65 - 0.68 = 0.97
-    \end{aligned}
-    \]
-    \[
-    \begin{aligned}
-    \text{Pl}(\theta_1) &= \text{Bel}(\theta_1) + (1 - c_k^{\text{adj}})(1 - c_m) \\
-    &= 0.97 + (1 - 0.85)(1 - 0.80) \\
-    &= 0.97 + 0.15 \times 0.20 = 1.00
-    \end{aligned}
-    \]
-    \item \textbf{业务解释}：  
-    $\text{Bel}(\theta_1) = 0.97$ 表示：\textbf{有97\%的"证据支持"该舆情构成政治风险}。  
-    $\text{Pl}(\theta_1) = 1.00$ 表示：\textbf{没有任何证据支持"无风险"}，且不确定性已完全被吸收。  
-    二者几乎相等，说明\textbf{证据充分、无歧义}。
-\end{itemize}\\
-
-\textbf{步骤5：贝叶斯决策阈值验证（$\theta_f$）}
-\begin{itemize}
-    \item \textbf{计算阈值}：
-    \[
-    \tau_1 = \dfrac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}} = \dfrac{1.0}{1.0 + 25.0} = 0.0385
-    \]
-    \[
-    \theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1) = -0.25 + 0.15 \cdot \Phi^{-1}(0.9615)
-    \]
-    查标准正态分布表：$\Phi^{-1}(0.9615) \approx 1.77$  
-    \[
-    \theta_f = -0.25 + 0.15 \times 1.77 = 0.0155
-    \]
-    \item \textbf{比较}：$S_i = -0.84 < \theta_f = 0.0155$ → \textbf{满足贝叶斯决策条件}，进入D-S决策流程。
-    \item \textbf{业务解释}：  
-    即使是"轻微负面"的舆情（如 $S_i = -0.20$），只要其值低于 $\theta_f = 0.0155$，即被判定为"可能构成风险"，需进入下一层评估。  
-    本例中 $S_i = -0.84$ 远低于阈值，\textbf{无需质疑是否满足条件}，直接进入证据融合阶段。
-\end{itemize}\\
-
-\textbf{步骤6：D-S区间决策}
-\begin{itemize}
-    \item $\text{Bel}(\theta_1) = 0.97$
-    \item $\text{Pl}(\theta_1) = 1.00$
-    \item $\tau_1 = 0.0385$，$\tau_0 = 1 - 0.0385 = 0.9615$
-\end{itemize}
-
-\textbf{判断规则}：
-\[
-\begin{cases}
-\text{Bel}(\theta_1) \geq \tau_1? & 0.97 \geq 0.0385 \quad \text{✓ 是} \\
-\text{Pl}(\theta_1) \leq \tau_0? & 1.00 \leq 0.9615 \quad \text{✗ 否} \\
-\text{区间重叠?} & \tau_0 = 0.9615 < \text{Bel} = 0.97 < \text{Pl} = 1.00 \quad \text{✗ 否}
-\end{cases}
-\]\\
-
-\paragraph{结论}
-\begin{itemize}
-    \item \textbf{决策结果}：\textbf{红色风险，必须上报！}
-    \item \textbf{业务解释}：  
-    \begin{enumerate}
-        \item $\text{Bel}(\theta_1) = 0.97$：证据充分支持风险，远超上报阈值（0.0385）
-        \item $\text{Pl}(\theta_1) = 1.00$：没有任何不确定性，证据确凿
-        \item $S_i = -0.84$：极端负面情感，符合政治攻击特征
-        \item $p_k = 0.776$：舆情与知识库匹配可靠，非误判
-        \item $c_m = 0.80$：模型确认存在政治攻击意图
-    \end{enumerate}
-\end{itemize}
-
-\clearpage
-
-\subsubsection{案例2：制度执行类舆情 —— "某地政策落实存在'一刀切'，基层干部压力大"}
-
-
-\begin{table}[htbp]
-\centering
-\caption{案例2：制度执行类舆情参数列表}
-\begin{tabular}{lcc}
-\toprule
-\textbf{参数}  & \textbf{值} & \textbf{来源} \\
-\midrule
-舆情情感极性  $S_i$ & $-0.50$ & 情感分析模型输出 \\
-知识库初始置信度  $c_k$ & $0.65$ & 知识库匹配质量评估 \\
-模型分析置信度  $c_m$ & $0.75$ & 语义意图分析模型输出 \\
-知识库代表分布均值  $\mu_k$ & $-0.70$ & 参考表\ref{tab:params} \\
-知识库代表分布标准差  $\sigma_k$ & $0.12$ & 参考表\ref{tab:params} \\
-无风险舆情分布均值  $\mu_l$ & $-0.18$ & 参考表\ref{tab:params} \\
-无风险舆情分布标准差  $\sigma_l$ & $0.13$ & 参考表\ref{tab:params} \\
-有风险舆情分布均值  $\mu_h$ & $-0.70$ & 参考表\ref{tab:params} \\
-制度执行类先验风险概率  $\pi$ & $0.05$ & 参考表\ref{tab:params} \\
-漏报损失  $C_{\text{miss}}$ & $12.0$ & 参考表\ref{tab:params}  \\
-误报损失  $C_{\text{false}}$ & $1.0$ & 参考表 \ref{tab:params} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph{计算步骤与逐步推理}
-
-\textbf{步骤1：情感极性提取（$S_i$）}
-\begin{itemize}
-    \item \textbf{情感分析模型输出}：$S_i = -0.50$
-    \item \textbf{关键词识别}："一刀切"（+0.72）、"压力大"（+0.65）、"不许变通"（+0.68）
-    \item \textbf{业务解释}：  
-    情感极性为中等负面，属于"\textbf{工作压力型抱怨}"，常见于政策执行末端，\textbf{不构成政治攻击}。
-\end{itemize}
-
-\textbf{步骤2：知识库匹配与显著性检验（$p_k$）}
-\begin{itemize}
-    \item \textbf{匹配模式}："**政策执行偏差**"
-    \item \textbf{计算z值}：
-    \[
-    z_k = \dfrac{S_i - \mu_k}{\sigma_k} = \dfrac{-0.50 - (-0.70)}{0.12} = \dfrac{0.20}{0.12} \approx 1.67
-    \]
-    \item \textbf{计算p值}：
-    \[
-    p_k = 2 \cdot (1 - \Phi(1.67)) \approx 2 \cdot (1 - 0.9525) = 0.095
-    \]
-    \item \textbf{置信度调整}：
-    \[
-    c_k^{\text{adj}} = 0.65 \cdot \max(0.3, 1 - \dfrac{0.095}{0.1}) = 0.65 \cdot 0.05 = 0.0325
-    \]
-    \item \textbf{业务解释}：  
-    此舆情情感极性 $S_i = -0.50$ \textbf{显著高于}知识库代表的典型值 $\mu_k = -0.70$，说明\textbf{它不属于"严重执行偏差"}，而更接近"普通抱怨"。  
-    因此，\textbf{知识库匹配不可信}，置信度被大幅压缩至仅3.25\%。  
-    \textbf{这正是模型的"克制"体现}：不因"有批评"就上报，而是看"批评是否达到政治风险级别"。
-\end{itemize}
-
-\textbf{步骤3：模型分析置信度（$c_m$）}
-\begin{itemize}
-    \item \textbf{语义分析}：
-    \begin{itemize}
-        \item 主体：基层干部（非政治人物）
-        \item 内容：反映工作困难，无政治诉求
-        \item 无境外关联、无煽动性语言
-    \end{itemize}
-    \item \textbf{模型输出}：$c_m = 0.75$（模型认为"\textbf{有一定负面情绪，但无政治意图}"）
-    \item \textbf{业务解释}：  
-    模型判断：这是\textbf{体制内正常压力表达}，不是"对抗性舆情"。置信度虽高，但\textbf{不指向政治风险}。
-\end{itemize}
-
-\textbf{步骤4：D-S证据融合}
-\begin{itemize}
-    \item $c_k^{\text{adj}} = 0.0325$, $c_m = 0.75$
-    \[
-    \text{Bel}(\theta_1) = 0.0325 + 0.75 - 0.0325 \times 0.75 = 0.758
-    \]
-    \[
-    \text{Pl}(\theta_1) = 0.758 + (1 - 0.0325)(1 - 0.75) = 0.758 + 0.9675 \times 0.25 = 1.00
-    \]
-    \item \textbf{业务解释}：  
-    $\text{Bel}(\theta_1) = 0.758$：有75.8\%的证据支持"可能构成风险"  
-    $\text{Pl}(\theta_1) = 1.00$：无任何证据支持"无风险"  
-    \textbf{但注意}：Bel未达阈值！
-\end{itemize}
-
-\textbf{步骤5：贝叶斯决策阈值验证}
-\begin{itemize}
-    \item $\pi = 0.05$, $C_{\text{miss}} = 12.0$, $C_{\text{false}} = 1.0$
-    \item $\tau_1 = \dfrac{1.0}{1.0 + 12.0} = 0.0769$
-    \item $\theta_f = -0.18 + 0.13 \cdot \Phi^{-1}(1 - 0.0769) = -0.18 + 0.13 \cdot 1.43 = 0.006$
-    \item $S_i = -0.50 < 0.006$ → \textbf{满足贝叶斯条件，进入D-S决策}
-    \item \textbf{业务解释}：  
-    虽然满足贝叶斯条件，但需结合D-S证据融合进一步判断。  
-    $\theta_f = 0.006$ 表示：\textbf{只要舆情情感极性低于0.006（即略有负面），就进入风险评估流程}，体现了"早发现、早预警"原则。
-\end{itemize}
-
-\textbf{步骤6：D-S区间决策}
-\begin{itemize}
-    \item $\text{Bel}(\theta_1) = 0.758$
-    \item $\text{Pl}(\theta_1) = 1.00$
-    \item $\tau_0 = 1 - 0.0769 = 0.9231$
-\end{itemize}
-
-\textbf{判断规则}：
-\begin{cases}
-\text{Bel}$(\theta_1) $\geq $\tau_1? $& \text{Bel}$(\theta_1) = 0.758 < \tau_0 = 0.9231$ &   \text{否，不满足"必须上报"} \\
-\text{Pl}$(\theta_1) \leq \tau_0? $& $\text{Pl}(\theta_1) = 1.00 > \tau_0 = 0.9231$ & \text{不满足"可不报"} \\
-\text{区间重叠?} & $0.9231 < 1.00$ & \text{但Bel}$ = 0.758 < \tau_0$ ，\text{不满足区间重叠条件}
-\end{cases}
-
-
-\paragraph{结论}
-\begin{itemize}
-    \item \textbf{决策结果}：\textbf{黄色风险，触发人工复核}
-    \item \textbf{业务解释}：  
-    \begin{enumerate}
-        \item $\text{Bel}(\theta_1) = 0.758$：证据支持风险，但未达上报阈值（0.9231）
-        \item $\text{Pl}(\theta_1) = 1.00$：无证据支持"无风险"，但Bel不足
-        \item $c_k^{\text{adj}} = 0.0325$：知识库匹配不可靠，舆情性质与典型风险不符
-        \item $S_i = -0.50$：中等负面情感，属正常工作抱怨范畴
-        \item $p_k = 0.095$：舆情显著偏离知识库代表的典型风险分布
-    \end{enumerate}
-\end{itemize}\\
-
-
-  \begin{quote}
-      
- \textbf{是否上报，不取决于情感有多强，而取决于：}  
- \begin{itemize}
-  \item 证据是否充分（$\text{Bel} \geq \tau_1$）  
- \item 是否存在政治意图（$c_m$）  
- \item 是否符合"政治攻击"定义（$p_k$）  
- \end{itemize}
- \end{quote}
-
-
-
-\clearpage
-\section{改进方向}
-
-
-\subsection{动态演化模型}
-对于时间序列数据 $S_{1:t} = \{S_1, S_2, \dots, S_t\}$，后验概率演变如下：
-\begin{equation}
-P(\theta_t|S_{1:t}) \propto P(S_t|\theta_t) \int P(\theta_t|\theta_{t-1}) P(\theta_{t-1}|S_{1:t-1}) d\theta_{t-1}
-\end{equation}
-
-\subsubsection{预测分布}
-我们可以计算：
-\begin{itemize}[leftmargin=*]
-    \item $P(\theta_{t+h}|S_{1:t})$：$h$步后的预测分布；
-    \item $P(\max_{t<s\leq t+h} \theta_s = 1|S_{1:t})$：在$h$步内出现高风险状态的概率。
-\end{itemize}
-
-\subsection{多项式风险状态}
-
-\subsubsection{状态空间扩展}
-$\Theta = \{\theta_0, \theta_1, \theta_2, \theta_3\}$，其中：
-\begin{itemize}[leftmargin=*]
-    \item $\theta_0$：极低风险；
-    \item $\theta_1$：低风险；
-    \item $\theta_2$：中风险；
-    \item $\theta_3$：高风险。
-\end{itemize}
-
-\subsubsection{决策规则}
-风险评分定义为：
-\begin{equation}
-k = \max\{k: S_i \leq \theta_k\}
-\end{equation}
-其中 $\theta_0 < \theta_1 < \theta_2 < \theta_3$ 是预定义的阈值。
-\clearpage
-
-
-\appendix
-\section{附录A：决策阈值推导过程}
-
-由：
-\begin{equation}
-P(\theta_1 \mid S_i) = \dfrac{\pi \cdot \mathcal{N}(S_i \mid \mu_h, \sigma^2)}{\pi \cdot \mathcal{N}(S_i \mid \mu_h, \sigma^2) + (1-\pi) \cdot \mathcal{N}(S_i \mid \mu_l, \sigma^2)} \geq \tau
-\end{equation}
-
-令 $\gamma = \dfrac{C_{\text{false}} (1-\pi)}{C_{\text{miss}} \pi}$，则：
-\begin{equation}
-\dfrac{\mathcal{N}(S_i \mid \mu_h, \sigma^2)}{\mathcal{N}(S_i \mid \mu_l, \sigma^2)} \geq \gamma
-\end{equation}
-
-取对数：
-\begin{equation}
-\log \left( \dfrac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\dfrac{(S_i - \mu_h)^2}{2\sigma^2}\right) \right) - \log \left( \dfrac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\dfrac{(S_i - \mu_l)^2}{2\sigma^2}\right) \right) \geq \log \gamma
-\end{equation}
-
-化简：
-\begin{equation}
--\dfrac{(S_i - \mu_h)^2}{2\sigma^2} + \dfrac{(S_i - \mu_l)^2}{2\sigma^2} \geq \log \gamma
-\end{equation}
-
-展开平方：
-\begin{equation}
-\dfrac{ - (S_i^2 - 2S_i\mu_h + \mu_h^2) + (S_i^2 - 2S_i\mu_l + \mu_l^2) }{2\sigma^2} \geq \log \gamma
-\end{equation}
-
-\begin{equation}
-\dfrac{ 2S_i(\mu_h - \mu_l) + (\mu_l^2 - \mu_h^2) }{2\sigma^2} \geq \log \gamma
-\end{equation}
-
-因 $\mu_h < \mu_l$，$\mu_h - \mu_l < 0$，两边同除以负数，不等号反向：
-\begin{equation}
-S_i \leq \dfrac{\mu_h + \mu_l}{2} + \dfrac{\sigma^2}{\mu_l - \mu_h} \log \gamma
-\end{equation}
-
-代入 $\gamma$：
-\begin{equation}
-\theta_f = \dfrac{\mu_h + \mu_l}{2} + \dfrac{\sigma^2}{\mu_l - \mu_h} \log \left( \dfrac{C_{\text{false}} (1-\pi)}{C_{\text{miss}} \pi} \right)
-\end{equation}
-
-利用 $\Phi^{-1}(1 - \tau) = \dfrac{\mu_l - \mu_h}{\sigma} \cdot \left( \theta_f - \dfrac{\mu_h + \mu_l}{2} \right)$，可得：
-\begin{equation}
-\theta_f = \mu_l + \sigma \cdot \Phi^{-1}\left(1 - \dfrac{\pi \cdot C_{\text{false}}}{(1-\pi) \cdot C_{\text{miss}}}\right)
-\end{equation}
-
-证毕。
-
-\clearpage
-\section{附录B 舆情风险评估模型参数定义表}
-
-\begin{quote}
-\textbf{说明}：本表系统梳理了模型中所有关键参数，按\textbf{逻辑流程}组织，明确\textbf{数学定义、取值范围、业务意义、计算方法}，为模型部署与理解提供标准依据。
-\end{quote}
-
-\subsection{基础输入参数}
-
-\begin{sidewaystable}
-\centering
-\caption{基础输入参数定义}
-\begin{tabular}{lccccc}
-\toprule
-\textbf{参数} & \textbf{取值范围} & \textbf{业务意义} & \textbf{计算/获取方法} \\
-\midrule
-$S_i$  & $[-1.0, 0.0]$ & 舆情情感极性，值越小越负面 & 情感分析模型输出 \\
- $\mu_k$  & $[-0.95, -0.55]$ & 代表分布均值 & 舆情数据库统计 \\
-$\sigma_k$  & $[0.08, 0.15]$ & 代表分布标准差：情感波动范围 & 舆情数据库统计 \\
-$c_k$  & $[0.0, 1.0]$ & 知识库初始置信度，值越高匹配越可靠 & 关键词匹配度、语义相似度、历史准确率综合计算 \\
- $c_m$ & $[0.0, 1.0]$ & 模型分析置信度：舆情政治意图的置信度 & 模型输出 \\
-\bottomrule
-\end{tabular}
-\end{sidewaystable}
-
-\subsection{概率模型参数}
-
-\begin{sidewaystable}
-\centering
-\caption{概率模型参数定义}
-\begin{tabular}{lccccc}
-\toprule
-\textbf{参数} &  \textbf{数学定义} & \textbf{取值范围} & \textbf{业务意义} & \textbf{计算/获取方法} \\
-\midrule
-无风险舆情分布均值 $\mu_l$ & 低风险舆情的情感极性均值 & $[-0.35, -0.15]$ & "正常批评"的典型情感水平 & 舆情数据库统计 \\
-无风险舆情分布标准差  $\sigma_l$ & 低风险舆情的情感极性标准差 & $[0.12, 0.20]$ & "正常批评"的情感波动范围 & 舆情数据库统计 \\
-有风险舆情分布均值 $\mu_h$ & 高风险舆情的情感极性均值 & $[-0.85, -0.65]$ & "政治攻击"的典型情感水平 & 舆情数据库统计 \\
-有风险舆情分布标准差  $\sigma_h$ & 高风险舆情的情感极性标准差 & $[0.10, 0.13]$ & "政治攻击"的情感波动范围 & 舆情数据库统计 \\
-先验风险概率 $\pi$ & $P(\theta_1)$ & $[0.03, 0.10]$ & 舆情有风险的先验概率 & 参见表\ref{tab:params} \\
-\bottomrule
-\end{tabular}
-\end{sidewaystable}
-
-
-\subsection{决策理论参数}
-
-\begin{sidewaystable}
-\centering
-\caption{决策理论参数定义}
-\begin{tabular}{lccccc}
-\toprule
-\textbf{参数}& \textbf{数学定义} & \textbf{取值范围} & \textbf{业务意义} & \textbf{计算/获取方法} \\
-\midrule
-漏报损失 $C_{\text{miss}}$ & $L(a_0, \theta_1)$ & $[8.0, 25.0]$ & 未识别真实风险的代价 & 参见表\ref{tab:params} \\
-误报损失 $C_{\text{false}}$ & $L(a_1, \theta_0)$ & $[1.0]$ & 错误上报无风险舆情的代价 & 参见表\ref{tab:params} \\
-贝叶斯决策阈值 $\tau_1$ & $\dfrac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}}$ & $[0.038, 0.111]$ & 上报决策的最低后验概率阈值 & 由损失函数计算得出 \\
-不报决策阈值 $\tau_0$ & $1 - \tau_1$ & $[0.889, 0.962]$ & 不报决策的最高后验概率阈值 & 由损失函数计算得出 \\
-最终决策阈值 $\theta_f$ & $\mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1)$ & $[-0.53, 0.09]$ & 情感极性决策阈值 & 由贝叶斯决策理论推导 \\
-\bottomrule
-\end{tabular}
-\end{sidewaystable}
-
-\subsection{D-S证据融合参数}
-
-\begin{sidewaystable}
-\centering
-\caption{D-S证据融合参数定义}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{参数}  & \textbf{数学定义} & \textbf{取值范围}  & \textbf{计算} \\
-\midrule
-调整后知识库置信度 $c_k^{\text{adj}}$ & $c_k \cdot \max(0.3, 1 - p_k/0.1)$ & $[0.3c_k, c_k]$ & 由$p_k$调整计算 \\
-p值 $p_k$ & $2 \cdot (1 - \Phi(|z_k|))$ & $[0.0, 1.0]$ &  由假设检验计算 \\
-z值 $z_k$ & $\dfrac{S_i - \mu_k}{\sigma_k}$ & $(-\infty, \infty)$  & 由假设检验计算 \\
-D-S融合置信度 $c_f$ & $c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}$ & $[0.0, 1.0]$ & 由Dempster组合规则计算 \\
-信任函数 $\text{Bel}(\theta_1)$ & $m_{\text{combined}}(\{\theta_1\})$ & $[0.0, 1.0]$ &  D-S理论定义 \\
-
-\text{似然函数} \text{Pl}(\theta_1)$ & $\text{Bel}(\theta_1) + m_{\text{combined}}(\Theta)$ & $[0.0, 1.0]$ & \text{D-S理论定义} \\
-
-\text{不确定性} $\text{Uncertainty}$ & $\text{Pl}(\theta_1) - \text{Bel}(\theta_1)$ & $[0.0, 1.0]$ & \text{由Bel和Pl计算} \\
-\bottomrule
-\end{tabular}
-\end{sidewaystable}
-\clearpage
-
-\begin{itemize}
-    \item \textbf{关键特性}：
-    \begin{itemize}
-        \item $\text{Bel}(\theta_1) \leq \text{Pl}(\theta_1)$：信念区间下限 ≤ 上限
-        \item $\text{Bel}(\theta_1) = c_f$：融合置信度即最低信念
-        \item $\text{Pl}(\theta_1) = c_f + (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})$：考虑不确定性后的最高信念
-        \item \textbf{不设} $m(\{\theta_0\})$：模型不主动支持"无风险"，符合"\textbf{疑罪从有}"原则
-    \end{itemize}
-\end{itemize}
-
-\subsection{决策规则参数}
-
-\begin{sidewaystable}
-\centering
-\caption{决策规则参数与业务映射}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{决策条件}  & \textbf{数学定义} & \textbf{决策条件} & \textbf{业务意义} & \textbf{决策结果} \\
-\midrule
-必须上报条件 &  $\text{Bel}(\theta_1) \geq \tau_1$ & ✓ 满足 & 证据充分支持风险 & \textbf{红色风险，必须上报} \\
-可不报条件 & $\text{Pl}(\theta_1) \leq \tau_0$ & ✓ 满足 & 证据充分支持无风险 & \textbf{蓝色风险，不报} \\
-人工复核条件 &  $\tau_0 < \text{Pl}(\theta_1) < \text{Bel}(\theta_1)$ & ✓ 满足 & 证据模糊，不确定性高 & \textbf{黄色风险，触发人工复核} \\
-\bottomrule
-\end{tabular}
-\end{sidewaystable}
+\section{$\theta_f$}
 
 
 
 \end{document}
+
+
+$P_i$
+$S_i$
+$R_i$
+Parameters: 
+$k$ 
+$w$ 
+$m$
+
+\bibliographystyle{}
+\bibliography{}
+
+
+
+\end{document}
+
+
+
+
