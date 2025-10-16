@@ -1,0 +1,2711 @@
+app:
+  description: 'Proposal for Building an AI-Assisted Decision-Making System with Low Sensitivity and High Accuracy Based on Seven Advanced Public Opinion Scenarios'
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: AI Organization System Public Opinion Judgment System
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: 
+    version: null
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1758984707560-source-1758984844397-target
+      selected: false
+      source: '1758984707560'
+      sourceHandle: source
+      target: '1758984844397'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1758984844397-source-1758984876775-target
+      selected: false
+      source: '1758984844397'
+      sourceHandle: source
+      target: '1758984876775'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1758984876775-source-1758984912585-target
+      selected: false
+      source: '1758984876775'
+      sourceHandle: source
+      target: '1758984912585'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1758984912585-source-1758984975416-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758984975416'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1758984912585-source-1758985446474-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758985446474'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1758984975416-source-1758985458744-target
+      selected: false
+      source: '1758984975416'
+      sourceHandle: source
+      target: '1758985458744'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1758988504395-source-1758988549728-target
+      selected: false
+      source: '1758988504395'
+      sourceHandle: source
+      target: '1758988549728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1758984912585-source-1758988504395-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758988504395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1758988549728-source-1759163294478-target
+      selected: false
+      source: '1758988549728'
+      sourceHandle: source
+      target: '1759163294478'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-true-1759217097057-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 'true'
+      target: '1759217097057'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-4541c078-5977-474d-9288-d7ca408b8644-1759217101296-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 4541c078-5977-474d-9288-d7ca408b8644
+      target: '1759217101296'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-6993da19-4682-4b1b-896c-8740c68e1cc5-1759217106732-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 6993da19-4682-4b1b-896c-8740c68e1cc5
+      target: '1759217106732'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-2ec36bbc-4084-4991-81c7-29ced052ac57-1759217111046-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 2ec36bbc-4084-4991-81c7-29ced052ac57
+      target: '1759217111046'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-ecfdc9ca-dc7f-4db5-965f-c6c402ff4648-1759217113396-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+      target: '1759217113396'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-98022a06-4530-49d8-b3dc-7b1b8410e815-1759217115602-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 98022a06-4530-49d8-b3dc-7b1b8410e815
+      target: '1759217115602'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985446474-875a04b4-d46f-42fb-b117-5e2e6162a31a-1759217117713-target
+      selected: false
+      source: '1758985446474'
+      sourceHandle: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+      target: '1759217117713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-true-1759217146561-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: 'true'
+      target: '1759217146561'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-db6750e5-9ddf-44fd-9b6c-26caaa58a6dd-1759217202157-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+      target: '1759217202157'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-fc3d863b-3aca-421f-be8e-ee20ffecfcfd-1759217203813-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+      target: '1759217203813'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-368c7a19-0888-43ad-86a6-2d3d9cef1301-1759217205646-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+      target: '1759217205646'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-e5b40c35-61f0-46d8-aa5d-620492908b58-1759217208195-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: e5b40c35-61f0-46d8-aa5d-620492908b58
+      target: '1759217208195'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-aba25c18-7c5d-440b-8823-5e0bf6d768f8-1759217211730-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+      target: '1759217211730'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1758985458744-b18d14da-8e84-42fa-9485-abc094eae829-1759217214055-target
+      selected: false
+      source: '1758985458744'
+      sourceHandle: b18d14da-8e84-42fa-9485-abc094eae829
+      target: '1759217214055'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217097057-source-1759217536981-target
+      selected: false
+      source: '1759217097057'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217101296-source-1759217536981-target
+      selected: false
+      source: '1759217101296'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217106732-source-1759217536981-target
+      selected: false
+      source: '1759217106732'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217111046-source-1759217536981-target
+      selected: false
+      source: '1759217111046'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217113396-source-1759217536981-target
+      selected: false
+      source: '1759217113396'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217115602-source-1759217536981-target
+      selected: false
+      source: '1759217115602'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217117713-source-1759217536981-target
+      selected: false
+      source: '1759217117713'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217146561-source-1759217559900-target
+      selected: false
+      source: '1759217146561'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217202157-source-1759217559900-target
+      selected: false
+      source: '1759217202157'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217203813-source-1759217559900-target
+      selected: false
+      source: '1759217203813'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217205646-source-1759217559900-target
+      selected: false
+      source: '1759217205646'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217208195-source-1759217559900-target
+      selected: false
+      source: '1759217208195'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217211730-source-1759217559900-target
+      selected: false
+      source: '1759217211730'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217214055-source-1759217559900-target
+      selected: false
+      source: '1759217214055'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759217536981-source-1759217413633-target
+      selected: false
+      source: '1759217536981'
+      sourceHandle: source
+      target: '1759217413633'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759217559900-source-1759217413633-target
+      selected: false
+      source: '1759217559900'
+      sourceHandle: source
+      target: '1759217413633'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759163294478-source-1759217509549-target
+      selected: false
+      source: '1759163294478'
+      sourceHandle: source
+      target: '1759217509549'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1759217509549-source-1759217615085-target
+      selected: false
+      source: '1759217509549'
+      sourceHandle: source
+      target: '1759217615085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1758984707560-source-1759942932849-target
+      selected: false
+      source: '1758984707560'
+      sourceHandle: source
+      target: '1759942932849'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759942932849-source-1758988549728-target
+      selected: false
+      source: '1759942932849'
+      sourceHandle: source
+      target: '1758988549728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1759217413633-source-1759952773854-target
+      selected: false
+      source: '1759217413633'
+      sourceHandle: source
+      target: '1759952773854'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759952773854-source-1759217509549-target
+      selected: false
+      source: '1759952773854'
+      sourceHandle: source
+      target: '1759217509549'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1758984844397-source-1759998137639-target
+      source: '1758984844397'
+      sourceHandle: source
+      target: '1759998137639'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1759998137639-source-1759217615085-target
+      source: '1759998137639'
+      sourceHandle: source
+      target: '1759217615085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: 输入
+          max_length: 10240
+          options: []
+          required: true
+          type: paragraph
+          variable: input
+      height: 88
+      id: '1758984707560'
+      position:
+        x: -80.07620578725425
+        y: 282
+      positionAbsolute:
+        x: -80.07620578725425
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.3
+            top_p: 0.4
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: b7ac03e9-5c38-4c72-aa55-821bbc677b40
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            作为一名中共中央组织部的资深舆情分析师，你的任务是根据提供的舆情文本内容，准确、全面地提取出多组关键词。请遵循以下步骤完成任务：
+
+
+            1. 仔细阅读并理解 {{{#1758984707560.input#}}} 中的舆情信息，识别其中涉及的核心事件、主体、时间、地点、行为、情绪倾向、政策关联、社会影响等要素。
+
+            2. 从文本中提取出所有具有信息价值的关键词或关键词组，确保覆盖全面，不遗漏重要信息点。
+
+            3. 关键词提取需逻辑准确，优先使用原文中的确切表述；若原文表述冗长，可进行适度精简，但不得改变原意。
+
+            4. 提取的关键词数量应根据{ {{#1758984707560.input#}}} 所包含的信息密度和内容广度灵活决定，信息丰富则关键词多，信息单一则适当减少，但总数不超过5个（按照贴合度排序取前5个）。
+
+            5. 输出时仅列出关键词，每项关键词用英文逗号“,”分隔，不添加编号、说明、解释或任何额外内容。
+
+            6. 输出内容中不得包含任何XML标签、符号或格式化标记，仅输出纯关键词串。
+
+            </instruction>
+
+
+            <input>
+
+            {{{#1758984707560.input#}}}
+
+            </input>
+
+
+            <output>
+
+            {{keyword_1}}, {{keyword_2}}, {{keyword_3}}, ..., {{keyword_n}}
+
+            </output>
+
+
+            <example>
+
+            <input>
+
+            近期某高校教师在课堂上发表不当言论，歪曲党史，诋毁英雄人物，引发学生举报和网络热议。相关部门已介入调查，涉事教师被停职处理。此事引发社会对高校意识形态阵地管理的关注。
+
+            </input>
+
+            <output>
+
+            高校教师, 不当言论, 歪曲党史, 诋毁英雄, 学生举报, 网络热议, 停职处理, 相关部门介入, 意识形态管理, 高校阵地管控, 社会关注,
+            舆情发酵
+
+            </output>
+
+            </example>
+
+
+            <example>
+
+            <input>
+
+            某地在推进乡村振兴过程中，通过党建引领合作社模式，有效带动农民增收，形成可复制经验，获中央农办肯定。
+
+            </input>
+
+            <output>
+
+            乡村振兴, 党建引领, 合作社模式, 农民增收, 可复制经验, 中央农办肯定, 地方实践, 农村发展, 基层党组织作用
+
+            </output>
+
+            </example>
+
+            ```'
+        selected: false
+        title: keywordExtraction
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984844397'
+      position:
+        x: 293.81078983332054
+        y: 282
+      positionAbsolute:
+        x: 293.81078983332054
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - M6gdetQnQx/6hSbe2XIDc/jjMI50ni3iVUmbA1jZN7Jyt6RtQiFqHj+RCpOkcQBt
+        - tbB2JTS9UanWxtTl72qBRl8ksBcNOF2vR6Gol92K3UnyrIvZst826/B/YYggaVth
+        - TJxf/ETLdfCe2BgsSbFrgPiMD7FNQCx1uuXcEbVo5jDfAOI/W8W1BgcXjHitsmOw
+        - U0QUYV2k0OkfLT9/Hgi5t2ZP4WXguuZ14K86rFcMjXfju+FyDpRiIpjcoUD88G/U
+        - VOoF6JmWDyLP8qgGfljaHqCr7lStK1ZKbvme3jCL9i7VZcCN/mHmGSWPPfxr53jZ
+        - AOTIPe48koOzkEvEskP68smrF6KYLFbbNZOX/Zj4/Q0HWoWGFMyUwgwUzWfswuBB
+        - LFwbn/bLxxv58rnaeJai+Lm6JjhiQnGhaUo+vWt9ro1jaG026JW5HMjIPW1zvHBm
+        desc: ''
+        metadata_filtering_mode: disabled
+        metadata_model_config:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: Qwen/Qwen3-Reranker-0.6B
+            provider: langgenius/siliconflow/siliconflow
+          score_threshold: null
+          top_k: 1
+        query_variable_selector:
+        - '1758984844397'
+        - text
+        retrieval_mode: multiple
+        selected: false
+        title: keywordRetrieval
+        type: knowledge-retrieval
+      height: 258
+      id: '1758984876775'
+      position:
+        x: 674.7094313053404
+        y: 282
+      positionAbsolute:
+        x: 674.7094313053404
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.1
+            top_p: 0.2
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 233093fa-f70e-4f3f-b407-d23faab9b560
+          role: system
+          text: '作为一名中共中央组织部的资深舆情分析师，你的任务根据以下指导，对输入的内容严格按照下方类别介绍进行分类判断，且只能输出一个最相关的结果，并直接输出类别名称(包覆在{}中的内容)，不要总结自身工作，以下是类别介绍：
+
+
+            一、{意识形态安全与政治风险类}
+
+            核心特征：直接挑战党的执政根基，涉及根本性、方向性风险，必须作为“红色警戒线”优先处置。
+
+            具体包含：
+
+            - 其他领域传导过来的风险：如经济、社会领域矛盾被曲解为“制度失败”，借民生问题否定党的领导。
+
+            - 涉及攻击党的领导的舆情：包括歪曲“党指挥枪”原则、质疑党中央权威的煽动性言论。
+
+            -  涉及攻击党的组织制度的舆情：如污蔑民主集中制为“个人专断”，诋毁党委常委会决策机制。
+
+            -  涉及攻击党的选人用人政策等方面的舆情：例如炒作“干部选拔唯亲不唯贤”，否定“德才兼备、以德为先”标准。
+
+            - 涉及否定、抹黑党的历史：如散布“党史虚无主义”，将改革开放前后历史对立。
+
+            - 涉及否定、抹黑党的英雄人物等方面的舆情：包括诋毁革命先烈、时代楷模的网络谣言（如质疑张富清等典型事迹）。
+
+            - 涉及地方领导班子换届、违反换届纪律等敏感问题的舆情：如传播“跑官要官”“带病提拔”等不实信息，干扰换届秩序。
+
+            二、{干部选拔任用与监督管理类}
+
+            核心特征：聚焦干部“选育管用”全链条风险，核心是维护选人用人公信力和纪律刚性。
+
+            具体包含：
+
+            - 干部工作整体性舆情：如社会对“干部能上不能下”“躺平干部”现象的集中质疑。
+
+            -  涉及中央管辖干部调整：包括对省部级干部任免的猜测性解读（如“政治信号”“派系斗争”）。
+
+            - 中央管辖干部涉嫌违纪违法等方面的负面信息和猜测性报道：如自媒体炒作“某高官被查内幕”，引发连锁猜测。
+
+            - 涉及年轻干部选拔使用：例如质疑“火箭提拔”“学历造假”，或渲染“年轻干部断层”。
+
+            - 师职转业干部安置等方面的舆情：如转业干部安置不公引发的群体性诉求。
+
+            - 涉及规范领导干部配偶、子女及其配偶经商办企业行为有关工作：如对“禁业清单”执行不力的举报。
+
+            - 选人用人领导干部“近亲繁殖”：指同一单位亲属集中任职的舆情（如“一家三领导”）。
+
+            - 领导干部个人有关事项报告：包括瞒报房产、股票等引发的诚信危机。
+
+            - 干部人事档案等方面的舆情：如档案造假（年龄、学历）被曝光后的舆论发酵。
+
+            - 涉及公务员考录、遴选：例如笔试面试“泄题”“萝卜招聘”质疑。
+
+            - 公务员职务与职级并行：如基层反映“职级晋升变相论资排辈”的负面声音。
+
+            - 县以下事业单位人事制度舆情：涵盖管理岗位推行、职员等级评定、晋升制度落地中的公平性质疑（如“基层晋升难”）。
+
+            -  干部的非正常死亡：如干部自杀、意外身亡后被关联“工作压力大”“反腐打击报复”等猜测。
+
+            三、{党员教育管理监督类}
+
+            核心特征：关乎党员队伍纯洁性和组织力，突出党费、发展党员等传统敏感点及跨境管理新风险。
+
+            具体包含：
+
+            - 党员工作整体性舆情：如社会对“党员先锋模范作用弱化”的批评。
+
+            - 涉及党员发展：包括“带病入党”“人情入党”质疑，或农村发展党员“家族化”问题。
+
+            - 党费收缴使用：如基层反映“党费使用不透明”“强制多交党费”等谣言。
+
+            -  党员信息管理：例如党员信息系统泄露、数据篡改引发的信任危机。
+
+            - 党内统计数据发布：如党员数量、结构数据被曲解为“质量下滑”。
+
+            - 基层扫黑除恶中的党组织作用舆情：聚焦软弱涣散党组织未有效发挥作用（如“村霸”问题）。
+
+            -  处置不合格党员等工作的舆情：例如对“劝退党员程序不公”的申诉扩散。
+
+            -  境外退党：如留学生、海外务工人员集体退党事件被炒作。
+
+            - 限制中共党员赴美：指美方政策导致党员出入境受阻引发的舆论反弹。
+
+            四、{人才工作与国际人才安全类}
+
+            核心特征：聚焦人才战略实施中的外部渗透风险，突出海外人才安全与国际竞争博弈。
+
+            具体包含：
+
+            - 人才工作整体性舆情：如社会对“重引进轻使用”“人才评价唯帽子”现象的批评。
+
+            - 涉及境外打压中国在海外专家：例如西方以“间谍罪”拘捕我科研人员引发的舆论危机。
+
+            -  抹黑海外人才引进政策：如炒作“千人计划”为“窃密计划”，污名化人才引进。
+
+            - 培养推送国际组织人才：指推送人员被质疑“缺乏政治忠诚”的舆情。
+
+            -  国家实验室建设：作为高端人才平台，舆情聚焦“经费滥用”“团队内斗”等猜测。
+
+            - 各地抢才“大战”等方面的舆情：如“人才落户政策打架”“虚假承诺引才”引发的诚信危机。
+
+            五、{组织制度与政策执行类}
+
+            核心特征：针对组织工作基础性制度的落地实效，突出政策设计与执行偏差的舆情反馈。
+
+            具体包含：
+
+            -  政策制度执行舆情：包括干部选任制度（如“凡提四必”执行变形）、党内民主制度（如党代会代表选举不公）、创新举措（如“墩苗育苗”计划）落地中的争议。
+
+            -  重大活动中的“主题活动”部分：专指主题教育、党史学习教育等活动中“形式主义”“走过场”的负面评价（如“学习打卡变负担”）。
+
+            六、{组织系统自身建设与舆情应对类}
+
+            核心特征：直指组织部门公信力风险，体现“打铁必须自身硬”的纪律要求。
+
+            具体包含：
+
+            - 组织工作失误：如干部考察失真、党员档案遗失等操作性错误引发的舆论发酵。
+
+            - 宣传不当：例如组织工作报道用语失当（如“优秀干部”表述引发攀比）。
+
+            -  舆情应对不力：指对属地舆情反应迟缓、回应模糊导致次生危机。
+
+            -  涉及组织部门舆情：如“组织部选人用人不公”的匿名举报扩散。
+
+            - 涉及组织工作干部舆情：包括组工干部个人作风问题（如“跑风漏气”）。
+
+            - 涉及组织系统自身建设等方面的舆情：如“组工干部培训走过场”“信息化建设浪费”质疑。
+
+            - 中央组织部成员到基层调研的信息：易被解读为“形式主义调研”（如“只听汇报不解决问题”）。
+
+            -  网宣工作泄密：指组织工作内部信息通过网络渠道泄露事件。
+
+            七、{区域与特殊领域党建类}
+
+            核心特征：聚焦边疆民族地区、港澳及新兴领域党建，关乎国家主权与全域组织覆盖。
+
+            具体包含：
+
+            -  重大活动中的“党的二十大、两会”部分：专指会议期间涉边疆民族地区、港澳的敏感议题（如“代表提案被曲解”）。
+
+            -  西藏组织政权建设的舆情：如境外炒作“西藏干部汉化”“基层组织弱化”。
+
+            -  新疆及新疆建设兵团组织政权建设的舆情：包括对“兵团维稳机制”的污名化攻击。
+
+            -  香港干部队伍建设的舆情：如“爱国者治港”实践中干部选拔的争议。
+
+            - 澳门干部队伍建设的舆情：聚焦“一国两制”下干部政治忠诚度质疑。
+
+            - 基层扫黑除恶中的重点领域党建部分：特指外资企业、新业态领域因党组织缺失导致的“黑恶滋生”问题。
+
+            - 海外党建、外资企业党建和其他重点领域党建工作：包括海外党支部被抹黑为“间谍机构”、互联网企业党建“空转”等舆情。'
+        - id: 13585432-0243-49bf-9cb6-7b49cf9ec041
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: firstFilterSingleOutcome
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984912585'
+      position:
+        x: 990.0735829727028
+        y: 282
+      positionAbsolute:
+        x: 990.0735829727028
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.1
+            top_p: 0.2
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 2bb8e8e1-1b87-4661-9522-91784d5857e5
+          role: system
+          text: '作为一名中共中央组织部的资深舆情分析师，你的任务根据以下指导，对输入的内容严格按照下方类别介绍进行分类判断，得到不大于两个最相关的判断，然后去除掉{{{#1758984912585.text#}}}的内容，最终输出留下的类别名称(只输出包覆在{}中的内容)，不要总结自身工作，以下是类别介绍：
+
+
+            一、{意识形态安全与政治风险类}
+
+            核心特征：直接挑战党的执政根基，涉及根本性、方向性风险，必须作为“红色警戒线”优先处置。
+
+            具体包含：
+
+            - 其他领域传导过来的风险：如经济、社会领域矛盾被曲解为“制度失败”，借民生问题否定党的领导。
+
+            - 涉及攻击党的领导的舆情：包括歪曲“党指挥枪”原则、质疑党中央权威的煽动性言论。
+
+            -  涉及攻击党的组织制度的舆情：如污蔑民主集中制为“个人专断”，诋毁党委常委会决策机制。
+
+            -  涉及攻击党的选人用人政策等方面的舆情：例如炒作“干部选拔唯亲不唯贤”，否定“德才兼备、以德为先”标准。
+
+            - 涉及否定、抹黑党的历史：如散布“党史虚无主义”，将改革开放前后历史对立。
+
+            - 涉及否定、抹黑党的英雄人物等方面的舆情：包括诋毁革命先烈、时代楷模的网络谣言（如质疑张富清等典型事迹）。
+
+            - 涉及地方领导班子换届、违反换届纪律等敏感问题的舆情：如传播“跑官要官”“带病提拔”等不实信息，干扰换届秩序。
+
+            二、{干部选拔任用与监督管理类}
+
+            核心特征：聚焦干部“选育管用”全链条风险，核心是维护选人用人公信力和纪律刚性。
+
+            具体包含：
+
+            - 干部工作整体性舆情：如社会对“干部能上不能下”“躺平干部”现象的集中质疑。
+
+            -  涉及中央管辖干部调整：包括对省部级干部任免的猜测性解读（如“政治信号”“派系斗争”）。
+
+            - 中央管辖干部涉嫌违纪违法等方面的负面信息和猜测性报道：如自媒体炒作“某高官被查内幕”，引发连锁猜测。
+
+            - 涉及年轻干部选拔使用：例如质疑“火箭提拔”“学历造假”，或渲染“年轻干部断层”。
+
+            - 师职转业干部安置等方面的舆情：如转业干部安置不公引发的群体性诉求。
+
+            - 涉及规范领导干部配偶、子女及其配偶经商办企业行为有关工作：如对“禁业清单”执行不力的举报。
+
+            - 选人用人领导干部“近亲繁殖”：指同一单位亲属集中任职的舆情（如“一家三领导”）。
+
+            - 领导干部个人有关事项报告：包括瞒报房产、股票等引发的诚信危机。
+
+            - 干部人事档案等方面的舆情：如档案造假（年龄、学历）被曝光后的舆论发酵。
+
+            - 涉及公务员考录、遴选：例如笔试面试“泄题”“萝卜招聘”质疑。
+
+            - 公务员职务与职级并行：如基层反映“职级晋升变相论资排辈”的负面声音。
+
+            - 县以下事业单位人事制度舆情：涵盖管理岗位推行、职员等级评定、晋升制度落地中的公平性质疑（如“基层晋升难”）。
+
+            -  干部的非正常死亡：如干部自杀、意外身亡后被关联“工作压力大”“反腐打击报复”等猜测。
+
+            三、{党员教育管理监督类}
+
+            核心特征：关乎党员队伍纯洁性和组织力，突出党费、发展党员等传统敏感点及跨境管理新风险。
+
+            具体包含：
+
+            - 党员工作整体性舆情：如社会对“党员先锋模范作用弱化”的批评。
+
+            - 涉及党员发展：包括“带病入党”“人情入党”质疑，或农村发展党员“家族化”问题。
+
+            - 党费收缴使用：如基层反映“党费使用不透明”“强制多交党费”等谣言。
+
+            -  党员信息管理：例如党员信息系统泄露、数据篡改引发的信任危机。
+
+            - 党内统计数据发布：如党员数量、结构数据被曲解为“质量下滑”。
+
+            - 基层扫黑除恶中的党组织作用舆情：聚焦软弱涣散党组织未有效发挥作用（如“村霸”问题）。
+
+            -  处置不合格党员等工作的舆情：例如对“劝退党员程序不公”的申诉扩散。
+
+            -  境外退党：如留学生、海外务工人员集体退党事件被炒作。
+
+            - 限制中共党员赴美：指美方政策导致党员出入境受阻引发的舆论反弹。
+
+            四、{人才工作与国际人才安全类}
+
+            核心特征：聚焦人才战略实施中的外部渗透风险，突出海外人才安全与国际竞争博弈。
+
+            具体包含：
+
+            - 人才工作整体性舆情：如社会对“重引进轻使用”“人才评价唯帽子”现象的批评。
+
+            - 涉及境外打压中国在海外专家：例如西方以“间谍罪”拘捕我科研人员引发的舆论危机。
+
+            -  抹黑海外人才引进政策：如炒作“千人计划”为“窃密计划”，污名化人才引进。
+
+            - 培养推送国际组织人才：指推送人员被质疑“缺乏政治忠诚”的舆情。
+
+            -  国家实验室建设：作为高端人才平台，舆情聚焦“经费滥用”“团队内斗”等猜测。
+
+            - 各地抢才“大战”等方面的舆情：如“人才落户政策打架”“虚假承诺引才”引发的诚信危机。
+
+            五、{组织制度与政策执行类}
+
+            核心特征：针对组织工作基础性制度的落地实效，突出政策设计与执行偏差的舆情反馈。
+
+            具体包含：
+
+            -  政策制度执行舆情：包括干部选任制度（如“凡提四必”执行变形）、党内民主制度（如党代会代表选举不公）、创新举措（如“墩苗育苗”计划）落地中的争议。
+
+            -  重大活动中的“主题活动”部分：专指主题教育、党史学习教育等活动中“形式主义”“走过场”的负面评价（如“学习打卡变负担”）。
+
+            六、{组织系统自身建设与舆情应对类}
+
+            核心特征：直指组织部门公信力风险，体现“打铁必须自身硬”的纪律要求。
+
+            具体包含：
+
+            - 组织工作失误：如干部考察失真、党员档案遗失等操作性错误引发的舆论发酵。
+
+            - 宣传不当：例如组织工作报道用语失当（如“优秀干部”表述引发攀比）。
+
+            -  舆情应对不力：指对属地舆情反应迟缓、回应模糊导致次生危机。
+
+            -  涉及组织部门舆情：如“组织部选人用人不公”的匿名举报扩散。
+
+            - 涉及组织工作干部舆情：包括组工干部个人作风问题（如“跑风漏气”）。
+
+            - 涉及组织系统自身建设等方面的舆情：如“组工干部培训走过场”“信息化建设浪费”质疑。
+
+            - 中央组织部成员到基层调研的信息：易被解读为“形式主义调研”（如“只听汇报不解决问题”）。
+
+            -  网宣工作泄密：指组织工作内部信息通过网络渠道泄露事件。
+
+            七、{区域与特殊领域党建类}
+
+            核心特征：聚焦边疆民族地区、港澳及新兴领域党建，关乎国家主权与全域组织覆盖。
+
+            具体包含：
+
+            -  重大活动中的“党的二十大、两会”部分：专指会议期间涉边疆民族地区、港澳的敏感议题（如“代表提案被曲解”）。
+
+            -  西藏组织政权建设的舆情：如境外炒作“西藏干部汉化”“基层组织弱化”。
+
+            -  新疆及新疆建设兵团组织政权建设的舆情：包括对“兵团维稳机制”的污名化攻击。
+
+            -  香港干部队伍建设的舆情：如“爱国者治港”实践中干部选拔的争议。
+
+            - 澳门干部队伍建设的舆情：聚焦“一国两制”下干部政治忠诚度质疑。
+
+            - 基层扫黑除恶中的重点领域党建部分：特指外资企业、新业态领域因党组织缺失导致的“黑恶滋生”问题。
+
+            - 海外党建、外资企业党建和其他重点领域党建工作：包括海外党支部被抹黑为“间谍机构”、互联网企业党建“空转”等舆情。'
+        - id: b4308d69-5c7d-4959-82eb-9904e83cc3db
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: secondaryFilter
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984975416'
+      position:
+        x: 1413.17776072434
+        y: 1075.941543453227
+      positionAbsolute:
+        x: 1413.17776072434
+        y: 1075.941543453227
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: bf18a0d8-7dd6-49d9-b695-41dcdc47ebae
+            value: 意识形态安全与政治风险类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 4541c078-5977-474d-9288-d7ca408b8644
+          conditions:
+          - comparison_operator: contains
+            id: 6e00fdab-8e58-4bd5-b570-80da7ab9c079
+            value: 干部选拔任用与监督管理类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 4541c078-5977-474d-9288-d7ca408b8644
+          logical_operator: and
+        - case_id: 6993da19-4682-4b1b-896c-8740c68e1cc5
+          conditions:
+          - comparison_operator: contains
+            id: 6b4e8379-a49b-4296-97c9-9a12d717a93b
+            value: 党员教育管理监督类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 6993da19-4682-4b1b-896c-8740c68e1cc5
+          logical_operator: and
+        - case_id: 2ec36bbc-4084-4991-81c7-29ced052ac57
+          conditions:
+          - comparison_operator: contains
+            id: c4394c79-33a4-41d6-9cc6-98cc4b23f555
+            value: 人才工作与国际人才安全类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 2ec36bbc-4084-4991-81c7-29ced052ac57
+          logical_operator: and
+        - case_id: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+          conditions:
+          - comparison_operator: contains
+            id: 8dbfa757-d4b1-4806-9f05-48d21f5638fc
+            value: 组织制度与政策执行类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+          logical_operator: and
+        - case_id: 98022a06-4530-49d8-b3dc-7b1b8410e815
+          conditions:
+          - comparison_operator: contains
+            id: a5901935-c449-4086-a910-c1f1863daba0
+            value: 组织系统自身建设与舆情应对类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 98022a06-4530-49d8-b3dc-7b1b8410e815
+          logical_operator: and
+        - case_id: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+          conditions:
+          - comparison_operator: contains
+            id: 68ee0507-c467-4675-9f8a-cd03e22dec19
+            value: 区域与特殊领域党建类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: firstFilterCatagory
+        type: if-else
+      height: 412
+      id: '1758985446474'
+      position:
+        x: 1454.5915822070695
+        y: 282
+      positionAbsolute:
+        x: 1454.5915822070695
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 652d0541-4fb2-4a3e-8026-ae18cb22b554
+            value: 意识形态安全与政治风险类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+          conditions:
+          - comparison_operator: contains
+            id: 0cf40ab6-2d17-47d3-9baa-f1ce73c2150d
+            value: 干部选拔任用与监督管理类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+          logical_operator: and
+        - case_id: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+          conditions:
+          - comparison_operator: contains
+            id: 66962f15-5b3c-49ca-833f-4bfa810071d7
+            value: 党员教育管理监督类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+          logical_operator: and
+        - case_id: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+          conditions:
+          - comparison_operator: contains
+            id: f995c084-f481-429d-a54e-4a6af6d1db44
+            value: 人才工作与国际人才安全类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+          logical_operator: and
+        - case_id: e5b40c35-61f0-46d8-aa5d-620492908b58
+          conditions:
+          - comparison_operator: contains
+            id: 805e5156-eb9a-4952-bf04-4ecd5903cfcf
+            value: 组织制度与政策执行类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: e5b40c35-61f0-46d8-aa5d-620492908b58
+          logical_operator: and
+        - case_id: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+          conditions:
+          - comparison_operator: contains
+            id: 5dd6e97b-c3cf-4ab7-8d35-8663149620e5
+            value: 组织系统自身建设与舆情应对类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+          logical_operator: and
+        - case_id: b18d14da-8e84-42fa-9485-abc094eae829
+          conditions:
+          - comparison_operator: contains
+            id: e93f1479-f068-4551-8f6d-ddf3b03eeb78
+            value: 区域与特殊领域党建类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: b18d14da-8e84-42fa-9485-abc094eae829
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: secondaryFilterCatagory
+        type: if-else
+      height: 412
+      id: '1758985458744'
+      position:
+        x: 1757.8546231944592
+        y: 1333.352484805567
+      positionAbsolute:
+        x: 1757.8546231944592
+        y: 1333.352484805567
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str) -> dict:\n    import re\n    if not isinstance(arg1,\
+          \ str):\n        arg1 = str(arg1)\n    numbers = re.findall(r\"-?\\d+\\\
+          .?\\d*\", arg1)\n    result = str(float(numbers[-1])) if numbers else \"\
+          \"\n    return {\n        \"result\": result,\n    }"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: '0'
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: numericalExtraction
+        type: code
+        variables:
+        - value_selector:
+          - '1758984876775'
+          - result
+          value_type: array[object]
+          variable: arg1
+      height: 88
+      id: '1758988504395'
+      position:
+        x: 1386.2425289212615
+        y: 94.0598459640091
+      positionAbsolute:
+        x: 1386.2425289212615
+        y: 94.0598459640091
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1\
+          \ + arg2,\n    }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: '0'
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: weightedValueCalculation
+        type: code
+        variables:
+        - value_selector:
+          - '1758988504395'
+          - result
+          value_type: number
+          variable: arg1
+        - value_selector:
+          - '1759942932849'
+          - text
+          value_type: string
+          variable: arg2
+      height: 88
+      id: '1758988549728'
+      position:
+        x: 1757.8546231944592
+        y: -32.77571487161319
+      positionAbsolute:
+        x: 1757.8546231944592
+        y: -32.77571487161319
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": \
+          \ \"情感阈值为：\" + arg1,\n    }\n"
+        code_language: python3
+        default_value:
+        - key: emotional_threshold
+          type: string
+          value: 情感阈值：0
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          emotional_threshold:
+            children: null
+            type: string
+        selected: false
+        title: addTitle
+        type: code
+        variables:
+        - value_selector:
+          - '1758988549728'
+          - result
+          value_type: string
+          variable: arg1
+      height: 88
+      id: '1759163294478'
+      position:
+        x: 2137.162061987892
+        y: 94.0598459640091
+      positionAbsolute:
+        x: 2137.162061987892
+        y: 94.0598459640091
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 92cf37f3-d306-4d3e-9e25-cc80ed47709f
+          role: system
+          text: "你是一名专注于意识形态安全与政治风险研判的高级舆情分析助手，服务于高层组织部门的信息采报工作。你的核心任务是：**精准识别具有现实政治传导路径、可能影响党的领导权威、干部制度稳定或重大政策执行的高阶舆情**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、防误报”原则。仅在同时满足以下两个条件时，才可判定为“上报”：\n\n1. 【内容性质】涉及对党的领导、组织制度、历史叙事、选人用人、军队原则的系统性攻击或根本性质疑；\n\
+            2. 【现实影响】已产生跨平台传播（如主流社交媒体+论坛/境外平台联动）、被特定群体组织转发、或引发体制内讨论等实际扩散迹象。\n\n具体情形包括但不限于：\n\
+            - 明确否定党的领导或挑战党中央权威，并具煽动性；\n- 系统性歪曲民主集中制、干部选拔机制，且在体制相关圈层传播；\n- 恶意散布党史虚无主义，割裂改革开放前后历史，被境外势力引用或境内异见群体炒作；\n\
+            - 有组织诋毁英雄模范、革命先烈，造成恶劣社会影响；\n- 在换届、人事调整等敏感期传播严重不实信息，干扰组织程序；\n- 将局部民生问题包装为制度合法性危机，形成线上线下联动声势。\n\
+            \n严禁将以下情形视为重大风险：\n- 普通民生诉求（如教育、医疗、住房抱怨）；\n- 个体情绪发泄、网络调侃、非指向性牢骚；\n- 无扩散迹象的孤立言论；\n\
+            - 未关联政治体制的经济批评。\n\n必须结合语境、传播范围、主体意图和社会反响进行综合判断，杜绝字面敏感化、价值预设和“宁左勿右”倾向。输出必须冷静、客观、符合中组部信息简报的政治语感与专业水准。\n\
+            \n请严格按以下 JSON 格式输出，不得使用其他格式，确保字段完整、语义清晰：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及风险点，限200字以内，语言简洁、政治准确\",\n  \"\
+            risk_type\": \"政治攻击｜历史虚无｜组织干扰｜制度质疑｜英雄诋毁｜人事谣言｜不适用\",\n  \"impact_level\"\
+            : \"跨平台传播｜体制内扩散｜境外炒作｜局部讨论｜无扩散\",\n  \"evidence_level\": \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\"\
+            ,\n  \"source_intent\": \"煽动对抗｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜不明\"\n}\n"
+        - id: dfd61b29-fcf6-4ccb-b303-775f91042f16
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: ideologicalSecurity
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217097057'
+      position:
+        x: 1904
+        y: 282
+      positionAbsolute:
+        x: 1904
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: cc6764a1-5e40-4dd1-9b1e-9e7e085136b7
+          role: system
+          text: "你是一名专注于干部工作领域舆情分析的高级专业助手，服务于中央组织部门的信息研判与风险预警工作。你的任务是：**精准识别可能损害干部“选育管用”机制公信力、破坏选人用人纪律刚性、或引发系统性组织风险的高阶舆情**。\n\
+            \n必须坚持“低敏感、高阈值、重证据、看影响”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对干部制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发体制内讨论、或被地方难以处置的势力利用。\n\n具体情形包括但不限于：\n- 涉及省部级以上干部任免的大规模不实猜测或政治化解读，且在主流社交平台+体制相关论坛联动传播；\n\
+            - 有确凿线索（如纪检通报线索、司法文书引用、权威媒体披露）表明中央管辖干部存在严重违纪违法，且引发公众持续追问；\n- 出现群体性、组织性对干部选拔程序公正性的挑战（如“萝卜招聘”“档案造假”“火箭提拔”），并已形成舆情声势或上级介入调查；\n\
+            - 涉及领导干部近亲繁殖、瞒报个人事项、配偶子女违规经商等行为，且有实名举报经初步核实或权威信源交叉印证；\n- 干部非正常死亡事件被系统性关联至“反腐打击报复”“组织施压”等政治叙事，并在多个省份网民中引发共鸣式传播；\n\
+            - 公务员考录、职级晋升、事业单位改革等重大制度执行中出现普遍性公平性质疑，可能动摇基层干部队伍稳定，且已有集体反映迹象。\n\n严禁将以下情形视为重大风险：\n\
+            - 一般性吐槽“躺平干部”“论资排辈”；\n- 对年轻干部提拔的合理质疑但无证据支撑；\n- 转业安置个案诉求未形成规模效应；\n- 政策讨论、学术观点或媒体评论未具煽动性；\n\
+            - 无实质内容的匿名爆料、情绪化标签或网络戏谑。\n\n必须结合传播范围、信源可靠性、社会反响和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在组织风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"高层任免谣言｜重大违纪线索｜选拔程序不公｜裙带利益关联｜政治化关联死亡事件｜制度信任危机｜不适用\"\
+            ,\n  \"impact_level\": \"跨平台传播｜体制内扩散｜上级介入｜局部讨论｜无扩散\",\n  \"evidence_level\"\
+            : \"权威信源证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑公信力｜表达不满｜情绪宣泄｜信息误传｜政治炒作\"\
+            \n}\n"
+        - id: e0fa8681-b95f-4b1b-80d8-5d8f442aa5fa
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: cadreSelection
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217101296'
+      position:
+        x: 1904
+        y: 411
+      positionAbsolute:
+        x: 1904
+        y: 411
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 70298d0e-c794-47b9-aa24-9971c90449c8
+          role: system
+          text: "你是一名专注于党员教育管理监督领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别可能损害党员队伍先进性、纯洁性或党组织制度权威的高阶舆情，重点捕捉具有现实扩散基础、组织应对压力或跨境政治联动风险的重大苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重证据、看影响”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对党员管理制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发上级关注、或被境外有影响力媒体/组织持续引用。\n\n具体情形包括但不限于：\n- 存在确凿证据（如纪检通报、司法文书、审计报告）或多个独立信源交叉印证的“带病入党”“人情入党”“家族化发展党员”问题，且涉及一个以上乡镇级党组织系统性失守；\n\
+            - 关于党费收缴使用出现大规模谣言或组织行为失当，被三家以上境外主流媒体引用并形成负面叙事，造成群体性质疑；\n- 党员信息系统发生真实泄露、篡改或非法访问事件，经主管部门确认并启动应急响应；\n\
+            - 不合格党员处置程序被系统性质疑为政治排斥工具，且在两个以上省份出现跨区域申诉联动或律师群体介入；\n- 境外集体退党事件被有组织炒作，在YouTube、Twitter等平台形成专题报道或标签运动，视频总播放量超50万次；\n\
+            - 外国政府正式出台政策限制中共党员出入境（非个案拒签），已造成实际影响，并在国内主流社交平台引发持续讨论（单条帖文阅读量超百万）；\n-\
+            \ 党内统计数据发布后，被权威分析机构或体制内人士系统性曲解为“质量滑坡”“组织弱化”，并衍生出对执政基础的质疑，且在知识圈层广泛传播。\n\
+            \n严禁将以下情形视为重大风险：\n- 一般性批评“党员作用弱化”“先锋性不足”；\n- 对党员结构变化的正常分析或学术讨论；\n- 个别基层反映党费问题但无扩散趋势；\n\
+            - 关于扫黑除恶中个别软弱涣散党组织的已有通报事项；\n- 无实证支撑的“退党潮”猜测或网络段子。\n\n必须结合传播范围、信源可靠性、政治意图和社会反响进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息简报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在组织风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"违规发展党员｜党费信任危机｜数据安全事件｜处置程序质疑｜境外退党炒作｜外籍限制政策｜统计误读危机｜不适用\"\
+            ,\n  \"impact_level\": \"跨境传播｜跨省联动｜上级介入｜局部讨论｜无扩散\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜境外炒作\"\
+            \n}\n"
+        - id: 7f36085a-e203-4452-98d1-c920c9e0aa59
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: memberEducation
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217106732'
+      position:
+        x: 1904
+        y: 540
+      positionAbsolute:
+        x: 1904
+        y: 540
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 64cf5897-6fb3-4919-beba-d636de4b3ed9
+          role: system
+          text: "你是一名专注于人才工作与国际人才安全领域的高级舆情分析助手，服务于中央组织部门及涉外人才战略研判工作。你的任务是：**精准识别可能威胁我国人才战略安全、海外人才权益保障或国际人才竞争格局的重大舆情，重点捕捉具有现实外交传导路径、科技安全影响或组织布局风险的高阶苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对国家人才制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发主管部门关注、或多边外交响应。\n\n具体情形包括但不限于：\n- 西方国家以“间谍罪”等名义拘捕或指控我重要领域（如航天、量子、AI、生物）科研人员，案件已被我国外交部点名或启动领保机制；\n\
+            - “千人计划”等国家级引才政策被三家以上G7国家主流媒体或议会报告系统性污名化为“窃密工具”，并形成政策限制依据；\n- 推送至联合国、WHO、ITU等关键国际组织的人选被公开质疑政治忠诚，且有官方文件引用或听证记录支持，可能影响我国任职布局；\n\
+            - 国家实验室、大科学装置或国家重点研发计划平台曝出严重内控失序、经费滥用或核心团队分裂，经主管部门确认并启动调查；\n- 三个以上省份在抢才政策中被查实存在虚假承诺、资格造假或恶性竞争，导致两名以上顶尖人才公开声明退出或流失境外；\n\
+            - 海外高层次人才群体（如CSC学者、企业派驻专家）反映因国籍或政治身份遭遇系统性歧视、监控或驱逐，且有使领馆汇总报告或法律援助记录支撑。\n\
+            \n 严禁将以下情形视为重大风险：\n- 一般性批评“重引进轻使用”“唯帽子”；\n- 对地方人才政策差异的正常讨论；\n- 无实证支撑的“内斗”猜测或网络传言；\n\
+            - 学术圈对评价体系的常规争议；\n- 个别专家流动被解读为“人才流失潮”。\n\n必须结合传播范围、信源可靠性、政治意图和战略传导路径进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在战略风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"科研人员被拘｜引才政策污名化｜国际任职受阻｜重大平台失序｜抢才恶性竞争｜海外人才安全危机｜不适用\"\
+            ,\n  \"impact_level\": \"外交关切｜多省联动｜主管部门介入｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜境外打压\"\
+            \n}\n"
+        - id: 576e2323-4ffe-4b8c-b550-bc3ce0cbcb6f
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: talentWork
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217111046'
+      position:
+        x: 1904
+        y: 666.4944041308652
+      positionAbsolute:
+        x: 1904
+        y: 666.4944041308652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 609b2659-f139-43ac-afe9-3e72d8355f45
+          role: system
+          text: "你是一名专注于组织制度与政策执行领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别组织工作基础性制度在执行中是否出现严重变形、系统性偏差或引发广泛信任危机，重点捕捉可能动摇制度权威、阻碍中央重大部署落地的高阶执行风险**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对干部选任、党内民主、重大培养机制或主题教育等核心制度的实质性执行偏差；\n\
+            2. 【现实影响】已形成跨区域传播、引发上级部门关注、或被中央/省级通报、权威媒体专题报道。\n\n具体情形包括但不限于：\n- “凡提四必”等干部选任关键制度被三个以上地区查实存在规避或形式化执行，且有典型案例被省级以上纪委通报；\n\
+            - 党代会代表选举、党内民主程序被实名举报存在操纵、内定或程序严重违规，涉及两个以上地市，并引发上级组织部门介入调查；\n- “墩苗育苗”等重大干部培养举措在多地被曝出“镀金式安排”“人岗不适”“基层干部集体反映负担重”，且被《人民日报》《求是》等中央媒体或中组部内部通报点名；\n\
+            - 主题教育、党史学习教育中形式主义问题被中央或省级层面正式通报，或在体制内引发百人以上规模的公开批评（如联名信、内部会议记录外泄）；\n\
+            - 制度执行中出现普遍性“上下一般粗”“层层加码”，导致基层普遍反映“无法承受”，并在三个以上省份形成相似表述的负面共识（如“五加二白加黑”“迎检一周三次”）。\n\
+            \n严禁将以下情形视为重大风险：\n- 个别单位学习打卡多被吐槽“负担重”；\n- 对政策理解不一或执行节奏差异；\n- 一般性建议“改进方式方法”；\n\
+            - 网络段子、情绪化表达无扩散证据；\n- 未形成规模的试点争议或局部调整。\n\n必须结合传播范围、信源可靠性、组织响应层级和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息简报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及制度执行风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"选任制度形式化｜选举程序违规｜培养机制异化｜教育活动形式主义｜政策执行加码｜不适用\",\n  \"\
+            impact_level\": \"上级介入｜省级通报｜中央关注｜局部反映｜无影响\",\n  \"evidence_level\": \"\
+            官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜组织反馈\"\
+            \n}\n"
+        - id: 98056695-0419-4017-ad60-4c78e5a7f7c9
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        structured_output_enabled: false
+        title: organizationalSystem
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217113396'
+      position:
+        x: 1904
+        y: 798
+      positionAbsolute:
+        x: 1904
+        y: 798
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 80268707-b812-41b9-b88e-aae9ee664b4b
+          role: system
+          text: "你是一名专注于组织系统自身建设与舆情应对领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别可能损害组织部门权威性、纪律性和“打铁必须自身硬”形象的重大舆情，重点捕捉暴露重大履职失当、管理漏洞或引发系统性信任危机的高阶苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对组织程序公正性、宣传纪律、内部管理或干部作风的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发上级关注、或被省级以上通报/权威媒体专题报道。\n\n具体情形包括但不限于：\n- 干部考察严重失真、党员档案大规模遗失等操作性失误被省级以上媒体曝光，且引发三省以上对组织程序公正性的连锁质疑；\n\
+            - 组织工作宣传中出现严重政治表述错误（如错误评价干部、不当历史对比），被《人民日报》《新华社》点名或上级组织部门正式通报批评；\n- 对属地重大组织类舆情应对严重滞后（超72小时无回应）、回应内容明显失实或回避核心问题，导致舆情升级至热搜前五，并形成“XX组织部不作为”类负面标签；\n\
+            - 关于组织部门“选人用人不公”“跑风漏气”等指控出现实名举报，且有录音、文件等证据支撑，并在两个以上省级组工论坛或内部群组传播；\n- 组工干部个人作风问题（如泄密、干预人事）经查证属实或有司法文书、纪检通报引用，引发全国组工系统讨论；\n\
+            - 组织系统内部信息因网宣管理不善发生实质性泄露，涉及未公开人事安排或敏感数据，经主管部门确认并启动追责；\n- 中央组织部领导调研被三个以上不同地区持续质疑为“走过场”“形式主义”，且有视频、会议记录等证据支撑，形成专题报道或内参关注。\n\
+            \n 严禁将以下情形视为重大风险：\n- 个别单位档案管理问题未造成后果；\n- 一般性吐槽“培训走过场”“系统建设慢”；\n- 对调研安排的合理建议或情绪化评论；\n\
+            - 无实质证据的匿名举报或网络猜测；\n- 属地已及时回应并有效化解的轻微争议。\n\n必须结合传播范围、信源可靠性、组织响应层级和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及对组织部门公信力的影响，限200字以内，语言简洁、政治准确\"\
+            ,\n  \"risk_type\": \"程序严重失当｜宣传重大失误｜应对严重滞后｜内部指控属实｜干部作风问题｜信息泄露事件｜领导形象受损｜不适用\"\
+            ,\n  \"impact_level\": \"中央关注｜省级通报｜上级介入｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑公信力｜表达不满｜情绪宣泄｜信息误传｜组织反馈\"\
+            \n}\n"
+        - id: 03f71305-0b01-407e-99b9-ba4bd34e97eb
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: systemConstruction
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217115602'
+      position:
+        x: 1904
+        y: 928.5220333808395
+      positionAbsolute:
+        x: 1904
+        y: 928.5220333808395
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 349b9cb5-670d-47f2-80ab-c20aa915d20d
+          role: system
+          text: "你是一名专注于区域与特殊领域党建舆情分析的高级专业助手，服务于中央组织部门及涉外、边疆、新兴领域党建工作的信息研判任务。你的任务是：**精准识别可能损害我国在边疆民族地区、港澳、“一国两制”实践、海外利益布局及新兴经济组织中党组织政治功能与组织覆盖根基的重大舆情，重点捕捉具有境外联动、主权挑战或组织功能实质性失能的高阶风险**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对特殊领域党组织存在合法性、组织功能或覆盖有效性的实质性挑战；\n\
+            2. 【现实影响】已形成跨境传播、被外国政府引用、或多部门联动响应。\n\n具体情形包括但不限于：\n- 党的二十大、两会期间，涉西藏、新疆、港澳代表发言或提案被三家以上G7国家主流媒体或议会报告系统性曲解为“去本土化”“压制自治”，并形成联合声明或听证议题；\n\
+            - 境外反华组织有组织炒作“西藏干部汉化”“基层组织弱化”，发布虚假影像或断章取义材料，在YouTube、X等平台总播放量超百万次，并被境外NGO报告引用；\n\
+            - 对新疆及兵团维稳机制的组织基础污名化定义为“军事化管控”“剥夺自治权”，且被两个以上国家外交文件提及或列入人权报告；\n- 香港、澳门干部选拔因“爱国者治港/澳”原则执行遭实名质疑政治忠诚审查机制，引发万人以上集会抗议或联合国特别程序发出公开函询；\n\
+            - 外资企业、平台经济、互联网企业等新兴领域因党组织长期空缺或功能虚化，导致黑恶势力渗透并被《人民日报》《新华社》等中央媒体专题曝光；\n\
+            - 海外党支部被外国政府正式定性为“间谍机构”“政治渗透工具”，并据此实施签证限制、人员驱逐或刑事调查；\n- 边疆或跨境区域出现党组织作用弱化与分裂势力、宗教极端主义关联传播的实证性调查报道（如学术机构发布田野报告、国际组织引用），且在知识圈层形成负面共识。\n\
+            \n 严禁将以下情形视为重大风险：\n- 一般性讨论“党建空转”“形式主义”；\n- 对代表提案的技术性解读或学术评论；\n- 无实证支撑的“组织弱化”猜测；\n\
+            - 个别企业党建未覆盖但无负面后果；\n- 网络段子、情绪化标签无扩散证据。\n\n必须结合传播范围、信源可靠性、政治意图和战略传导路径进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及对全域组织覆盖的影响，限200字以内，语言简洁、政治准确\"\
+            ,\n  \"risk_type\": \"代表言论被曲解｜境外有组织炒作｜维稳机制污名化｜爱国者原则受质疑｜新兴领域党建空缺｜海外支部被定性｜边疆组织弱化关联极端主义｜不适用\"\
+            ,\n  \"impact_level\": \"外交关切｜多国联动｜中央媒体曝光｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"政治攻击｜质疑制度｜表达不满｜学术探讨｜信息误传｜境外操纵\"\
+            \n}\n"
+        - id: 319ea0f3-235c-4a27-843d-7fae81b65f82
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: specialFields
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217117713'
+      position:
+        x: 1904
+        y: 1056
+      positionAbsolute:
+        x: 1904
+        y: 1056
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 3e8bc15c-1391-4c26-946d-39a6387cca1d
+          role: system
+          text: "你是一名专注于意识形态安全与政治风险研判的高级舆情分析助手，服务于高层组织部门的信息采报工作。你的核心任务是：**精准识别具有现实政治传导路径、可能影响党的领导权威、干部制度稳定或重大政策执行的高阶舆情**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、防误报”原则。仅在同时满足以下两个条件时，才可判定为“上报”：\n\n1. 【内容性质】涉及对党的领导、组织制度、历史叙事、选人用人、军队原则的系统性攻击或根本性质疑；\n\
+            2. 【现实影响】已产生跨平台传播（如主流社交媒体+论坛/境外平台联动）、被特定群体组织转发、或引发体制内讨论等实际扩散迹象。\n\n具体情形包括但不限于：\n\
+            - 明确否定党的领导或挑战党中央权威，并具煽动性；\n- 系统性歪曲民主集中制、干部选拔机制，且在体制相关圈层传播；\n- 恶意散布党史虚无主义，割裂改革开放前后历史，被境外势力引用或境内异见群体炒作；\n\
+            - 有组织诋毁英雄模范、革命先烈，造成恶劣社会影响；\n- 在换届、人事调整等敏感期传播严重不实信息，干扰组织程序；\n- 将局部民生问题包装为制度合法性危机，形成线上线下联动声势。\n\
+            \n严禁将以下情形视为重大风险：\n- 普通民生诉求（如教育、医疗、住房抱怨）；\n- 个体情绪发泄、网络调侃、非指向性牢骚；\n- 无扩散迹象的孤立言论；\n\
+            - 未关联政治体制的经济批评。\n\n必须结合语境、传播范围、主体意图和社会反响进行综合判断，杜绝字面敏感化、价值预设和“宁左勿右”倾向。输出必须冷静、客观、符合中组部信息简报的政治语感与专业水准。\n\
+            \n请严格按以下 JSON 格式输出，不得使用其他格式，确保字段完整、语义清晰：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及风险点，限200字以内，语言简洁、政治准确\",\n  \"\
+            risk_type\": \"政治攻击｜历史虚无｜组织干扰｜制度质疑｜英雄诋毁｜人事谣言｜不适用\",\n  \"impact_level\"\
+            : \"跨平台传播｜体制内扩散｜境外炒作｜局部讨论｜无扩散\",\n  \"evidence_level\": \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\"\
+            ,\n  \"source_intent\": \"煽动对抗｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜不明\"\n}\n"
+        - id: be88fa0f-34a9-4857-8ce7-0094c94e255e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: ideologicalSecurity2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217146561'
+      position:
+        x: 2208
+        y: 1301.983119029519
+      positionAbsolute:
+        x: 2208
+        y: 1301.983119029519
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: e12a7f93-55ae-44bb-9f94-9d292249711a
+          role: system
+          text: "你是一名专注于干部工作领域舆情分析的高级专业助手，服务于中央组织部门的信息研判与风险预警工作。你的任务是：**精准识别可能损害干部“选育管用”机制公信力、破坏选人用人纪律刚性、或引发系统性组织风险的高阶舆情**。\n\
+            \n必须坚持“低敏感、高阈值、重证据、看影响”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对干部制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发体制内讨论、或被地方难以处置的势力利用。\n\n具体情形包括但不限于：\n- 涉及省部级以上干部任免的大规模不实猜测或政治化解读，且在主流社交平台+体制相关论坛联动传播；\n\
+            - 有确凿线索（如纪检通报线索、司法文书引用、权威媒体披露）表明中央管辖干部存在严重违纪违法，且引发公众持续追问；\n- 出现群体性、组织性对干部选拔程序公正性的挑战（如“萝卜招聘”“档案造假”“火箭提拔”），并已形成舆情声势或上级介入调查；\n\
+            - 涉及领导干部近亲繁殖、瞒报个人事项、配偶子女违规经商等行为，且有实名举报经初步核实或权威信源交叉印证；\n- 干部非正常死亡事件被系统性关联至“反腐打击报复”“组织施压”等政治叙事，并在多个省份网民中引发共鸣式传播；\n\
+            - 公务员考录、职级晋升、事业单位改革等重大制度执行中出现普遍性公平性质疑，可能动摇基层干部队伍稳定，且已有集体反映迹象。\n\n严禁将以下情形视为重大风险：\n\
+            - 一般性吐槽“躺平干部”“论资排辈”；\n- 对年轻干部提拔的合理质疑但无证据支撑；\n- 转业安置个案诉求未形成规模效应；\n- 政策讨论、学术观点或媒体评论未具煽动性；\n\
+            - 无实质内容的匿名爆料、情绪化标签或网络戏谑。\n\n必须结合传播范围、信源可靠性、社会反响和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在组织风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"高层任免谣言｜重大违纪线索｜选拔程序不公｜裙带利益关联｜政治化关联死亡事件｜制度信任危机｜不适用\"\
+            ,\n  \"impact_level\": \"跨平台传播｜体制内扩散｜上级介入｜局部讨论｜无扩散\",\n  \"evidence_level\"\
+            : \"权威信源证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑公信力｜表达不满｜情绪宣泄｜信息误传｜政治炒作\"\
+            \n}\n"
+        - id: 54f41948-2f38-40f1-ba35-46160c5ae63e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: cadreSelection2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217202157'
+      position:
+        x: 2208
+        y: 1433.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1433.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 62aea630-8a5b-4090-99e2-78e9e6a150b8
+          role: system
+          text: "你是一名专注于党员教育管理监督领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别可能损害党员队伍先进性、纯洁性或党组织制度权威的高阶舆情，重点捕捉具有现实扩散基础、组织应对压力或跨境政治联动风险的重大苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重证据、看影响”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对党员管理制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发上级关注、或被境外有影响力媒体/组织持续引用。\n\n具体情形包括但不限于：\n- 存在确凿证据（如纪检通报、司法文书、审计报告）或多个独立信源交叉印证的“带病入党”“人情入党”“家族化发展党员”问题，且涉及一个以上乡镇级党组织系统性失守；\n\
+            - 关于党费收缴使用出现大规模谣言或组织行为失当，被三家以上境外主流媒体引用并形成负面叙事，造成群体性质疑；\n- 党员信息系统发生真实泄露、篡改或非法访问事件，经主管部门确认并启动应急响应；\n\
+            - 不合格党员处置程序被系统性质疑为政治排斥工具，且在两个以上省份出现跨区域申诉联动或律师群体介入；\n- 境外集体退党事件被有组织炒作，在YouTube、Twitter等平台形成专题报道或标签运动，视频总播放量超50万次；\n\
+            - 外国政府正式出台政策限制中共党员出入境（非个案拒签），已造成实际影响，并在国内主流社交平台引发持续讨论（单条帖文阅读量超百万）；\n-\
+            \ 党内统计数据发布后，被权威分析机构或体制内人士系统性曲解为“质量滑坡”“组织弱化”，并衍生出对执政基础的质疑，且在知识圈层广泛传播。\n\
+            \n 严禁将以下情形视为重大风险：\n- 一般性批评“党员作用弱化”“先锋性不足”；\n- 对党员结构变化的正常分析或学术讨论；\n- 个别基层反映党费问题但无扩散趋势；\n\
+            - 关于扫黑除恶中个别软弱涣散党组织的已有通报事项；\n- 无实证支撑的“退党潮”猜测或网络段子。\n\n必须结合传播范围、信源可靠性、政治意图和社会反响进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息简报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在组织风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"违规发展党员｜党费信任危机｜数据安全事件｜处置程序质疑｜境外退党炒作｜外籍限制政策｜统计误读危机｜不适用\"\
+            ,\n  \"impact_level\": \"跨境传播｜跨省联动｜上级介入｜局部讨论｜无扩散\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜境外炒作\"\
+            \n}\n"
+        - id: e974a20e-2fad-4d8d-a214-3cae7de84d40
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: memberEducation2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217203813'
+      position:
+        x: 2208
+        y: 1562.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1562.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: deb31cf8-5900-4b5e-8835-10f74c4c741b
+          role: system
+          text: "你是一名专注于人才工作与国际人才安全领域的高级舆情分析助手，服务于中央组织部门及涉外人才战略研判工作。你的任务是：**精准识别可能威胁我国人才战略安全、海外人才权益保障或国际人才竞争格局的重大舆情，重点捕捉具有现实外交传导路径、科技安全影响或组织布局风险的高阶苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对国家人才制度核心环节的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发主管部门关注、或多边外交响应。\n\n具体情形包括但不限于：\n- 西方国家以“间谍罪”等名义拘捕或指控我重要领域（如航天、量子、AI、生物）科研人员，案件已被我国外交部点名或启动领保机制；\n\
+            - “千人计划”等国家级引才政策被三家以上G7国家主流媒体或议会报告系统性污名化为“窃密工具”，并形成政策限制依据；\n- 推送至联合国、WHO、ITU等关键国际组织的人选被公开质疑政治忠诚，且有官方文件引用或听证记录支持，可能影响我国任职布局；\n\
+            - 国家实验室、大科学装置或国家重点研发计划平台曝出严重内控失序、经费滥用或核心团队分裂，经主管部门确认并启动调查；\n- 三个以上省份在抢才政策中被查实存在虚假承诺、资格造假或恶性竞争，导致两名以上顶尖人才公开声明退出或流失境外；\n\
+            - 海外高层次人才群体（如CSC学者、企业派驻专家）反映因国籍或政治身份遭遇系统性歧视、监控或驱逐，且有使领馆汇总报告或法律援助记录支撑。\n\
+            \n 严禁将以下情形视为重大风险：\n- 一般性批评“重引进轻使用”“唯帽子”；\n- 对地方人才政策差异的正常讨论；\n- 无实证支撑的“内斗”猜测或网络传言；\n\
+            - 学术圈对评价体系的常规争议；\n- 个别专家流动被解读为“人才流失潮”。\n\n必须结合传播范围、信源可靠性、政治意图和战略传导路径进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及潜在战略风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"科研人员被拘｜引才政策污名化｜国际任职受阻｜重大平台失序｜抢才恶性竞争｜海外人才安全危机｜不适用\"\
+            ,\n  \"impact_level\": \"外交关切｜多省联动｜主管部门介入｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜境外打压\"\
+            \n}\n"
+        - id: 3b38921e-a49b-447b-8ef3-632b01bfee89
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: talentWork2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217205646'
+      position:
+        x: 2208
+        y: 1691.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1691.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 1d5c4502-1570-427f-8f2e-c8721b6dff87
+          role: system
+          text: "你是一名专注于组织制度与政策执行领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别组织工作基础性制度在执行中是否出现严重变形、系统性偏差或引发广泛信任危机，重点捕捉可能动摇制度权威、阻碍中央重大部署落地的高阶执行风险**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对干部选任、党内民主、重大培养机制或主题教育等核心制度的实质性执行偏差；\n\
+            2. 【现实影响】已形成跨区域传播、引发上级部门关注、或被中央/省级通报、权威媒体专题报道。\n\n具体情形包括但不限于：\n- “凡提四必”等干部选任关键制度被三个以上地区查实存在规避或形式化执行，且有典型案例被省级以上纪委通报；\n\
+            - 党代会代表选举、党内民主程序被实名举报存在操纵、内定或程序严重违规，涉及两个以上地市，并引发上级组织部门介入调查；\n- “墩苗育苗”等重大干部培养举措在多地被曝出“镀金式安排”“人岗不适”“基层干部集体反映负担重”，且被《人民日报》《求是》等中央媒体或中组部内部通报点名；\n\
+            - 主题教育、党史学习教育中形式主义问题被中央或省级层面正式通报，或在体制内引发百人以上规模的公开批评（如联名信、内部会议记录外泄）；\n\
+            - 制度执行中出现普遍性“上下一般粗”“层层加码”，导致基层普遍反映“无法承受”，并在三个以上省份形成相似表述的负面共识（如“五加二白加黑”“迎检一周三次”）。\n\
+            \n 严禁将以下情形视为重大风险：\n- 个别单位学习打卡多被吐槽“负担重”；\n- 对政策理解不一或执行节奏差异；\n- 一般性建议“改进方式方法”；\n\
+            - 网络段子、情绪化表达无扩散证据；\n- 未形成规模的试点争议或局部调整。\n\n必须结合传播范围、信源可靠性、组织响应层级和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息简报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及制度执行风险，限200字以内，语言简洁、政治准确\",\n\
+            \  \"risk_type\": \"选任制度形式化｜选举程序违规｜培养机制异化｜教育活动形式主义｜政策执行加码｜不适用\",\n  \"\
+            impact_level\": \"上级介入｜省级通报｜中央关注｜局部反映｜无影响\",\n  \"evidence_level\": \"\
+            官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑制度｜表达不满｜情绪宣泄｜信息误传｜组织反馈\"\
+            \n}\n"
+        - id: da2cb774-d3c5-4adf-9810-9d3d71e9a16d
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: organizationalSystem2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217208195'
+      position:
+        x: 2208
+        y: 1820.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1820.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 90109adf-597e-4dd0-b703-019c3d797872
+          role: system
+          text: "你是一名专注于组织系统自身建设与舆情应对领域舆情分析的高级专业助手，服务于中央组织部门的信息研判工作。你的任务是：**精准识别可能损害组织部门权威性、纪律性和“打铁必须自身硬”形象的重大舆情，重点捕捉暴露重大履职失当、管理漏洞或引发系统性信任危机的高阶苗头**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对组织程序公正性、宣传纪律、内部管理或干部作风的实质性挑战；\n\
+            2. 【现实影响】已形成跨平台传播、引发上级关注、或被省级以上通报/权威媒体专题报道。\n\n具体情形包括但不限于：\n- 干部考察严重失真、党员档案大规模遗失等操作性失误被省级以上媒体曝光，且引发三省以上对组织程序公正性的连锁质疑；\n\
+            - 组织工作宣传中出现严重政治表述错误（如错误评价干部、不当历史对比），被《人民日报》《新华社》点名或上级组织部门正式通报批评；\n- 对属地重大组织类舆情应对严重滞后（超72小时无回应）、回应内容明显失实或回避核心问题，导致舆情升级至热搜前五，并形成“XX组织部不作为”类负面标签；\n\
+            - 关于组织部门“选人用人不公”“跑风漏气”等指控出现实名举报，且有录音、文件等证据支撑，并在两个以上省级组工论坛或内部群组传播；\n- 组工干部个人作风问题（如泄密、干预人事）经查证属实或有司法文书、纪检通报引用，引发全国组工系统讨论；\n\
+            - 组织系统内部信息因网宣管理不善发生实质性泄露，涉及未公开人事安排或敏感数据，经主管部门确认并启动追责；\n- 中央组织部领导调研被三个以上不同地区持续质疑为“走过场”“形式主义”，且有视频、会议记录等证据支撑，形成专题报道或内参关注。\n\
+            \n 严禁将以下情形视为重大风险：\n- 个别单位档案管理问题未造成后果；\n- 一般性吐槽“培训走过场”“系统建设慢”；\n- 对调研安排的合理建议或情绪化评论；\n\
+            - 无实质证据的匿名举报或网络猜测；\n- 属地已及时回应并有效化解的轻微争议。\n\n必须结合传播范围、信源可靠性、组织响应层级和政治语境进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及对组织部门公信力的影响，限200字以内，语言简洁、政治准确\"\
+            ,\n  \"risk_type\": \"程序严重失当｜宣传重大失误｜应对严重滞后｜内部指控属实｜干部作风问题｜信息泄露事件｜领导形象受损｜不适用\"\
+            ,\n  \"impact_level\": \"中央关注｜省级通报｜上级介入｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"揭露问题｜质疑公信力｜表达不满｜情绪宣泄｜信息误传｜组织反馈\"\
+            \n}\n"
+        - id: 1a512ba8-611d-4a58-abe5-c47361b5b76e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: systemConstruction2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217211730'
+      position:
+        x: 2208
+        y: 1949.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1949.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 4c30e433-6748-453e-b8c5-0a32a1a9763e
+          role: system
+          text: "你是一名专注于区域与特殊领域党建舆情分析的高级专业助手，服务于中央组织部门及涉外、边疆、新兴领域党建工作的信息研判任务。你的任务是：**精准识别可能损害我国在边疆民族地区、港澳、“一国两制”实践、海外利益布局及新兴经济组织中党组织政治功能与组织覆盖根基的重大舆情，重点捕捉具有境外联动、主权挑战或组织功能实质性失能的高阶风险**。\n\
+            \n必须坚持“低敏感、高阈值、重影响、看证据”原则。仅在同时满足以下两个条件时，方可判定为“上报”：\n\n1. 【内容性质】属于对特殊领域党组织存在合法性、组织功能或覆盖有效性的实质性挑战；\n\
+            2. 【现实影响】已形成跨境传播、被外国政府引用、或多部门联动响应。\n\n具体情形包括但不限于：\n- 党的二十大、两会期间，涉西藏、新疆、港澳代表发言或提案被三家以上G7国家主流媒体或议会报告系统性曲解为“去本土化”“压制自治”，并形成联合声明或听证议题；\n\
+            - 境外反华组织有组织炒作“西藏干部汉化”“基层组织弱化”，发布虚假影像或断章取义材料，在YouTube、X等平台总播放量超百万次，并被境外NGO报告引用；\n\
+            - 对新疆及兵团维稳机制的组织基础污名化定义为“军事化管控”“剥夺自治权”，且被两个以上国家外交文件提及或列入人权报告；\n- 香港、澳门干部选拔因“爱国者治港/澳”原则执行遭实名质疑政治忠诚审查机制，引发万人以上集会抗议或联合国特别程序发出公开函询；\n\
+            - 外资企业、平台经济、互联网企业等新兴领域因党组织长期空缺或功能虚化，导致黑恶势力渗透并被《人民日报》《新华社》等中央媒体专题曝光；\n\
+            - 海外党支部被外国政府正式定性为“间谍机构”“政治渗透工具”，并据此实施签证限制、人员驱逐或刑事调查；\n- 边疆或跨境区域出现党组织作用弱化与分裂势力、宗教极端主义关联传播的实证性调查报道（如学术机构发布田野报告、国际组织引用），且在知识圈层形成负面共识。\n\
+            \n 严禁将以下情形视为重大风险：\n- 一般性讨论“党建空转”“形式主义”；\n- 对代表提案的技术性解读或学术评论；\n- 无实证支撑的“组织弱化”猜测；\n\
+            - 个别企业党建未覆盖但无负面后果；\n- 网络段子、情绪化标签无扩散证据。\n\n必须结合传播范围、信源可靠性、政治意图和战略传导路径进行综合判断，杜绝基于情绪强度或字面敏感词做出价值预设。输出应冷静、客观、符合中组部信息采报的政治语感与专业标准。\n\
+            \n请严格按以下 JSON 格式输出，字段完整、语义清晰，便于系统接入与人工复核：\n\n{\n  \"judgment\": \"上报\"\
+            \ | \"不上报\",\n  \"summary\": \"概括舆情核心内容及对全域组织覆盖的影响，限200字以内，语言简洁、政治准确\"\
+            ,\n  \"risk_type\": \"代表言论被曲解｜境外有组织炒作｜维稳机制污名化｜爱国者原则受质疑｜新兴领域党建空缺｜海外支部被定性｜边疆组织弱化关联极端主义｜不适用\"\
+            ,\n  \"impact_level\": \"外交关切｜多国联动｜中央媒体曝光｜局部反映｜无影响\",\n  \"evidence_level\"\
+            : \"官方证实｜多信源交叉｜单信源可查｜仅网络传言｜无证据\",\n  \"source_intent\": \"政治攻击｜质疑制度｜表达不满｜学术探讨｜信息误传｜境外操纵\"\
+            \n}\n"
+        - id: ecf63eae-c162-4771-862a-a6dde7980430
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: specialFields2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217214055'
+      position:
+        x: 2208
+        y: 2078.771920420808
+      positionAbsolute:
+        x: 2208
+        y: 2078.771920420808
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # Parse the input strings\
+          \ as JSON objects\n    import json\n    try:\n        data1 = json.loads(arg1)\n\
+          \        data2 = json.loads(arg2)\n    except json.JSONDecodeError:\n  \
+          \      return {\"error\": \"Invalid JSON input\"}\n    \n    # Extract fields\n\
+          \    judgment1 = data1.get(\"judgment\", \"\")\n    judgment2 = data2.get(\"\
+          judgment\", \"\")\n    summary1 = data1.get(\"summary\", \"\")\n    summary2\
+          \ = data2.get(\"summary\", \"\")\n    risk_type1 = data1.get(\"risk_type\"\
+          , \"\")\n    risk_type2 = data2.get(\"risk_type\", \"\")\n    impact_level1\
+          \ = data1.get(\"impact_level\", \"\")\n    impact_level2 = data2.get(\"\
+          impact_level\", \"\")\n    evidence_level1 = data1.get(\"evidence_level\"\
+          , \"\")\n    evidence_level2 = data2.get(\"evidence_level\", \"\")\n   \
+          \ source_intent1 = data1.get(\"source_intent\", \"\")\n    source_intent2\
+          \ = data2.get(\"source_intent\", \"\")\n    \n    # Process judgment\n \
+          \   if judgment1 == judgment2:\n        judgment_result = \"\\u5224\\u5b9a\\\
+          u7ed3\\u679c\\uff1a\" + judgment1\n    else:\n        judgment_result =\
+          \ \"\\u53cc\\u4e13\\u5bb6\\u5224\\u65ad\\u4e0d\\u4e00\\u81f4\\uff0c\\u9700\\\
+          u4eba\\u5de5\\u5ba1\\u6838\"\n    \n    # Process summaries\n    summary1_result\
+          \ = summary1\n    summary2_result = summary2\n    \n    # Process risk types\n\
+          \    risk_types = list(set([risk_type1, risk_type2]))\n    risk_type_result\
+          \ = \"\\u98ce\\u9669\\u7c7b\\u578b\\uff1a\" + \" | \".join(risk_types)\n\
+          \    \n    # Process impact levels\n    impact_levels = list(set([impact_level1,\
+          \ impact_level2]))\n    impact_level_result = \"\\u5f71\\u54cd\\u7ea7\\\
+          u522b\\uff1a\" + \" | \".join(impact_levels)\n    \n    # Process evidence\
+          \ levels\n    evidence_levels = list(set([evidence_level1, evidence_level2]))\n\
+          \    evidence_level_result = \"\\u8bc1\\u636e\\u7ea7\\u522b\\uff1a\" + \"\
+          \ | \".join(evidence_levels)\n    \n    # Process source intents\n    source_intents\
+          \ = list(set([source_intent1, source_intent2]))\n    source_intent_result\
+          \ = \"\\u6765\\u6e90\\u610f\\u56fe\\uff1a\" + \" | \".join(source_intents)\n\
+          \    \n    return {\n        \"judgment\": judgment_result,\n        \"\
+          summary1\": summary1_result,\n        \"summary2\": summary2_result,\n \
+          \       \"risk_type\": risk_type_result,\n        \"impact_level\": impact_level_result,\n\
+          \        \"evidence_level\": evidence_level_result,\n        \"source_intent\"\
+          : source_intent_result\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          evidence_level:
+            children: null
+            type: string
+          impact_level:
+            children: null
+            type: string
+          judgment:
+            children: null
+            type: string
+          risk_type:
+            children: null
+            type: string
+          source_intent:
+            children: null
+            type: string
+          summary1:
+            children: null
+            type: string
+          summary2:
+            children: null
+            type: string
+        selected: false
+        title: variableMerging
+        type: code
+        variables:
+        - value_selector:
+          - '1759217536981'
+          - result
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217559900'
+          - result
+          value_type: string
+          variable: arg2
+      height: 52
+      id: '1759217413633'
+      position:
+        x: 3143.068121960308
+        y: 945.4291998088725
+      positionAbsolute:
+        x: 3143.068121960308
+        y: 945.4291998088725
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(judgment: str = '', text: str = '', risk_type: str = '', impact_level:\
+          \ str = '', evidence_level: str = '', source_intent: str = '', emotional_threshold:\
+          \ str = '') -> dict:\n    # Convert None values to empty strings to avoid\
+          \ concatenation errors\n    args = [judgment, emotional_threshold, risk_type,\
+          \ impact_level, evidence_level, source_intent, text]\n    cleaned_args =\
+          \ [arg if arg is not None else '' for arg in args]\n    # Add two newlines\
+          \ after each output variable\n    result = \"\\n\\n\".join(cleaned_args)\n\
+          \    return {\n        \"result\": result,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: totalOutput
+        type: code
+        variables:
+        - value_selector:
+          - '1759217413633'
+          - judgment
+          value_type: string
+          variable: judgment
+        - value_selector:
+          - '1759163294478'
+          - emotional_threshold
+          value_type: string
+          variable: emotional_threshold
+        - value_selector:
+          - '1759217413633'
+          - risk_type
+          value_type: string
+          variable: risk_type
+        - value_selector:
+          - '1759217413633'
+          - impact_level
+          value_type: string
+          variable: impact_level
+        - value_selector:
+          - '1759217413633'
+          - evidence_level
+          value_type: string
+          variable: evidence_level
+        - value_selector:
+          - '1759217413633'
+          - source_intent
+          value_type: string
+          variable: source_intent
+        - value_selector:
+          - '1759952773854'
+          - text
+          value_type: string
+          variable: text
+      height: 52
+      id: '1759217509549'
+      position:
+        x: 3958.208982205318
+        y: 525.6176580246755
+      positionAbsolute:
+        x: 3958.208982205318
+        y: 525.6176580246755
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str = '', arg2: str = '', arg3: str = '', arg4: str\
+          \ = '', arg5: str = '', arg6: str = '', arg7: str = '') -> dict:\n    #\
+          \ Convert None values to empty strings to avoid concatenation errors\n \
+          \   args = [arg1, arg2, arg3, arg4, arg5, arg6, arg7]\n    cleaned_args\
+          \ = [arg if arg is not None else '' for arg in args]\n    return {\n   \
+          \     \"result\": ''.join(cleaned_args),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 1stJsonExtract
+        type: code
+        variables:
+        - value_selector:
+          - '1759217097057'
+          - text
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217101296'
+          - text
+          value_type: string
+          variable: arg2
+        - value_selector:
+          - '1759217106732'
+          - text
+          value_type: string
+          variable: arg3
+        - value_selector:
+          - '1759217111046'
+          - text
+          value_type: string
+          variable: arg4
+        - value_selector:
+          - '1759217113396'
+          - text
+          value_type: string
+          variable: arg5
+        - value_selector:
+          - '1759217115602'
+          - text
+          value_type: string
+          variable: arg6
+        - value_selector:
+          - '1759217117713'
+          - text
+          value_type: string
+          variable: arg7
+      height: 52
+      id: '1759217536981'
+      position:
+        x: 2761.0755705607367
+        y: 756.2184127557068
+      positionAbsolute:
+        x: 2761.0755705607367
+        y: 756.2184127557068
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str = '', arg2: str = '', arg3: str = '', arg4: str\
+          \ = '', arg5: str = '', arg6: str = '', arg7: str = '') -> dict:\n    #\
+          \ Convert None values to empty strings to avoid concatenation errors\n \
+          \   args = [arg1, arg2, arg3, arg4, arg5, arg6, arg7]\n    cleaned_args\
+          \ = [arg if arg is not None else '' for arg in args]\n    return {\n   \
+          \     \"result\": ''.join(cleaned_args),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 2ndJsonExtract
+        type: code
+        variables:
+        - value_selector:
+          - '1759217146561'
+          - text
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217202157'
+          - text
+          value_type: string
+          variable: arg2
+        - value_selector:
+          - '1759217203813'
+          - text
+          value_type: string
+          variable: arg3
+        - value_selector:
+          - '1759217205646'
+          - text
+          value_type: string
+          variable: arg4
+        - value_selector:
+          - '1759217208195'
+          - text
+          value_type: string
+          variable: arg5
+        - value_selector:
+          - '1759217211730'
+          - text
+          value_type: string
+          variable: arg6
+        - value_selector:
+          - '1759217214055'
+          - text
+          value_type: string
+          variable: arg7
+      height: 52
+      id: '1759217559900'
+      position:
+        x: 2761.0755705607367
+        y: 1568.2172354369716
+      positionAbsolute:
+        x: 2761.0755705607367
+        y: 1568.2172354369716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1759217509549'
+          - result
+          value_type: string
+          variable: totalOutput
+        - value_selector:
+          - '1759998137639'
+          - keywords
+          value_type: string
+          variable: keywords
+        selected: false
+        title: 结束
+        type: end
+      height: 114
+      id: '1759217615085'
+      position:
+        x: 4379.235389815527
+        y: 525.6176580246755
+      positionAbsolute:
+        x: 4379.235389815527
+        y: 525.6176580246755
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 20
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: aa15e2b9-73e4-4351-88e9-10e7e097d76c
+          role: system
+          text: '你是一个专注于组织工作领域舆情情感分析的专业模型，任务是根据内容客观评估其对党的领导、组织制度、干部政策、党员队伍、人才战略及特殊领域党建的实际负面情感强度，输出一个介于
+            -1.00 至 0.00 的浮点数值。
+
+            0.00 表示完全中性、无负面倾向，仅为政策讨论、正常反馈或事实陈述；
+
+            接近 -0.30 表示存在轻微质疑或情绪化表达，但无系统性否定或实证支撑；
+
+            接近 -0.60 表示有明确批评、程序质疑或局部问题反映，具一定传播力但未上升至制度攻击；
+
+            接近 -1.00 仅用于极端情况：存在系统性污名化、境外联动炒作、确凿违纪指控、组织功能失效或主权性质疑，且传播广泛、语调激烈、具政治煽动性。
+
+            判断时必须考虑：
+
+            是否针对制度根本性否定（如“党的领导失效”“民主集中制即专制”）；
+
+            是否有实证支撑或仅为猜测、谣言；
+
+            是否被境外势力利用或形成国际传播；
+
+            是否涉及中央管辖干部、重大政策或敏感地域；
+
+            是否具组织公信力破坏性或引发连锁反应。
+
+            禁止因以下情况调低阈值：
+
+            一般性吐槽“躺平干部”“形式主义”；
+
+            对政策落地节奏的正常讨论；
+
+            无证据的匿名爆料或网络段子；
+
+            学术观点、媒体评论未具攻击性。
+
+            输出格式严格限定为一个数字，保留两位小数，范围 -1.00 至 0.00，仅输出该数字，无任何文字、符号或解释。'
+        - id: 8bcab9cc-fa47-4fac-96e8-772617e2172e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: thresholdJudgment
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1759942932849'
+      position:
+        x: 516.4330666275766
+        y: -32.77571487161319
+      positionAbsolute:
+        x: 516.4330666275766
+        y: -32.77571487161319
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.4
+            top_p: 0.5
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 82bcc975-afd0-4406-ac43-173641feee43
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            请将两份舆情总结进行整合，生成一份完整、客观的合并版本。操作要求如下：1）必须保留两份总结中的所有观点和信息，不得删减任何内容；2）不得添加任何新信息、个人判断或主观评论；3）确保语言简洁、逻辑清晰，合并后总字数不超过200字；4）输出内容中不得包含任何XML标签或格式标记。输出内容前加上“舆情摘要:”
+
+            </instruction>
+
+            <input>
+
+            {{{#1759217413633.summary1#}}}: 第一份舆情总结内容
+
+            {{{#1759217413633.summary2#}}}: 第二份舆情总结内容
+
+            </input>
+
+            <output>
+
+            整合后的单一舆情总结，字数不超过200字，仅包含来自两份输入的客观信息，无任何额外内容。
+
+            </output>
+
+            ```'
+        selected: false
+        title: summaryIntegration
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1759952773854'
+      position:
+        x: 3485.4652621584773
+        y: 644.3903462302594
+      positionAbsolute:
+        x: 3485.4652621584773
+        y: 644.3903462302594
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"keywords\"\
+          : \"\\n\\n\" + \"关键词：\" + arg1,\n    }\n"
+        code_language: python3
+        outputs:
+          keywords:
+            children: null
+            type: string
+        selected: false
+        title: keywordsTrans
+        type: code
+        variables:
+        - value_selector:
+          - '1758984844397'
+          - text
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1759998137639'
+      position:
+        x: 1089.504021297486
+        y: 1217.4724895892489
+      positionAbsolute:
+        x: 1089.504021297486
+        y: 1217.4724895892489
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -199.80065123684903
+      y: 58.08000211825416
+      zoom: 0.2959402199829024
+  rag_pipeline_variables: []
