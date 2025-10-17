@@ -51,3 +51,5 @@ This project is licensed under an "Other" license. See [`LICENSE.txt`](https://g
 ---
 
 For more details, visit the repository: [mengni-w/Public-opinion-catagory-tool](https://github.com/mengni-w/Public-opinion-catagory-tool)
+
+The RAG data used in this project comes from https://github.com/massif-01/Public_opinion_characteristics_database
