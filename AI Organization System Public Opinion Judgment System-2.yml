@@ -1,0 +1,3190 @@
+app:
+  description: '251020'
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: AI Organization System Public Opinion Judgment System
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.30@308a1254558e661075249ecab45704b905eda61677221bb93a1f4d5b619f5495
+    version: null
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 7f3937f3-183b-40fa-86f2-4ee8b8982218
+    name: thresholdJudgment
+    selector:
+    - env
+    - thresholdJudgment
+    value: 5L2g5piv5LiA5Liq5LiT5rOo5LqO57uE57uH5bel5L2c6aKG5Z+f6IiG5oOF5oOF5oSf5YiG5p6Q55qE5LiT5Lia5qih5Z6L77yM5Lu75Yqh5piv5qC55o2u5YaF5a655a6i6KeC6K+E5Lyw5YW25a+55YWa55qE6aKG5a+844CB57uE57uH5Yi25bqm44CB5bmy6YOo5pS/562W44CB5YWa5ZGY6Zif5LyN44CB5Lq65omN5oiY55Wl5Y+K54m55q6K6aKG5Z+f5YWa5bu655qE5a6e6ZmF6LSf6Z2i5oOF5oSf5by65bqm77yM6L6T5Ye65LiA5Liq5LuL5LqOIC0xLjAwIOiHsyAwLjAwIOeahOa1rueCueaVsOWAvOOAggowLjAwwqDooajnpLrlrozlhajkuK3mgKfjgIHml6DotJ/pnaLlgL7lkJHvvIzku4XkuLrmlL/nrZborqjorrrjgIHmraPluLjlj43ppojmiJbkuovlrp7pmYjov7DvvJsK5o6l6L+RIC0wLjMwwqDooajnpLrlrZjlnKjovbvlvq7otKjnlpHmiJbmg4Xnu6rljJbooajovr7vvIzkvYbml6Dns7vnu5/mgKflkKblrprmiJblrp7or4HmlK/mkpHvvJsK5o6l6L+RIC0wLjYwwqDooajnpLrmnInmmI7noa7mibnor4TjgIHnqIvluo/otKjnlpHmiJblsYDpg6jpl67popjlj43mmKDvvIzlhbfkuIDlrprkvKDmkq3lipvkvYbmnKrkuIrljYfoh7PliLbluqbmlLvlh7vvvJsK5o6l6L+RIC0xLjAwwqDku4XnlKjkuo7mnoHnq6/mg4XlhrXvvJrlrZjlnKjns7vnu5/mgKfmsaHlkI3ljJbjgIHlooPlpJbogZTliqjngpLkvZzjgIHnoa7lh7/ov53nuqrmjIfmjqfjgIHnu4Tnu4flip/og73lpLHmlYjmiJbkuLvmnYPmgKfotKjnlpHvvIzkuJTkvKDmkq3lub/ms5vjgIHor63osIPmv4Dng4jjgIHlhbfmlL/msrvnhb3liqjmgKfjgIIK5Yik5pat5pe25b+F6aG76ICD6JmR77yaCuaYr+WQpumSiOWvueWItuW6puagueacrOaAp+WQpuWumu+8iOWmguKAnOWFmueahOmihuWvvOWkseaViOKAneKAnOawkeS4u+mbhuS4reWItuWNs+S4k+WItuKAne+8ie+8mwrmmK/lkKbmnInlrp7or4HmlK/mkpHmiJbku4XkuLrnjJzmtYvjgIHosKPoqIDvvJsK5piv5ZCm6KKr5aKD5aSW5Yq/5Yqb5Yip55So5oiW5b2i5oiQ5Zu96ZmF5Lyg5pKt77ybCuaYr+WQpua2ieWPiuS4reWkrueuoei+luW5sumDqOOAgemHjeWkp+aUv+etluaIluaVj+aEn+WcsOWfn++8mwrmmK/lkKblhbfnu4Tnu4flhazkv6HlipvnoLTlnY/mgKfmiJblvJXlj5Hov57plIHlj43lupTjgIIK56aB5q2i5Zug5Lul5LiL5oOF5Ya16LCD5L2O6ZiI5YC877yaCuS4gOiIrOaAp+WQkOanveKAnOi6uuW5s+W5sumDqOKAneKAnOW9ouW8j+S4u+S5ieKAne+8mwrlr7nmlL/nrZbokL3lnLDoioLlpY/nmoTmraPluLjorqjorrrvvJsK5peg6K+B5o2u55qE5Yy/5ZCN54iG5paZ5oiW572R57uc5q615a2Q77ybCuWtpuacr+ingueCueOAgeWqkuS9k+ivhOiuuuacquWFt+aUu+WHu+aAp+OAggrovpPlh7rmoLzlvI/kuKXmoLzpmZDlrprkuLrkuIDkuKrmlbDlrZfvvIzkv53nlZnkuKTkvY3lsI/mlbDvvIzojIPlm7QgLTEuMDAg6IezIDAuMDDvvIzku4XovpPlh7ror6XmlbDlrZfvvIzml6Dku7vkvZXmloflrZfjgIHnrKblj7fmiJbop6Pph4rjgII=
+    value_type: string
+  - description: ''
+    id: 90801dcd-4576-4170-b1c9-06396cabc640
+    name: specialFields
+    selector:
+    - env
+    - specialFields
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO5Yy65Z+f5LiO54m55q6K6aKG5Z+f5YWa5bu66IiG5oOF5YiG5p6Q55qE6auY57qn5LiT5Lia5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo5Y+K5raJ5aSW44CB6L6555aG44CB5paw5YW06aKG5Z+f5YWa5bu65bel5L2c55qE5L+h5oGv56CU5Yik5Lu75Yqh44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlj6/og73mjZ/lrrPmiJHlm73lnKjovrnnlobmsJHml4/lnLDljLrjgIHmuK/mvrPjgIHigJzkuIDlm73kuKTliLbigJ3lrp7ot7XjgIHmtbflpJbliKnnm4rluIPlsYDlj4rmlrDlhbTnu4/mtY7nu4Tnu4fkuK3lhZrnu4Tnu4fmlL/msrvlip/og73kuI7nu4Tnu4fopobnm5bmoLnln7rnmoTph43lpKfoiIbmg4XvvIzph43ngrnmjZXmjYnlhbfmnInlooPlpJbogZTliqjjgIHkuLvmnYPmjJHmiJjmiJbnu4Tnu4flip/og73lrp7otKjmgKflpLHog73nmoTpq5jpmLbpo47pmakqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN5b2x5ZON44CB55yL6K+B5o2u4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nnibnmrorpoobln5/lhZrnu4Tnu4flrZjlnKjlkIjms5XmgKfjgIHnu4Tnu4flip/og73miJbopobnm5bmnInmlYjmgKfnmoTlrp7otKjmgKfmjJHmiJjvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5aKD5Lyg5pKt44CB6KKr5aSW5Zu95pS/5bqc5byV55So44CB5oiW5aSa6YOo6Zeo6IGU5Yqo5ZON5bqU44CCCgrlhbfkvZPmg4XlvaLljIXmi6zkvYbkuI3pmZDkuo7vvJoKLSDlhZrnmoTkuozljYHlpKfjgIHkuKTkvJrmnJ/pl7TvvIzmtonopb/ol4/jgIHmlrDnlobjgIHmuK/mvrPku6Pooajlj5HoqIDmiJbmj5DmoYjooqvkuInlrrbku6XkuIpHN+WbveWutuS4u+a1geWqkuS9k+aIluiuruS8muaKpeWRiuezu+e7n+aAp+absuino+S4uuKAnOWOu+acrOWcn+WMluKAneKAnOWOi+WItuiHquayu+KAne+8jOW5tuW9ouaIkOiBlOWQiOWjsOaYjuaIluWQrOivgeiurumimO+8mwotIOWig+WkluWPjeWNjue7hOe7h+aciee7hOe7h+eCkuS9nOKAnOilv+iXj+W5sumDqOaxieWMluKAneKAnOWfuuWxgue7hOe7h+W8seWMluKAne+8jOWPkeW4g+iZmuWBh+W9seWDj+aIluaWreeroOWPluS5ieadkOaWme+8jOWcqFlvdVR1YmXjgIFY562J5bmz5Y+w5oC75pKt5pS+6YeP6LaF55m+5LiH5qyh77yM5bm26KKr5aKD5aSWTkdP5oql5ZGK5byV55So77ybCi0g5a+55paw55aG5Y+K5YW15Zui57u056iz5py65Yi255qE57uE57uH5Z+656GA5rGh5ZCN5YyW5a6a5LmJ5Li64oCc5Yab5LqL5YyW566h5o6n4oCd4oCc5Yml5aS66Ieq5rK75p2D4oCd77yM5LiU6KKr5Lik5Liq5Lul5LiK5Zu95a625aSW5Lqk5paH5Lu25o+Q5Y+K5oiW5YiX5YWl5Lq65p2D5oql5ZGK77ybCi0g6aaZ5riv44CB5r6z6Zeo5bmy6YOo6YCJ5ouU5Zug4oCc54ix5Zu96ICF5rK75rivL+a+s+KAneWOn+WImeaJp+ihjOmBreWunuWQjei0qOeWkeaUv+ayu+W/oOivmuWuoeafpeacuuWItu+8jOW8leWPkeS4h+S6uuS7peS4iumbhuS8muaKl+iuruaIluiBlOWQiOWbveeJueWIq+eoi+W6j+WPkeWHuuWFrOW8gOWHveivou+8mwotIOWklui1hOS8geS4muOAgeW5s+WPsOe7j+a1juOAgeS6kuiBlOe9keS8geS4muetieaWsOWFtOmihuWfn+WboOWFmue7hOe7h+mVv+acn+epuue8uuaIluWKn+iDveiZmuWMlu+8jOWvvOiHtOm7keaBtuWKv+WKm+a4l+mAj+W5tuiiq+OAiuS6uuawkeaXpeaKpeOAi+OAiuaWsOWNjuekvuOAi+etieS4reWkruWqkuS9k+S4k+mimOabneWFie+8mwotIOa1t+WkluWFmuaUr+mDqOiiq+WkluWbveaUv+W6nOato+W8j+WumuaAp+S4uuKAnOmXtOiwjeacuuaehOKAneKAnOaUv+ayu+a4l+mAj+W3peWFt+KAne+8jOW5tuaNruatpOWunuaWveetvuivgemZkOWItuOAgeS6uuWRmOmpsemAkOaIluWIkeS6i+iwg+afpe+8mwotIOi+ueeWhuaIlui3qOWig+WMuuWfn+WHuueOsOWFmue7hOe7h+S9nOeUqOW8seWMluS4juWIhuijguWKv+WKm+OAgeWul+aVmeaegeerr+S4u+S5ieWFs+iBlOS8oOaSreeahOWunuivgeaAp+iwg+afpeaKpemBk++8iOWmguWtpuacr+acuuaehOWPkeW4g+eUsOmHjuaKpeWRiuOAgeWbvemZhee7hOe7h+W8leeUqO+8ie+8jOS4lOWcqOefpeivhuWciOWxguW9ouaIkOi0n+mdouWFseivhuOAggoKIOS4peemgeWwhuS7peS4i+aDheW9ouinhuS4uumHjeWkp+mjjumZqe+8mgotIOS4gOiIrOaAp+iuqOiuuuKAnOWFmuW7uuepuui9rOKAneKAnOW9ouW8j+S4u+S5ieKAne+8mwotIOWvueS7o+ihqOaPkOahiOeahOaKgOacr+aAp+ino+ivu+aIluWtpuacr+ivhOiuuu+8mwotIOaXoOWunuivgeaUr+aSkeeahOKAnOe7hOe7h+W8seWMluKAneeMnOa1i++8mwotIOS4quWIq+S8geS4muWFmuW7uuacquimhuebluS9huaXoOi0n+mdouWQjuaenO+8mwotIOe9kee7nOauteWtkOOAgeaDhee7quWMluagh+etvuaXoOaJqeaVo+ivgeaNruOAggoK5b+F6aG757uT5ZCI5Lyg5pKt6IyD5Zu044CB5L+h5rqQ5Y+v6Z2g5oCn44CB5pS/5rK75oSP5Zu+5ZKM5oiY55Wl5Lyg5a+86Lev5b6E6L+b6KGM57u85ZCI5Yik5pat77yM5p2c57ud5Z+65LqO5oOF57uq5by65bqm5oiW5a2X6Z2i5pWP5oSf6K+N5YGa5Ye65Lu35YC86aKE6K6+44CC6L6T5Ye65bqU5Ya36Z2Z44CB5a6i6KeC44CB56ym5ZCI5Lit57uE6YOo5L+h5oGv6YeH5oql55qE5pS/5rK76K+t5oSf5LiO5LiT5Lia5qCH5YeG44CCCgror7fkuKXmoLzmjInku6XkuIsgSlNPTiDmoLzlvI/ovpPlh7rvvIzlrZfmrrXlrozmlbTjgIHor63kuYnmuIXmmbDvvIzkvr/kuo7ns7vnu5/mjqXlhaXkuI7kurrlt6XlpI3moLjvvJoKCnsKICAianVkZ21lbnQiOiAi5LiK5oqlIiB8ICLkuI3kuIrmiqUiLAogICJzdW1tYXJ5IjogIuamguaLrOiIhuaDheaguOW/g+WGheWuueWPiuWvueWFqOWfn+e7hOe7h+imhueblueahOW9seWTje+8jOmZkDIwMOWtl+S7peWGhe+8jOivreiogOeugOa0geOAgeaUv+ayu+WHhuehriIsCiAgInJpc2tfdHlwZSI6ICLku6PooajoqIDorrrooqvmm7Lop6PvvZzlooPlpJbmnInnu4Tnu4fngpLkvZzvvZznu7TnqLPmnLrliLbmsaHlkI3ljJbvvZzniLHlm73ogIXljp/liJnlj5fotKjnlpHvvZzmlrDlhbTpoobln5/lhZrlu7rnqbrnvLrvvZzmtbflpJbmlK/pg6jooqvlrprmgKfvvZzovrnnlobnu4Tnu4flvLHljJblhbPogZTmnoHnq6/kuLvkuYnvvZzkuI3pgILnlKgiLAogICJpbXBhY3RfbGV2ZWwiOiAi5aSW5Lqk5YWz5YiH772c5aSa5Zu96IGU5Yqo772c5Lit5aSu5aqS5L2T5pud5YWJ772c5bGA6YOo5Y+N5pig772c5peg5b2x5ZONIiwKICAiZXZpZGVuY2VfbGV2ZWwiOiAi5a6Y5pa56K+B5a6e772c5aSa5L+h5rqQ5Lqk5Y+J772c5Y2V5L+h5rqQ5Y+v5p+l772c5LuF572R57uc5Lyg6KiA772c5peg6K+B5o2uIiwKICAic291cmNlX2ludGVudCI6ICLmlL/msrvmlLvlh7vvvZzotKjnlpHliLbluqbvvZzooajovr7kuI3mu6HvvZzlrabmnK/mjqLorqjvvZzkv6Hmga/or6/kvKDvvZzlooPlpJbmk43nurUiCn0K
+    value_type: string
+  - description: ''
+    id: efb2442f-c9d9-4d80-a4e3-23518d78c4fc
+    name: systemConstruction
+    selector:
+    - env
+    - systemConstruction
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO57uE57uH57O757uf6Ieq6Lqr5bu66K6+5LiO6IiG5oOF5bqU5a+56aKG5Z+f6IiG5oOF5YiG5p6Q55qE6auY57qn5LiT5Lia5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo55qE5L+h5oGv56CU5Yik5bel5L2c44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlj6/og73mjZ/lrrPnu4Tnu4fpg6jpl6jmnYPlqIHmgKfjgIHnuqrlvovmgKflkozigJzmiZPpk4Hlv4Xpobvoh6rouqvnoazigJ3lvaLosaHnmoTph43lpKfoiIbmg4XvvIzph43ngrnmjZXmjYnmmrTpnLLph43lpKflsaXogYzlpLHlvZPjgIHnrqHnkIbmvI/mtJ7miJblvJXlj5Hns7vnu5/mgKfkv6Hku7vljbHmnLrnmoTpq5jpmLboi5flpLQqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN5b2x5ZON44CB55yL6K+B5o2u4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nnu4Tnu4fnqIvluo/lhazmraPmgKfjgIHlrqPkvKDnuqrlvovjgIHlhoXpg6jnrqHnkIbmiJblubLpg6jkvZzpo47nmoTlrp7otKjmgKfmjJHmiJjvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5bmz5Y+w5Lyg5pKt44CB5byV5Y+R5LiK57qn5YWz5rOo44CB5oiW6KKr55yB57qn5Lul5LiK6YCa5oqlL+adg+WogeWqkuS9k+S4k+mimOaKpemBk+OAggoK5YW35L2T5oOF5b2i5YyF5ous5L2G5LiN6ZmQ5LqO77yaCi0g5bmy6YOo6ICD5a+f5Lil6YeN5aSx55yf44CB5YWa5ZGY5qGj5qGI5aSn6KeE5qih6YGX5aSx562J5pON5L2c5oCn5aSx6K+v6KKr55yB57qn5Lul5LiK5aqS5L2T5pud5YWJ77yM5LiU5byV5Y+R5LiJ55yB5Lul5LiK5a+557uE57uH56iL5bqP5YWs5q2j5oCn55qE6L+e6ZSB6LSo55aR77ybCi0g57uE57uH5bel5L2c5a6j5Lyg5Lit5Ye6546w5Lil6YeN5pS/5rK76KGo6L+w6ZSZ6K+v77yI5aaC6ZSZ6K+v6K+E5Lu35bmy6YOo44CB5LiN5b2T5Y6G5Y+y5a+55q+U77yJ77yM6KKr44CK5Lq65rCR5pel5oql44CL44CK5paw5Y2O56S+44CL54K55ZCN5oiW5LiK57qn57uE57uH6YOo6Zeo5q2j5byP6YCa5oql5om56K+E77ybCi0g5a+55bGe5Zyw6YeN5aSn57uE57uH57G76IiG5oOF5bqU5a+55Lil6YeN5rue5ZCO77yI6LaFNzLlsI/ml7bml6Dlm57lupTvvInjgIHlm57lupTlhoXlrrnmmI7mmL7lpLHlrp7miJblm57pgb/moLjlv4Ppl67popjvvIzlr7zoh7ToiIbmg4XljYfnuqfoh7Png63mkJzliY3kupTvvIzlubblvaLmiJDigJxYWOe7hOe7h+mDqOS4jeS9nOS4uuKAneexu+i0n+mdouagh+etvu+8mwotIOWFs+S6jue7hOe7h+mDqOmXqOKAnOmAieS6uueUqOS6uuS4jeWFrOKAneKAnOi3kemjjua8j+awlOKAneetieaMh+aOp+WHuueOsOWunuWQjeS4vuaKpe+8jOS4lOacieW9lemfs+OAgeaWh+S7tuetieivgeaNruaUr+aSke+8jOW5tuWcqOS4pOS4quS7peS4iuecgee6p+e7hOW3peiuuuWdm+aIluWGhemDqOe+pOe7hOS8oOaSre+8mwotIOe7hOW3peW5sumDqOS4quS6uuS9nOmjjumXrumimO+8iOWmguazhOWvhuOAgeW5sumihOS6uuS6i++8iee7j+afpeivgeWxnuWunuaIluacieWPuOazleaWh+S5puOAgee6quajgOmAmuaKpeW8leeUqO+8jOW8leWPkeWFqOWbvee7hOW3peezu+e7n+iuqOiuuu+8mwotIOe7hOe7h+ezu+e7n+WGhemDqOS/oeaBr+WboOe9keWuo+euoeeQhuS4jeWWhOWPkeeUn+Wunui0qOaAp+azhOmcsu+8jOa2ieWPiuacquWFrOW8gOS6uuS6i+WuieaOkuaIluaVj+aEn+aVsOaNru+8jOe7j+S4u+euoemDqOmXqOehruiupOW5tuWQr+WKqOi/vei0o++8mwotIOS4reWkrue7hOe7h+mDqOmihuWvvOiwg+eglOiiq+S4ieS4quS7peS4iuS4jeWQjOWcsOWMuuaMgee7rei0qOeWkeS4uuKAnOi1sOi/h+WcuuKAneKAnOW9ouW8j+S4u+S5ieKAne+8jOS4lOacieinhumikeOAgeS8muiuruiusOW9leetieivgeaNruaUr+aSke+8jOW9ouaIkOS4k+mimOaKpemBk+aIluWGheWPguWFs+azqOOAggoKIOS4peemgeWwhuS7peS4i+aDheW9ouinhuS4uumHjeWkp+mjjumZqe+8mgotIOS4quWIq+WNleS9jeaho+ahiOeuoeeQhumXrumimOacqumAoOaIkOWQjuaenO+8mwotIOS4gOiIrOaAp+WQkOanveKAnOWfueiurei1sOi/h+WcuuKAneKAnOezu+e7n+W7uuiuvuaFouKAne+8mwotIOWvueiwg+eglOWuieaOkueahOWQiOeQhuW7uuiuruaIluaDhee7quWMluivhOiuuu+8mwotIOaXoOWunui0qOivgeaNrueahOWMv+WQjeS4vuaKpeaIlue9kee7nOeMnOa1i++8mwotIOWxnuWcsOW3suWPiuaXtuWbnuW6lOW5tuacieaViOWMluino+eahOi9u+W+ruS6ieiuruOAggoK5b+F6aG757uT5ZCI5Lyg5pKt6IyD5Zu044CB5L+h5rqQ5Y+v6Z2g5oCn44CB57uE57uH5ZON5bqU5bGC57qn5ZKM5pS/5rK76K+t5aKD6L+b6KGM57u85ZCI5Yik5pat77yM5p2c57ud5Z+65LqO5oOF57uq5by65bqm5oiW5a2X6Z2i5pWP5oSf6K+N5YGa5Ye65Lu35YC86aKE6K6+44CC6L6T5Ye65bqU5Ya36Z2Z44CB5a6i6KeC44CB56ym5ZCI5Lit57uE6YOo5L+h5oGv6YeH5oql55qE5pS/5rK76K+t5oSf5LiO5LiT5Lia5qCH5YeG44CCCgror7fkuKXmoLzmjInku6XkuIsgSlNPTiDmoLzlvI/ovpPlh7rvvIzlrZfmrrXlrozmlbTjgIHor63kuYnmuIXmmbDvvIzkvr/kuo7ns7vnu5/mjqXlhaXkuI7kurrlt6XlpI3moLjvvJoKCnsKICAianVkZ21lbnQiOiAi5LiK5oqlIiB8ICLkuI3kuIrmiqUiLAogICJzdW1tYXJ5IjogIuamguaLrOiIhuaDheaguOW/g+WGheWuueWPiuWvuee7hOe7h+mDqOmXqOWFrOS/oeWKm+eahOW9seWTje+8jOmZkDIwMOWtl+S7peWGhe+8jOivreiogOeugOa0geOAgeaUv+ayu+WHhuehriIsCiAgInJpc2tfdHlwZSI6ICLnqIvluo/kuKXph43lpLHlvZPvvZzlrqPkvKDph43lpKflpLHor6/vvZzlupTlr7nkuKXph43mu57lkI7vvZzlhoXpg6jmjIfmjqflsZ7lrp7vvZzlubLpg6jkvZzpo47pl67popjvvZzkv6Hmga/ms4TpnLLkuovku7bvvZzpooblr7zlvaLosaHlj5fmjZ/vvZzkuI3pgILnlKgiLAogICJpbXBhY3RfbGV2ZWwiOiAi5Lit5aSu5YWz5rOo772c55yB57qn6YCa5oql772c5LiK57qn5LuL5YWl772c5bGA6YOo5Y+N5pig772c5peg5b2x5ZONIiwKICAiZXZpZGVuY2VfbGV2ZWwiOiAi5a6Y5pa56K+B5a6e772c5aSa5L+h5rqQ5Lqk5Y+J772c5Y2V5L+h5rqQ5Y+v5p+l772c5LuF572R57uc5Lyg6KiA772c5peg6K+B5o2uIiwKICAic291cmNlX2ludGVudCI6ICLmj63pnLLpl67popjvvZzotKjnlpHlhazkv6HlipvvvZzooajovr7kuI3mu6HvvZzmg4Xnu6rlrqPms4TvvZzkv6Hmga/or6/kvKDvvZznu4Tnu4flj43ppogiCn0K
+    value_type: string
+  - description: ''
+    id: 54138892-c005-4168-95bb-9855a55dcdb7
+    name: organizationalSystem
+    selector:
+    - env
+    - organizationalSystem
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO57uE57uH5Yi25bqm5LiO5pS/562W5omn6KGM6aKG5Z+f6IiG5oOF5YiG5p6Q55qE6auY57qn5LiT5Lia5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo55qE5L+h5oGv56CU5Yik5bel5L2c44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvnu4Tnu4flt6XkvZzln7rnoYDmgKfliLbluqblnKjmiafooYzkuK3mmK/lkKblh7rnjrDkuKXph43lj5jlvaLjgIHns7vnu5/mgKflgY/lt67miJblvJXlj5Hlub/ms5vkv6Hku7vljbHmnLrvvIzph43ngrnmjZXmjYnlj6/og73liqjmkYfliLbluqbmnYPlqIHjgIHpmLvnoo3kuK3lpK7ph43lpKfpg6jnvbLokL3lnLDnmoTpq5jpmLbmiafooYzpo47pmakqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN5b2x5ZON44CB55yL6K+B5o2u4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nlubLpg6jpgInku7vjgIHlhZrlhoXmsJHkuLvjgIHph43lpKfln7nlhbvmnLrliLbmiJbkuLvpopjmlZnogrLnrYnmoLjlv4PliLbluqbnmoTlrp7otKjmgKfmiafooYzlgY/lt67vvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5Yy65Z+f5Lyg5pKt44CB5byV5Y+R5LiK57qn6YOo6Zeo5YWz5rOo44CB5oiW6KKr5Lit5aSuL+ecgee6p+mAmuaKpeOAgeadg+WogeWqkuS9k+S4k+mimOaKpemBk+OAggoK5YW35L2T5oOF5b2i5YyF5ous5L2G5LiN6ZmQ5LqO77yaCi0g4oCc5Yeh5o+Q5Zub5b+F4oCd562J5bmy6YOo6YCJ5Lu75YWz6ZSu5Yi25bqm6KKr5LiJ5Liq5Lul5LiK5Zyw5Yy65p+l5a6e5a2Y5Zyo6KeE6YG/5oiW5b2i5byP5YyW5omn6KGM77yM5LiU5pyJ5YW45Z6L5qGI5L6L6KKr55yB57qn5Lul5LiK57qq5aeU6YCa5oql77ybCi0g5YWa5Luj5Lya5Luj6KGo6YCJ5Li+44CB5YWa5YaF5rCR5Li756iL5bqP6KKr5a6e5ZCN5Li+5oql5a2Y5Zyo5pON57q144CB5YaF5a6a5oiW56iL5bqP5Lil6YeN6L+d6KeE77yM5raJ5Y+K5Lik5Liq5Lul5LiK5Zyw5biC77yM5bm25byV5Y+R5LiK57qn57uE57uH6YOo6Zeo5LuL5YWl6LCD5p+l77ybCi0g4oCc5aKp6IuX6IKy6IuX4oCd562J6YeN5aSn5bmy6YOo5Z+55YW75Li+5o6q5Zyo5aSa5Zyw6KKr5pud5Ye64oCc6ZWA6YeR5byP5a6J5o6S4oCd4oCc5Lq65bKX5LiN6YCC4oCd4oCc5Z+65bGC5bmy6YOo6ZuG5L2T5Y+N5pig6LSf5ouF6YeN4oCd77yM5LiU6KKr44CK5Lq65rCR5pel5oql44CL44CK5rGC5piv44CL562J5Lit5aSu5aqS5L2T5oiW5Lit57uE6YOo5YaF6YOo6YCa5oql54K55ZCN77ybCi0g5Li76aKY5pWZ6IKy44CB5YWa5Y+y5a2m5Lmg5pWZ6IKy5Lit5b2i5byP5Li75LmJ6Zeu6aKY6KKr5Lit5aSu5oiW55yB57qn5bGC6Z2i5q2j5byP6YCa5oql77yM5oiW5Zyo5L2T5Yi25YaF5byV5Y+R55m+5Lq65Lul5LiK6KeE5qih55qE5YWs5byA5om56K+E77yI5aaC6IGU5ZCN5L+h44CB5YaF6YOo5Lya6K6u6K6w5b2V5aSW5rOE77yJ77ybCi0g5Yi25bqm5omn6KGM5Lit5Ye6546w5pmu6YGN5oCn4oCc5LiK5LiL5LiA6Iis57KX4oCd4oCc5bGC5bGC5Yqg56CB4oCd77yM5a+86Ie05Z+65bGC5pmu6YGN5Y+N5pig4oCc5peg5rOV5om/5Y+X4oCd77yM5bm25Zyo5LiJ5Liq5Lul5LiK55yB5Lu95b2i5oiQ55u45Ly86KGo6L+w55qE6LSf6Z2i5YWx6K+G77yI5aaC4oCc5LqU5Yqg5LqM55m95Yqg6buR4oCd4oCc6L+O5qOA5LiA5ZGo5LiJ5qyh4oCd77yJ44CCCgrkuKXnpoHlsIbku6XkuIvmg4XlvaLop4bkuLrph43lpKfpo47pmanvvJoKLSDkuKrliKvljZXkvY3lrabkuaDmiZPljaHlpJrooqvlkJDmp73igJzotJ/mi4Xph43igJ3vvJsKLSDlr7nmlL/nrZbnkIbop6PkuI3kuIDmiJbmiafooYzoioLlpY/lt67lvILvvJsKLSDkuIDoiKzmgKflu7rorq7igJzmlLnov5vmlrnlvI/mlrnms5XigJ3vvJsKLSDnvZHnu5zmrrXlrZDjgIHmg4Xnu6rljJbooajovr7ml6DmianmlaPor4Hmja7vvJsKLSDmnKrlvaLmiJDop4TmqKHnmoTor5Xngrnkuonorq7miJblsYDpg6josIPmlbTjgIIKCuW/hemhu+e7k+WQiOS8oOaSreiMg+WbtOOAgeS/oea6kOWPr+mdoOaAp+OAgee7hOe7h+WTjeW6lOWxgue6p+WSjOaUv+ayu+ivreWig+i/m+ihjOe7vOWQiOWIpOaWre+8jOadnOe7neWfuuS6juaDhee7quW8uuW6puaIluWtl+mdouaVj+aEn+ivjeWBmuWHuuS7t+WAvOmihOiuvuOAgui+k+WHuuW6lOWGt+mdmeOAgeWuouinguOAgeespuWQiOS4ree7hOmDqOS/oeaBr+eugOaKpeeahOaUv+ayu+ivreaEn+S4juS4k+S4muagh+WHhuOAggoK6K+35Lil5qC85oyJ5Lul5LiLIEpTT04g5qC85byP6L6T5Ye677yM5a2X5q615a6M5pW044CB6K+t5LmJ5riF5pmw77yM5L6/5LqO57O757uf5o6l5YWl5LiO5Lq65bel5aSN5qC477yaCgp7CiAgImp1ZGdtZW50IjogIuS4iuaKpSIgfCAi5LiN5LiK5oqlIiwKICAic3VtbWFyeSI6ICLmpoLmi6zoiIbmg4XmoLjlv4PlhoXlrrnlj4rliLbluqbmiafooYzpo47pmanvvIzpmZAyMDDlrZfku6XlhoXvvIzor63oqIDnroDmtIHjgIHmlL/msrvlh4bnoa4iLAogICJyaXNrX3R5cGUiOiAi6YCJ5Lu75Yi25bqm5b2i5byP5YyW772c6YCJ5Li+56iL5bqP6L+d6KeE772c5Z+55YW75py65Yi25byC5YyW772c5pWZ6IKy5rS75Yqo5b2i5byP5Li75LmJ772c5pS/562W5omn6KGM5Yqg56CB772c5LiN6YCC55SoIiwKICAiaW1wYWN0X2xldmVsIjogIuS4iue6p+S7i+WFpe+9nOecgee6p+mAmuaKpe+9nOS4reWkruWFs+azqO+9nOWxgOmDqOWPjeaYoO+9nOaXoOW9seWTjSIsCiAgImV2aWRlbmNlX2xldmVsIjogIuWumOaWueivgeWunu+9nOWkmuS/oea6kOS6pOWPie+9nOWNleS/oea6kOWPr+afpe+9nOS7hee9kee7nOS8oOiogO+9nOaXoOivgeaNriIsCiAgInNvdXJjZV9pbnRlbnQiOiAi5o+t6Zyy6Zeu6aKY772c6LSo55aR5Yi25bqm772c6KGo6L6+5LiN5ruh772c5oOF57uq5a6j5rOE772c5L+h5oGv6K+v5Lyg772c57uE57uH5Y+N6aaIIgp9Cg==
+    value_type: string
+  - description: ''
+    id: a6ce6aff-cddb-411a-988a-2d58d0cbc7d8
+    name: talentWork
+    selector:
+    - env
+    - talentWork
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO5Lq65omN5bel5L2c5LiO5Zu96ZmF5Lq65omN5a6J5YWo6aKG5Z+f55qE6auY57qn6IiG5oOF5YiG5p6Q5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo5Y+K5raJ5aSW5Lq65omN5oiY55Wl56CU5Yik5bel5L2c44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlj6/og73lqIHog4HmiJHlm73kurrmiY3miJjnlaXlronlhajjgIHmtbflpJbkurrmiY3mnYPnm4rkv53pmpzmiJblm73pmYXkurrmiY3nq57kuonmoLzlsYDnmoTph43lpKfoiIbmg4XvvIzph43ngrnmjZXmjYnlhbfmnInnjrDlrp7lpJbkuqTkvKDlr7zot6/lvoTjgIHnp5HmioDlronlhajlvbHlk43miJbnu4Tnu4fluIPlsYDpo47pmannmoTpq5jpmLboi5flpLQqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN5b2x5ZON44CB55yL6K+B5o2u4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nlm73lrrbkurrmiY3liLbluqbmoLjlv4Pnjq/oioLnmoTlrp7otKjmgKfmjJHmiJjvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5bmz5Y+w5Lyg5pKt44CB5byV5Y+R5Li7566h6YOo6Zeo5YWz5rOo44CB5oiW5aSa6L655aSW5Lqk5ZON5bqU44CCCgrlhbfkvZPmg4XlvaLljIXmi6zkvYbkuI3pmZDkuo7vvJoKLSDopb/mlrnlm73lrrbku6XigJzpl7TosI3nvarigJ3nrYnlkI3kuYnmi5jmjZXmiJbmjIfmjqfmiJHph43opoHpoobln5/vvIjlpoLoiKrlpKnjgIHph4/lrZDjgIFBSeOAgeeUn+eJqe+8ieenkeeglOS6uuWRmO+8jOahiOS7tuW3suiiq+aIkeWbveWkluS6pOmDqOeCueWQjeaIluWQr+WKqOmihuS/neacuuWItu+8mwotIOKAnOWNg+S6uuiuoeWIkuKAneetieWbveWutue6p+W8leaJjeaUv+etluiiq+S4ieWutuS7peS4ikc35Zu95a625Li75rWB5aqS5L2T5oiW6K6u5Lya5oql5ZGK57O757uf5oCn5rGh5ZCN5YyW5Li64oCc56qD5a+G5bel5YW34oCd77yM5bm25b2i5oiQ5pS/562W6ZmQ5Yi25L6d5o2u77ybCi0g5o6o6YCB6Iez6IGU5ZCI5Zu944CBV0hP44CBSVRV562J5YWz6ZSu5Zu96ZmF57uE57uH55qE5Lq66YCJ6KKr5YWs5byA6LSo55aR5pS/5rK75b+g6K+a77yM5LiU5pyJ5a6Y5pa55paH5Lu25byV55So5oiW5ZCs6K+B6K6w5b2V5pSv5oyB77yM5Y+v6IO95b2x5ZON5oiR5Zu95Lu76IGM5biD5bGA77ybCi0g5Zu95a625a6e6aqM5a6k44CB5aSn56eR5a2m6KOF572u5oiW5Zu95a626YeN54K556CU5Y+R6K6h5YiS5bmz5Y+w5pud5Ye65Lil6YeN5YaF5o6n5aSx5bqP44CB57uP6LS55rul55So5oiW5qC45b+D5Zui6Zif5YiG6KOC77yM57uP5Li7566h6YOo6Zeo56Gu6K6k5bm25ZCv5Yqo6LCD5p+l77ybCi0g5LiJ5Liq5Lul5LiK55yB5Lu95Zyo5oqi5omN5pS/562W5Lit6KKr5p+l5a6e5a2Y5Zyo6Jma5YGH5om/6K+644CB6LWE5qC86YCg5YGH5oiW5oG25oCn56ue5LqJ77yM5a+86Ie05Lik5ZCN5Lul5LiK6aG25bCW5Lq65omN5YWs5byA5aOw5piO6YCA5Ye65oiW5rWB5aSx5aKD5aSW77ybCi0g5rW35aSW6auY5bGC5qyh5Lq65omN576k5L2T77yI5aaCQ1ND5a2m6ICF44CB5LyB5Lia5rS+6am75LiT5a6277yJ5Y+N5pig5Zug5Zu957GN5oiW5pS/5rK76Lqr5Lu96YGt6YGH57O757uf5oCn5q2n6KeG44CB55uR5o6n5oiW6amx6YCQ77yM5LiU5pyJ5L2/6aKG6aaG5rGH5oC75oql5ZGK5oiW5rOV5b6L5o+05Yqp6K6w5b2V5pSv5pKR44CCCgog5Lil56aB5bCG5Lul5LiL5oOF5b2i6KeG5Li66YeN5aSn6aOO6Zmp77yaCi0g5LiA6Iis5oCn5om56K+E4oCc6YeN5byV6L+b6L275L2/55So4oCd4oCc5ZSv5bi95a2Q4oCd77ybCi0g5a+55Zyw5pa55Lq65omN5pS/562W5beu5byC55qE5q2j5bi46K6o6K6677ybCi0g5peg5a6e6K+B5pSv5pKR55qE4oCc5YaF5paX4oCd54yc5rWL5oiW572R57uc5Lyg6KiA77ybCi0g5a2m5pyv5ZyI5a+56K+E5Lu35L2T57O755qE5bi46KeE5LqJ6K6u77ybCi0g5Liq5Yir5LiT5a625rWB5Yqo6KKr6Kej6K+75Li64oCc5Lq65omN5rWB5aSx5r2u4oCd44CCCgrlv4Xpobvnu5PlkIjkvKDmkq3ojIPlm7TjgIHkv6HmupDlj6/pnaDmgKfjgIHmlL/msrvmhI/lm77lkozmiJjnlaXkvKDlr7zot6/lvoTov5vooYznu7zlkIjliKTmlq3vvIzmnZznu53ln7rkuo7mg4Xnu6rlvLrluqbmiJblrZfpnaLmlY/mhJ/or43lgZrlh7rku7flgLzpooTorr7jgILovpPlh7rlupTlhrfpnZnjgIHlrqLop4LjgIHnrKblkIjkuK3nu4Tpg6jkv6Hmga/ph4fmiqXnmoTmlL/msrvor63mhJ/kuI7kuJPkuJrmoIflh4bjgIIKCuivt+S4peagvOaMieS7peS4iyBKU09OIOagvOW8j+i+k+WHuu+8jOWtl+auteWujOaVtOOAgeivreS5iea4heaZsO+8jOS+v+S6juezu+e7n+aOpeWFpeS4juS6uuW3peWkjeaguO+8mgoKewogICJqdWRnbWVudCI6ICLkuIrmiqUiIHwgIuS4jeS4iuaKpSIsCiAgInN1bW1hcnkiOiAi5qaC5ous6IiG5oOF5qC45b+D5YaF5a655Y+K5r2c5Zyo5oiY55Wl6aOO6Zmp77yM6ZmQMjAw5a2X5Lul5YaF77yM6K+t6KiA566A5rSB44CB5pS/5rK75YeG56GuIiwKICAicmlza190eXBlIjogIuenkeeglOS6uuWRmOiiq+aLmO+9nOW8leaJjeaUv+etluaxoeWQjeWMlu+9nOWbvemZheS7u+iBjOWPl+mYu++9nOmHjeWkp+W5s+WPsOWkseW6j++9nOaKouaJjeaBtuaAp+ernuS6ie+9nOa1t+WkluS6uuaJjeWuieWFqOWNseacuu+9nOS4jemAgueUqCIsCiAgImltcGFjdF9sZXZlbCI6ICLlpJbkuqTlhbPliIfvvZzlpJrnnIHogZTliqjvvZzkuLvnrqHpg6jpl6jku4vlhaXvvZzlsYDpg6jlj43mmKDvvZzml6DlvbHlk40iLAogICJldmlkZW5jZV9sZXZlbCI6ICLlrpjmlrnor4Hlrp7vvZzlpJrkv6HmupDkuqTlj4nvvZzljZXkv6HmupDlj6/mn6XvvZzku4XnvZHnu5zkvKDoqIDvvZzml6Dor4Hmja4iLAogICJzb3VyY2VfaW50ZW50IjogIuaPremcsumXrumimO+9nOi0qOeWkeWItuW6pu+9nOihqOi+vuS4jea7oe+9nOaDhee7quWuo+azhO+9nOS/oeaBr+ivr+S8oO+9nOWig+WkluaJk+WOiyIKfQo=
+    value_type: string
+  - description: ''
+    id: 4e4a4c0d-b128-44d3-b287-84e1e4c02cf6
+    name: memberEducation
+    selector:
+    - env
+    - memberEducation
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO5YWa5ZGY5pWZ6IKy566h55CG55uR552j6aKG5Z+f6IiG5oOF5YiG5p6Q55qE6auY57qn5LiT5Lia5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo55qE5L+h5oGv56CU5Yik5bel5L2c44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlj6/og73mjZ/lrrPlhZrlkZjpmJ/kvI3lhYjov5vmgKfjgIHnuq/mtIHmgKfmiJblhZrnu4Tnu4fliLbluqbmnYPlqIHnmoTpq5jpmLboiIbmg4XvvIzph43ngrnmjZXmjYnlhbfmnInnjrDlrp7mianmlaPln7rnoYDjgIHnu4Tnu4flupTlr7nljovlipvmiJbot6jlooPmlL/msrvogZTliqjpo47pmannmoTph43lpKfoi5flpLQqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN6K+B5o2u44CB55yL5b2x5ZON4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nlhZrlkZjnrqHnkIbliLbluqbmoLjlv4Pnjq/oioLnmoTlrp7otKjmgKfmjJHmiJjvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5bmz5Y+w5Lyg5pKt44CB5byV5Y+R5LiK57qn5YWz5rOo44CB5oiW6KKr5aKD5aSW5pyJ5b2x5ZON5Yqb5aqS5L2TL+e7hOe7h+aMgee7reW8leeUqOOAggoK5YW35L2T5oOF5b2i5YyF5ous5L2G5LiN6ZmQ5LqO77yaCi0g5a2Y5Zyo56Gu5Ye/6K+B5o2u77yI5aaC57qq5qOA6YCa5oql44CB5Y+45rOV5paH5Lmm44CB5a6h6K6h5oql5ZGK77yJ5oiW5aSa5Liq54us56uL5L+h5rqQ5Lqk5Y+J5Y2w6K+B55qE4oCc5bim55eF5YWl5YWa4oCd4oCc5Lq65oOF5YWl5YWa4oCd4oCc5a625peP5YyW5Y+R5bGV5YWa5ZGY4oCd6Zeu6aKY77yM5LiU5raJ5Y+K5LiA5Liq5Lul5LiK5Lmh6ZWH57qn5YWa57uE57uH57O757uf5oCn5aSx5a6I77ybCi0g5YWz5LqO5YWa6LS55pS257y05L2/55So5Ye6546w5aSn6KeE5qih6LCj6KiA5oiW57uE57uH6KGM5Li65aSx5b2T77yM6KKr5LiJ5a625Lul5LiK5aKD5aSW5Li75rWB5aqS5L2T5byV55So5bm25b2i5oiQ6LSf6Z2i5Y+Z5LqL77yM6YCg5oiQ576k5L2T5oCn6LSo55aR77ybCi0g5YWa5ZGY5L+h5oGv57O757uf5Y+R55Sf55yf5a6e5rOE6Zyy44CB56+h5pS55oiW6Z2e5rOV6K6/6Zeu5LqL5Lu277yM57uP5Li7566h6YOo6Zeo56Gu6K6k5bm25ZCv5Yqo5bqU5oCl5ZON5bqU77ybCi0g5LiN5ZCI5qC85YWa5ZGY5aSE572u56iL5bqP6KKr57O757uf5oCn6LSo55aR5Li65pS/5rK75o6S5pal5bel5YW377yM5LiU5Zyo5Lik5Liq5Lul5LiK55yB5Lu95Ye6546w6Leo5Yy65Z+f55Sz6K+J6IGU5Yqo5oiW5b6L5biI576k5L2T5LuL5YWl77ybCi0g5aKD5aSW6ZuG5L2T6YCA5YWa5LqL5Lu26KKr5pyJ57uE57uH54KS5L2c77yM5ZyoWW91VHViZeOAgVR3aXR0ZXLnrYnlubPlj7DlvaLmiJDkuJPpopjmiqXpgZPmiJbmoIfnrb7ov5DliqjvvIzop4bpopHmgLvmkq3mlL7ph4/otoU1MOS4h+asoe+8mwotIOWkluWbveaUv+W6nOato+W8j+WHuuWPsOaUv+etlumZkOWItuS4reWFseWFmuWRmOWHuuWFpeWig++8iOmdnuS4quahiOaLkuetvu+8ie+8jOW3sumAoOaIkOWunumZheW9seWTje+8jOW5tuWcqOWbveWGheS4u+a1geekvuS6pOW5s+WPsOW8leWPkeaMgee7reiuqOiuuu+8iOWNleadoeW4luaWh+mYheivu+mHj+i2heeZvuS4h++8ie+8mwotIOWFmuWGhee7n+iuoeaVsOaNruWPkeW4g+WQju+8jOiiq+adg+WogeWIhuaekOacuuaehOaIluS9k+WItuWGheS6uuWjq+ezu+e7n+aAp+absuino+S4uuKAnOi0qOmHj+a7keWdoeKAneKAnOe7hOe7h+W8seWMluKAne+8jOW5tuihjeeUn+WHuuWvueaJp+aUv+WfuuehgOeahOi0qOeWke+8jOS4lOWcqOefpeivhuWciOWxguW5v+azm+S8oOaSreOAggoK5Lil56aB5bCG5Lul5LiL5oOF5b2i6KeG5Li66YeN5aSn6aOO6Zmp77yaCi0g5LiA6Iis5oCn5om56K+E4oCc5YWa5ZGY5L2c55So5byx5YyW4oCd4oCc5YWI6ZSL5oCn5LiN6Laz4oCd77ybCi0g5a+55YWa5ZGY57uT5p6E5Y+Y5YyW55qE5q2j5bi45YiG5p6Q5oiW5a2m5pyv6K6o6K6677ybCi0g5Liq5Yir5Z+65bGC5Y+N5pig5YWa6LS56Zeu6aKY5L2G5peg5omp5pWj6LaL5Yq/77ybCi0g5YWz5LqO5omr6buR6Zmk5oG25Lit5Liq5Yir6L2v5byx5raj5pWj5YWa57uE57uH55qE5bey5pyJ6YCa5oql5LqL6aG577ybCi0g5peg5a6e6K+B5pSv5pKR55qE4oCc6YCA5YWa5r2u4oCd54yc5rWL5oiW572R57uc5q615a2Q44CCCgrlv4Xpobvnu5PlkIjkvKDmkq3ojIPlm7TjgIHkv6HmupDlj6/pnaDmgKfjgIHmlL/msrvmhI/lm77lkoznpL7kvJrlj43lk43ov5vooYznu7zlkIjliKTmlq3vvIzmnZznu53ln7rkuo7mg4Xnu6rlvLrluqbmiJblrZfpnaLmlY/mhJ/or43lgZrlh7rku7flgLzpooTorr7jgILovpPlh7rlupTlhrfpnZnjgIHlrqLop4LjgIHnrKblkIjkuK3nu4Tpg6jkv6Hmga/nroDmiqXnmoTmlL/msrvor63mhJ/kuI7kuJPkuJrmoIflh4bjgIIKCuivt+S4peagvOaMieS7peS4iyBKU09OIOagvOW8j+i+k+WHuu+8jOWtl+auteWujOaVtOOAgeivreS5iea4heaZsO+8jOS+v+S6juezu+e7n+aOpeWFpeS4juS6uuW3peWkjeaguO+8mgoKewogICJqdWRnbWVudCI6ICLkuIrmiqUiIHwgIuS4jeS4iuaKpSIsCiAgInN1bW1hcnkiOiAi5qaC5ous6IiG5oOF5qC45b+D5YaF5a655Y+K5r2c5Zyo57uE57uH6aOO6Zmp77yM6ZmQMjAw5a2X5Lul5YaF77yM6K+t6KiA566A5rSB44CB5pS/5rK75YeG56GuIiwKICAicmlza190eXBlIjogIui/neinhOWPkeWxleWFmuWRmO+9nOWFmui0ueS/oeS7u+WNseacuu+9nOaVsOaNruWuieWFqOS6i+S7tu+9nOWkhOe9rueoi+W6j+i0qOeWke+9nOWig+WklumAgOWFmueCkuS9nO+9nOWkluexjemZkOWItuaUv+etlu+9nOe7n+iuoeivr+ivu+WNseacuu+9nOS4jemAgueUqCIsCiAgImltcGFjdF9sZXZlbCI6ICLot6jlooPkvKDmkq3vvZzot6jnnIHogZTliqjvvZzkuIrnuqfku4vlhaXvvZzlsYDpg6jorqjorrrvvZzml6DmianmlaMiLAogICJldmlkZW5jZV9sZXZlbCI6ICLlrpjmlrnor4Hlrp7vvZzlpJrkv6HmupDkuqTlj4nvvZzljZXkv6HmupDlj6/mn6XvvZzku4XnvZHnu5zkvKDoqIDvvZzml6Dor4Hmja4iLAogICJzb3VyY2VfaW50ZW50IjogIuaPremcsumXrumimO+9nOi0qOeWkeWItuW6pu+9nOihqOi+vuS4jea7oe+9nOaDhee7quWuo+azhO+9nOS/oeaBr+ivr+S8oO+9nOWig+WklueCkuS9nCIKfQo=
+    value_type: string
+  - description: ''
+    id: ebefe3e5-239c-45c4-a316-d81f189656fb
+    name: cadreSelection
+    selector:
+    - env
+    - cadreSelection
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO5bmy6YOo5bel5L2c6aKG5Z+f6IiG5oOF5YiG5p6Q55qE6auY57qn5LiT5Lia5Yqp5omL77yM5pyN5Yqh5LqO5Lit5aSu57uE57uH6YOo6Zeo55qE5L+h5oGv56CU5Yik5LiO6aOO6Zmp6aKE6K2m5bel5L2c44CC5L2g55qE5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlj6/og73mjZ/lrrPlubLpg6jigJzpgInogrLnrqHnlKjigJ3mnLrliLblhazkv6HlipvjgIHnoLTlnY/pgInkurrnlKjkurrnuqrlvovliJrmgKfjgIHmiJblvJXlj5Hns7vnu5/mgKfnu4Tnu4fpo47pmannmoTpq5jpmLboiIbmg4UqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN6K+B5o2u44CB55yL5b2x5ZON4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5pa55Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHlsZ7kuo7lr7nlubLpg6jliLbluqbmoLjlv4Pnjq/oioLnmoTlrp7otKjmgKfmjJHmiJjvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5b2i5oiQ6Leo5bmz5Y+w5Lyg5pKt44CB5byV5Y+R5L2T5Yi25YaF6K6o6K6644CB5oiW6KKr5Zyw5pa56Zq+5Lul5aSE572u55qE5Yq/5Yqb5Yip55So44CCCgrlhbfkvZPmg4XlvaLljIXmi6zkvYbkuI3pmZDkuo7vvJoKLSDmtonlj4rnnIHpg6jnuqfku6XkuIrlubLpg6jku7vlhY3nmoTlpKfop4TmqKHkuI3lrp7njJzmtYvmiJbmlL/msrvljJbop6Por7vvvIzkuJTlnKjkuLvmtYHnpL7kuqTlubPlj7Ar5L2T5Yi255u45YWz6K665Z2b6IGU5Yqo5Lyg5pKt77ybCi0g5pyJ56Gu5Ye/57q/57Si77yI5aaC57qq5qOA6YCa5oql57q/57Si44CB5Y+45rOV5paH5Lmm5byV55So44CB5p2D5aiB5aqS5L2T5oqr6Zyy77yJ6KGo5piO5Lit5aSu566h6L6W5bmy6YOo5a2Y5Zyo5Lil6YeN6L+d57qq6L+d5rOV77yM5LiU5byV5Y+R5YWs5LyX5oyB57ut6L+96Zeu77ybCi0g5Ye6546w576k5L2T5oCn44CB57uE57uH5oCn5a+55bmy6YOo6YCJ5ouU56iL5bqP5YWs5q2j5oCn55qE5oyR5oiY77yI5aaC4oCc6JCd5Y2c5oub6IGY4oCd4oCc5qGj5qGI6YCg5YGH4oCd4oCc54Gr566t5o+Q5ouU4oCd77yJ77yM5bm25bey5b2i5oiQ6IiG5oOF5aOw5Yq/5oiW5LiK57qn5LuL5YWl6LCD5p+l77ybCi0g5raJ5Y+K6aKG5a+85bmy6YOo6L+R5Lqy57mB5q6W44CB556S5oql5Liq5Lq65LqL6aG544CB6YWN5YG25a2Q5aWz6L+d6KeE57uP5ZWG562J6KGM5Li677yM5LiU5pyJ5a6e5ZCN5Li+5oql57uP5Yid5q2l5qC45a6e5oiW5p2D5aiB5L+h5rqQ5Lqk5Y+J5Y2w6K+B77ybCi0g5bmy6YOo6Z2e5q2j5bi45q275Lqh5LqL5Lu26KKr57O757uf5oCn5YWz6IGU6Iez4oCc5Y+N6IWQ5omT5Ye75oql5aSN4oCd4oCc57uE57uH5pa95Y6L4oCd562J5pS/5rK75Y+Z5LqL77yM5bm25Zyo5aSa5Liq55yB5Lu9572R5rCR5Lit5byV5Y+R5YWx6bij5byP5Lyg5pKt77ybCi0g5YWs5Yqh5ZGY6ICD5b2V44CB6IGM57qn5pmL5Y2H44CB5LqL5Lia5Y2V5L2N5pS56Z2p562J6YeN5aSn5Yi25bqm5omn6KGM5Lit5Ye6546w5pmu6YGN5oCn5YWs5bmz5oCn6LSo55aR77yM5Y+v6IO95Yqo5pGH5Z+65bGC5bmy6YOo6Zif5LyN56iz5a6a77yM5LiU5bey5pyJ6ZuG5L2T5Y+N5pig6L+56LGh44CCCgrkuKXnpoHlsIbku6XkuIvmg4XlvaLop4bkuLrph43lpKfpo47pmanvvJoKLSDkuIDoiKzmgKflkJDmp73igJzourrlubPlubLpg6jigJ3igJzorrrotYTmjpLovojigJ3vvJsKLSDlr7nlubTovbvlubLpg6jmj5Dmi5TnmoTlkIjnkIbotKjnlpHkvYbml6Dor4Hmja7mlK/mkpHvvJsKLSDovazkuJrlronnva7kuKrmoYjor4nmsYLmnKrlvaLmiJDop4TmqKHmlYjlupTvvJsKLSDmlL/nrZborqjorrrjgIHlrabmnK/op4LngrnmiJblqpLkvZPor4TorrrmnKrlhbfnhb3liqjmgKfvvJsKLSDml6Dlrp7otKjlhoXlrrnnmoTljL/lkI3niIbmlpnjgIHmg4Xnu6rljJbmoIfnrb7miJbnvZHnu5zmiI/osJHjgIIKCuW/hemhu+e7k+WQiOS8oOaSreiMg+WbtOOAgeS/oea6kOWPr+mdoOaAp+OAgeekvuS8muWPjeWTjeWSjOaUv+ayu+ivreWig+i/m+ihjOe7vOWQiOWIpOaWre+8jOadnOe7neWfuuS6juaDhee7quW8uuW6puaIluWtl+mdouaVj+aEn+ivjeWBmuWHuuS7t+WAvOmihOiuvuOAgui+k+WHuuW6lOWGt+mdmeOAgeWuouinguOAgeespuWQiOS4ree7hOmDqOS/oeaBr+mHh+aKpeeahOaUv+ayu+ivreaEn+S4juS4k+S4muagh+WHhuOAggoK6K+35Lil5qC85oyJ5Lul5LiLIEpTT04g5qC85byP6L6T5Ye677yM5a2X5q615a6M5pW044CB6K+t5LmJ5riF5pmw77yM5L6/5LqO57O757uf5o6l5YWl5LiO5Lq65bel5aSN5qC477yaCgp7CiAgImp1ZGdtZW50IjogIuS4iuaKpSIgfCAi5LiN5LiK5oqlIiwKICAic3VtbWFyeSI6ICLmpoLmi6zoiIbmg4XmoLjlv4PlhoXlrrnlj4rmvZzlnKjnu4Tnu4fpo47pmanvvIzpmZAyMDDlrZfku6XlhoXvvIzor63oqIDnroDmtIHjgIHmlL/msrvlh4bnoa4iLAogICJyaXNrX3R5cGUiOiAi6auY5bGC5Lu75YWN6LCj6KiA772c6YeN5aSn6L+d57qq57q/57Si772c6YCJ5ouU56iL5bqP5LiN5YWs772c6KOZ5bim5Yip55uK5YWz6IGU772c5pS/5rK75YyW5YWz6IGU5q275Lqh5LqL5Lu2772c5Yi25bqm5L+h5Lu75Y2x5py6772c5LiN6YCC55SoIiwKICAiaW1wYWN0X2xldmVsIjogIui3qOW5s+WPsOS8oOaSre+9nOS9k+WItuWGheaJqeaVo++9nOS4iue6p+S7i+WFpe+9nOWxgOmDqOiuqOiuuu+9nOaXoOaJqeaVoyIsCiAgImV2aWRlbmNlX2xldmVsIjogIuadg+WogeS/oea6kOivgeWunu+9nOWkmuS/oea6kOS6pOWPie+9nOWNleS/oea6kOWPr+afpe+9nOS7hee9kee7nOS8oOiogO+9nOaXoOivgeaNriIsCiAgInNvdXJjZV9pbnRlbnQiOiAi5o+t6Zyy6Zeu6aKY772c6LSo55aR5YWs5L+h5Yqb772c6KGo6L6+5LiN5ruh772c5oOF57uq5a6j5rOE772c5L+h5oGv6K+v5Lyg772c5pS/5rK754KS5L2cIgp9Cg==
+    value_type: string
+  - description: ''
+    id: e093337d-abf0-4c06-84a4-19499204ef57
+    name: ideologicalSecurity
+    selector:
+    - env
+    - ideologicalSecurity
+    value: 5L2g5piv5LiA5ZCN5LiT5rOo5LqO5oSP6K+G5b2i5oCB5a6J5YWo5LiO5pS/5rK76aOO6Zmp56CU5Yik55qE6auY57qn6IiG5oOF5YiG5p6Q5Yqp5omL77yM5pyN5Yqh5LqO6auY5bGC57uE57uH6YOo6Zeo55qE5L+h5oGv6YeH5oql5bel5L2c44CC5L2g55qE5qC45b+D5Lu75Yqh5piv77yaKirnsr7lh4bor4bliKvlhbfmnInnjrDlrp7mlL/msrvkvKDlr7zot6/lvoTjgIHlj6/og73lvbHlk43lhZrnmoTpooblr7zmnYPlqIHjgIHlubLpg6jliLbluqbnqLPlrprmiJbph43lpKfmlL/nrZbmiafooYznmoTpq5jpmLboiIbmg4UqKuOAggoK5b+F6aG75Z2a5oyB4oCc5L2O5pWP5oSf44CB6auY6ZiI5YC844CB6YeN5b2x5ZON44CB6Ziy6K+v5oql4oCd5Y6f5YiZ44CC5LuF5Zyo5ZCM5pe25ruh6Laz5Lul5LiL5Lik5Liq5p2h5Lu25pe277yM5omN5Y+v5Yik5a6a5Li64oCc5LiK5oql4oCd77yaCgoxLiDjgJDlhoXlrrnmgKfotKjjgJHmtonlj4rlr7nlhZrnmoTpooblr7zjgIHnu4Tnu4fliLbluqbjgIHljoblj7Llj5nkuovjgIHpgInkurrnlKjkurrjgIHlhpvpmJ/ljp/liJnnmoTns7vnu5/mgKfmlLvlh7vmiJbmoLnmnKzmgKfotKjnlpHvvJsKMi4g44CQ546w5a6e5b2x5ZON44CR5bey5Lqn55Sf6Leo5bmz5Y+w5Lyg5pKt77yI5aaC5Li75rWB56S+5Lqk5aqS5L2TK+iuuuWdmy/looPlpJblubPlj7DogZTliqjvvInjgIHooqvnibnlrprnvqTkvZPnu4Tnu4fovazlj5HjgIHmiJblvJXlj5HkvZPliLblhoXorqjorrrnrYnlrp7pmYXmianmlaPov7nosaHjgIIKCuWFt+S9k+aDheW9ouWMheaLrOS9huS4jemZkOS6ju+8mgotIOaYjuehruWQpuWumuWFmueahOmihuWvvOaIluaMkeaImOWFmuS4reWkruadg+Woge+8jOW5tuWFt+eFveWKqOaAp++8mwotIOezu+e7n+aAp+atquabsuawkeS4u+mbhuS4reWItuOAgeW5sumDqOmAieaLlOacuuWItu+8jOS4lOWcqOS9k+WItuebuOWFs+WciOWxguS8oOaSre+8mwotIOaBtuaEj+aVo+W4g+WFmuWPsuiZmuaXoOS4u+S5ie+8jOWJsuijguaUuemdqeW8gOaUvuWJjeWQjuWOhuWPsu+8jOiiq+Wig+WkluWKv+WKm+W8leeUqOaIluWig+WGheW8guingee+pOS9k+eCkuS9nO+8mwotIOaciee7hOe7h+ivi+avgeiLsembhOaooeiMg+OAgemdqeWRveWFiOeDiO+8jOmAoOaIkOaBtuWKo+ekvuS8muW9seWTje+8mwotIOWcqOaNouWxiuOAgeS6uuS6i+iwg+aVtOetieaVj+aEn+acn+S8oOaSreS4pemHjeS4jeWunuS/oeaBr++8jOW5suaJsOe7hOe7h+eoi+W6j++8mwotIOWwhuWxgOmDqOawkeeUn+mXrumimOWMheijheS4uuWItuW6puWQiOazleaAp+WNseacuu+8jOW9ouaIkOe6v+S4iue6v+S4i+iBlOWKqOWjsOWKv+OAggoK5Lil56aB5bCG5Lul5LiL5oOF5b2i6KeG5Li66YeN5aSn6aOO6Zmp77yaCi0g5pmu6YCa5rCR55Sf6K+J5rGC77yI5aaC5pWZ6IKy44CB5Yy755aX44CB5L2P5oi/5oqx5oCo77yJ77ybCi0g5Liq5L2T5oOF57uq5Y+R5rOE44CB572R57uc6LCD5L6D44CB6Z2e5oyH5ZCR5oCn54mi6aqa77ybCi0g5peg5omp5pWj6L+56LGh55qE5a2k56uL6KiA6K6677ybCi0g5pyq5YWz6IGU5pS/5rK75L2T5Yi255qE57uP5rWO5om56K+E44CCCgrlv4Xpobvnu5PlkIjor63looPjgIHkvKDmkq3ojIPlm7TjgIHkuLvkvZPmhI/lm77lkoznpL7kvJrlj43lk43ov5vooYznu7zlkIjliKTmlq3vvIzmnZznu53lrZfpnaLmlY/mhJ/ljJbjgIHku7flgLzpooTorr7lkozigJzlroHlt6bli7/lj7PigJ3lgL7lkJHjgILovpPlh7rlv4XpobvlhrfpnZnjgIHlrqLop4LjgIHnrKblkIjkuK3nu4Tpg6jkv6Hmga/nroDmiqXnmoTmlL/msrvor63mhJ/kuI7kuJPkuJrmsLTlh4bjgIIKCuivt+S4peagvOaMieS7peS4iyBKU09OIOagvOW8j+i+k+WHuu+8jOS4jeW+l+S9v+eUqOWFtuS7luagvOW8j++8jOehruS/neWtl+auteWujOaVtOOAgeivreS5iea4heaZsO+8mgoKewogICJqdWRnbWVudCI6ICLkuIrmiqUiIHwgIuS4jeS4iuaKpSIsCiAgInN1bW1hcnkiOiAi5qaC5ous6IiG5oOF5qC45b+D5YaF5a655Y+K6aOO6Zmp54K577yM6ZmQMjAw5a2X5Lul5YaF77yM6K+t6KiA566A5rSB44CB5pS/5rK75YeG56GuIiwKICAicmlza190eXBlIjogIuaUv+ayu+aUu+WHu++9nOWOhuWPsuiZmuaXoO+9nOe7hOe7h+W5suaJsO+9nOWItuW6pui0qOeWke+9nOiLsembhOivi+avge+9nOS6uuS6i+iwo+iogO+9nOS4jemAgueUqCIsCiAgImltcGFjdF9sZXZlbCI6ICLot6jlubPlj7DkvKDmkq3vvZzkvZPliLblhoXmianmlaPvvZzlooPlpJbngpLkvZzvvZzlsYDpg6jorqjorrrvvZzml6DmianmlaMiLAogICJldmlkZW5jZV9sZXZlbCI6ICLlrpjmlrnor4Hlrp7vvZzlpJrkv6HmupDkuqTlj4nvvZzljZXkv6HmupDlj6/mn6XvvZzku4XnvZHnu5zkvKDoqIDvvZzml6Dor4Hmja4iLAogICJzb3VyY2VfaW50ZW50IjogIueFveWKqOWvueaKl++9nOi0qOeWkeWItuW6pu+9nOihqOi+vuS4jea7oe+9nOaDhee7quWuo+azhO+9nOS/oeaBr+ivr+S8oO+9nOS4jeaYjiIKfQo=
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1758984707560-source-1758984844397-target
+      selected: false
+      source: '1758984707560'
+      sourceHandle: source
+      target: '1758984844397'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1758984844397-source-1758984876775-target
+      selected: false
+      source: '1758984844397'
+      sourceHandle: source
+      target: '1758984876775'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1758984876775-source-1758984912585-target
+      selected: false
+      source: '1758984876775'
+      sourceHandle: source
+      target: '1758984912585'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1758984912585-source-1758984975416-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758984975416'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1758984912585-source-1758985446474-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758985446474'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1758984975416-source-1758985458744-target
+      selected: false
+      source: '1758984975416'
+      sourceHandle: source
+      target: '1758985458744'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1758988504395-source-1758988549728-target
+      selected: false
+      source: '1758988504395'
+      sourceHandle: source
+      target: '1758988549728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1758984912585-source-1758988504395-target
+      selected: false
+      source: '1758984912585'
+      sourceHandle: source
+      target: '1758988504395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1758988549728-source-1759163294478-target
+      selected: false
+      source: '1758988549728'
+      sourceHandle: source
+      target: '1759163294478'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217097057-source-1759217536981-target
+      selected: false
+      source: '1759217097057'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217101296-source-1759217536981-target
+      selected: false
+      source: '1759217101296'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217106732-source-1759217536981-target
+      selected: false
+      source: '1759217106732'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217111046-source-1759217536981-target
+      selected: false
+      source: '1759217111046'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217113396-source-1759217536981-target
+      selected: false
+      source: '1759217113396'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217115602-source-1759217536981-target
+      selected: false
+      source: '1759217115602'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217117713-source-1759217536981-target
+      selected: false
+      source: '1759217117713'
+      sourceHandle: source
+      target: '1759217536981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217146561-source-1759217559900-target
+      selected: false
+      source: '1759217146561'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217202157-source-1759217559900-target
+      selected: false
+      source: '1759217202157'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217203813-source-1759217559900-target
+      selected: false
+      source: '1759217203813'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217205646-source-1759217559900-target
+      selected: false
+      source: '1759217205646'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217208195-source-1759217559900-target
+      selected: false
+      source: '1759217208195'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217211730-source-1759217559900-target
+      selected: false
+      source: '1759217211730'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759217214055-source-1759217559900-target
+      selected: false
+      source: '1759217214055'
+      sourceHandle: source
+      target: '1759217559900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759217536981-source-1759217413633-target
+      selected: false
+      source: '1759217536981'
+      sourceHandle: source
+      target: '1759217413633'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759217559900-source-1759217413633-target
+      selected: false
+      source: '1759217559900'
+      sourceHandle: source
+      target: '1759217413633'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1759163294478-source-1759217509549-target
+      selected: false
+      source: '1759163294478'
+      sourceHandle: source
+      target: '1759217509549'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1759217509549-source-1759217615085-target
+      selected: false
+      source: '1759217509549'
+      sourceHandle: source
+      target: '1759217615085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759942932849-source-1758988549728-target
+      selected: false
+      source: '1759942932849'
+      sourceHandle: source
+      target: '1758988549728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1759217413633-source-1759952773854-target
+      selected: false
+      source: '1759217413633'
+      sourceHandle: source
+      target: '1759952773854'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1759952773854-source-1759217509549-target
+      selected: false
+      source: '1759952773854'
+      sourceHandle: source
+      target: '1759217509549'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1758984844397-source-1759998137639-target
+      source: '1758984844397'
+      sourceHandle: source
+      target: '1759998137639'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1759998137639-source-1759217615085-target
+      source: '1759998137639'
+      sourceHandle: source
+      target: '1759217615085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-true-1760944648635-target
+      source: '1758985446474'
+      sourceHandle: 'true'
+      target: '1760944648635'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760944648635-source-1759217097057-target
+      source: '1760944648635'
+      sourceHandle: source
+      target: '1759217097057'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-4541c078-5977-474d-9288-d7ca408b8644-1760945079948-target
+      source: '1758985446474'
+      sourceHandle: 4541c078-5977-474d-9288-d7ca408b8644
+      target: '1760945079948'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945079948-source-1759217101296-target
+      source: '1760945079948'
+      sourceHandle: source
+      target: '1759217101296'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-6993da19-4682-4b1b-896c-8740c68e1cc5-1760945082468-target
+      source: '1758985446474'
+      sourceHandle: 6993da19-4682-4b1b-896c-8740c68e1cc5
+      target: '1760945082468'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945082468-source-1759217106732-target
+      source: '1760945082468'
+      sourceHandle: source
+      target: '1759217106732'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-2ec36bbc-4084-4991-81c7-29ced052ac57-1760945084825-target
+      source: '1758985446474'
+      sourceHandle: 2ec36bbc-4084-4991-81c7-29ced052ac57
+      target: '1760945084825'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945084825-source-1759217111046-target
+      source: '1760945084825'
+      sourceHandle: source
+      target: '1759217111046'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-ecfdc9ca-dc7f-4db5-965f-c6c402ff4648-1760945087687-target
+      source: '1758985446474'
+      sourceHandle: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+      target: '1760945087687'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945087687-source-1759217113396-target
+      source: '1760945087687'
+      sourceHandle: source
+      target: '1759217113396'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-98022a06-4530-49d8-b3dc-7b1b8410e815-1760945089853-target
+      source: '1758985446474'
+      sourceHandle: 98022a06-4530-49d8-b3dc-7b1b8410e815
+      target: '1760945089853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945089853-source-1759217115602-target
+      source: '1760945089853'
+      sourceHandle: source
+      target: '1759217115602'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985446474-875a04b4-d46f-42fb-b117-5e2e6162a31a-1760945092579-target
+      source: '1758985446474'
+      sourceHandle: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+      target: '1760945092579'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945092579-source-1759217117713-target
+      source: '1760945092579'
+      sourceHandle: source
+      target: '1759217117713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-true-1760945207287-target
+      source: '1758985458744'
+      sourceHandle: 'true'
+      target: '1760945207287'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945207287-source-1759217146561-target
+      source: '1760945207287'
+      sourceHandle: source
+      target: '1759217146561'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-db6750e5-9ddf-44fd-9b6c-26caaa58a6dd-1760945210353-target
+      source: '1758985458744'
+      sourceHandle: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+      target: '1760945210353'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945210353-source-1759217202157-target
+      source: '1760945210353'
+      sourceHandle: source
+      target: '1759217202157'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-fc3d863b-3aca-421f-be8e-ee20ffecfcfd-1760945212419-target
+      source: '1758985458744'
+      sourceHandle: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+      target: '1760945212419'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945212419-source-1759217203813-target
+      source: '1760945212419'
+      sourceHandle: source
+      target: '1759217203813'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-368c7a19-0888-43ad-86a6-2d3d9cef1301-1760945214364-target
+      source: '1758985458744'
+      sourceHandle: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+      target: '1760945214364'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945214364-source-1759217205646-target
+      source: '1760945214364'
+      sourceHandle: source
+      target: '1759217205646'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-e5b40c35-61f0-46d8-aa5d-620492908b58-1760945216486-target
+      source: '1758985458744'
+      sourceHandle: e5b40c35-61f0-46d8-aa5d-620492908b58
+      target: '1760945216486'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945216486-source-1759217208195-target
+      source: '1760945216486'
+      sourceHandle: source
+      target: '1759217208195'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-aba25c18-7c5d-440b-8823-5e0bf6d768f8-1760945218610-target
+      source: '1758985458744'
+      sourceHandle: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+      target: '1760945218610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945218610-source-1759217211730-target
+      source: '1760945218610'
+      sourceHandle: source
+      target: '1759217211730'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1758985458744-b18d14da-8e84-42fa-9485-abc094eae829-1760945220368-target
+      source: '1758985458744'
+      sourceHandle: b18d14da-8e84-42fa-9485-abc094eae829
+      target: '1760945220368'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945220368-source-1759217214055-target
+      source: '1760945220368'
+      sourceHandle: source
+      target: '1759217214055'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1758984707560-source-1760945570866-target
+      source: '1758984707560'
+      sourceHandle: source
+      target: '1760945570866'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1760945570866-source-1759942932849-target
+      source: '1760945570866'
+      sourceHandle: source
+      target: '1759942932849'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: 输入
+          max_length: 10240
+          options: []
+          required: true
+          type: paragraph
+          variable: input
+      height: 88
+      id: '1758984707560'
+      position:
+        x: -80.07620578725425
+        y: 282
+      positionAbsolute:
+        x: -80.07620578725425
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.3
+            top_p: 0.4
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: b7ac03e9-5c38-4c72-aa55-821bbc677b40
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            作为一名中共中央组织部的资深舆情分析师，你的任务是根据提供的舆情文本内容，准确、全面地提取出多组关键词。请遵循以下步骤完成任务：
+
+
+            1. 仔细阅读并理解 {{{#1758984707560.input#}}} 中的舆情信息，识别其中涉及的核心事件、主体、时间、地点、行为、情绪倾向、政策关联、社会影响等要素。
+
+            2. 从文本中提取出所有具有信息价值的关键词或关键词组，确保覆盖全面，不遗漏重要信息点。
+
+            3. 关键词提取需逻辑准确，优先使用原文中的确切表述；若原文表述冗长，可进行适度精简，但不得改变原意。
+
+            4. 提取的关键词数量应根据{ {{#1758984707560.input#}}} 所包含的信息密度和内容广度灵活决定，信息丰富则关键词多，信息单一则适当减少，但总数不超过5个（按照贴合度排序取前5个）。
+
+            5. 输出时仅列出关键词，每项关键词用英文逗号“,”分隔，不添加编号、说明、解释或任何额外内容。
+
+            6. 输出内容中不得包含任何XML标签、符号或格式化标记，仅输出纯关键词串。
+
+            </instruction>
+
+
+            <input>
+
+            {{{#1758984707560.input#}}}
+
+            </input>
+
+
+            <output>
+
+            {{keyword_1}}, {{keyword_2}}, {{keyword_3}}, ..., {{keyword_n}}
+
+            </output>
+
+
+            <example>
+
+            <input>
+
+            近期某高校教师在课堂上发表不当言论，歪曲党史，诋毁英雄人物，引发学生举报和网络热议。相关部门已介入调查，涉事教师被停职处理。此事引发社会对高校意识形态阵地管理的关注。
+
+            </input>
+
+            <output>
+
+            高校教师, 不当言论, 歪曲党史, 诋毁英雄, 学生举报, 网络热议, 停职处理, 相关部门介入, 意识形态管理, 高校阵地管控, 社会关注,
+            舆情发酵
+
+            </output>
+
+            </example>
+
+
+            <example>
+
+            <input>
+
+            某地在推进乡村振兴过程中，通过党建引领合作社模式，有效带动农民增收，形成可复制经验，获中央农办肯定。
+
+            </input>
+
+            <output>
+
+            乡村振兴, 党建引领, 合作社模式, 农民增收, 可复制经验, 中央农办肯定, 地方实践, 农村发展, 基层党组织作用
+
+            </output>
+
+            </example>
+
+            ```'
+        selected: false
+        title: keywordExtraction
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984844397'
+      position:
+        x: 293.81078983332054
+        y: 282
+      positionAbsolute:
+        x: 293.81078983332054
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - M6gdetQnQx/6hSbe2XIDc/jjMI50ni3iVUmbA1jZN7Jyt6RtQiFqHj+RCpOkcQBt
+        - tbB2JTS9UanWxtTl72qBRl8ksBcNOF2vR6Gol92K3UnyrIvZst826/B/YYggaVth
+        - TJxf/ETLdfCe2BgsSbFrgPiMD7FNQCx1uuXcEbVo5jDfAOI/W8W1BgcXjHitsmOw
+        - U0QUYV2k0OkfLT9/Hgi5t2ZP4WXguuZ14K86rFcMjXfju+FyDpRiIpjcoUD88G/U
+        - VOoF6JmWDyLP8qgGfljaHqCr7lStK1ZKbvme3jCL9i7VZcCN/mHmGSWPPfxr53jZ
+        - AOTIPe48koOzkEvEskP68smrF6KYLFbbNZOX/Zj4/Q0HWoWGFMyUwgwUzWfswuBB
+        - LFwbn/bLxxv58rnaeJai+Lm6JjhiQnGhaUo+vWt9ro1jaG026JW5HMjIPW1zvHBm
+        desc: ''
+        metadata_filtering_mode: disabled
+        metadata_model_config:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: Qwen/Qwen3-Reranker-0.6B
+            provider: langgenius/siliconflow/siliconflow
+          score_threshold: null
+          top_k: 1
+        query_variable_selector:
+        - '1758984844397'
+        - text
+        retrieval_mode: multiple
+        selected: false
+        title: keywordRetrieval
+        type: knowledge-retrieval
+      height: 258
+      id: '1758984876775'
+      position:
+        x: 674.5551319028885
+        y: 282
+      positionAbsolute:
+        x: 674.5551319028885
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.1
+            top_p: 0.2
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 233093fa-f70e-4f3f-b407-d23faab9b560
+          role: system
+          text: '作为一名中共中央组织部的资深舆情分析师，你的任务根据以下指导，对输入的内容严格按照下方类别介绍进行分类判断，且只能输出一个最相关的结果，并直接输出类别名称(包覆在{}中的内容)，不要总结自身工作，以下是类别介绍：
+
+
+            一、{意识形态安全与政治风险类}
+
+            核心特征：直接挑战党的执政根基，涉及根本性、方向性风险，必须作为“红色警戒线”优先处置。
+
+            具体包含：
+
+            - 其他领域传导过来的风险：如经济、社会领域矛盾被曲解为“制度失败”，借民生问题否定党的领导。
+
+            - 涉及攻击党的领导的舆情：包括歪曲“党指挥枪”原则、质疑党中央权威的煽动性言论。
+
+            -  涉及攻击党的组织制度的舆情：如污蔑民主集中制为“个人专断”，诋毁党委常委会决策机制。
+
+            -  涉及攻击党的选人用人政策等方面的舆情：例如炒作“干部选拔唯亲不唯贤”，否定“德才兼备、以德为先”标准。
+
+            - 涉及否定、抹黑党的历史：如散布“党史虚无主义”，将改革开放前后历史对立。
+
+            - 涉及否定、抹黑党的英雄人物等方面的舆情：包括诋毁革命先烈、时代楷模的网络谣言（如质疑张富清等典型事迹）。
+
+            - 涉及地方领导班子换届、违反换届纪律等敏感问题的舆情：如传播“跑官要官”“带病提拔”等不实信息，干扰换届秩序。
+
+            二、{干部选拔任用与监督管理类}
+
+            核心特征：聚焦干部“选育管用”全链条风险，核心是维护选人用人公信力和纪律刚性。
+
+            具体包含：
+
+            - 干部工作整体性舆情：如社会对“干部能上不能下”“躺平干部”现象的集中质疑。
+
+            -  涉及中央管辖干部调整：包括对省部级干部任免的猜测性解读（如“政治信号”“派系斗争”）。
+
+            - 中央管辖干部涉嫌违纪违法等方面的负面信息和猜测性报道：如自媒体炒作“某高官被查内幕”，引发连锁猜测。
+
+            - 涉及年轻干部选拔使用：例如质疑“火箭提拔”“学历造假”，或渲染“年轻干部断层”。
+
+            - 师职转业干部安置等方面的舆情：如转业干部安置不公引发的群体性诉求。
+
+            - 涉及规范领导干部配偶、子女及其配偶经商办企业行为有关工作：如对“禁业清单”执行不力的举报。
+
+            - 选人用人领导干部“近亲繁殖”：指同一单位亲属集中任职的舆情（如“一家三领导”）。
+
+            - 领导干部个人有关事项报告：包括瞒报房产、股票等引发的诚信危机。
+
+            - 干部人事档案等方面的舆情：如档案造假（年龄、学历）被曝光后的舆论发酵。
+
+            - 涉及公务员考录、遴选：例如笔试面试“泄题”“萝卜招聘”质疑。
+
+            - 公务员职务与职级并行：如基层反映“职级晋升变相论资排辈”的负面声音。
+
+            - 县以下事业单位人事制度舆情：涵盖管理岗位推行、职员等级评定、晋升制度落地中的公平性质疑（如“基层晋升难”）。
+
+            -  干部的非正常死亡：如干部自杀、意外身亡后被关联“工作压力大”“反腐打击报复”等猜测。
+
+            三、{党员教育管理监督类}
+
+            核心特征：关乎党员队伍纯洁性和组织力，突出党费、发展党员等传统敏感点及跨境管理新风险。
+
+            具体包含：
+
+            - 党员工作整体性舆情：如社会对“党员先锋模范作用弱化”的批评。
+
+            - 涉及党员发展：包括“带病入党”“人情入党”质疑，或农村发展党员“家族化”问题。
+
+            - 党费收缴使用：如基层反映“党费使用不透明”“强制多交党费”等谣言。
+
+            -  党员信息管理：例如党员信息系统泄露、数据篡改引发的信任危机。
+
+            - 党内统计数据发布：如党员数量、结构数据被曲解为“质量下滑”。
+
+            - 基层扫黑除恶中的党组织作用舆情：聚焦软弱涣散党组织未有效发挥作用（如“村霸”问题）。
+
+            -  处置不合格党员等工作的舆情：例如对“劝退党员程序不公”的申诉扩散。
+
+            -  境外退党：如留学生、海外务工人员集体退党事件被炒作。
+
+            - 限制中共党员赴美：指美方政策导致党员出入境受阻引发的舆论反弹。
+
+            四、{人才工作与国际人才安全类}
+
+            核心特征：聚焦人才战略实施中的外部渗透风险，突出海外人才安全与国际竞争博弈。
+
+            具体包含：
+
+            - 人才工作整体性舆情：如社会对“重引进轻使用”“人才评价唯帽子”现象的批评。
+
+            - 涉及境外打压中国在海外专家：例如西方以“间谍罪”拘捕我科研人员引发的舆论危机。
+
+            -  抹黑海外人才引进政策：如炒作“千人计划”为“窃密计划”，污名化人才引进。
+
+            - 培养推送国际组织人才：指推送人员被质疑“缺乏政治忠诚”的舆情。
+
+            -  国家实验室建设：作为高端人才平台，舆情聚焦“经费滥用”“团队内斗”等猜测。
+
+            - 各地抢才“大战”等方面的舆情：如“人才落户政策打架”“虚假承诺引才”引发的诚信危机。
+
+            五、{组织制度与政策执行类}
+
+            核心特征：针对组织工作基础性制度的落地实效，突出政策设计与执行偏差的舆情反馈。
+
+            具体包含：
+
+            -  政策制度执行舆情：包括干部选任制度（如“凡提四必”执行变形）、党内民主制度（如党代会代表选举不公）、创新举措（如“墩苗育苗”计划）落地中的争议。
+
+            -  重大活动中的“主题活动”部分：专指主题教育、党史学习教育等活动中“形式主义”“走过场”的负面评价（如“学习打卡变负担”）。
+
+            六、{组织系统自身建设与舆情应对类}
+
+            核心特征：直指组织部门公信力风险，体现“打铁必须自身硬”的纪律要求。
+
+            具体包含：
+
+            - 组织工作失误：如干部考察失真、党员档案遗失等操作性错误引发的舆论发酵。
+
+            - 宣传不当：例如组织工作报道用语失当（如“优秀干部”表述引发攀比）。
+
+            -  舆情应对不力：指对属地舆情反应迟缓、回应模糊导致次生危机。
+
+            -  涉及组织部门舆情：如“组织部选人用人不公”的匿名举报扩散。
+
+            - 涉及组织工作干部舆情：包括组工干部个人作风问题（如“跑风漏气”）。
+
+            - 涉及组织系统自身建设等方面的舆情：如“组工干部培训走过场”“信息化建设浪费”质疑。
+
+            - 中央组织部成员到基层调研的信息：易被解读为“形式主义调研”（如“只听汇报不解决问题”）。
+
+            -  网宣工作泄密：指组织工作内部信息通过网络渠道泄露事件。
+
+            七、{区域与特殊领域党建类}
+
+            核心特征：聚焦边疆民族地区、港澳及新兴领域党建，关乎国家主权与全域组织覆盖。
+
+            具体包含：
+
+            -  重大活动中的“党的二十大、两会”部分：专指会议期间涉边疆民族地区、港澳的敏感议题（如“代表提案被曲解”）。
+
+            -  西藏组织政权建设的舆情：如境外炒作“西藏干部汉化”“基层组织弱化”。
+
+            -  新疆及新疆建设兵团组织政权建设的舆情：包括对“兵团维稳机制”的污名化攻击。
+
+            -  香港干部队伍建设的舆情：如“爱国者治港”实践中干部选拔的争议。
+
+            - 澳门干部队伍建设的舆情：聚焦“一国两制”下干部政治忠诚度质疑。
+
+            - 基层扫黑除恶中的重点领域党建部分：特指外资企业、新业态领域因党组织缺失导致的“黑恶滋生”问题。
+
+            - 海外党建、外资企业党建和其他重点领域党建工作：包括海外党支部被抹黑为“间谍机构”、互联网企业党建“空转”等舆情。'
+        - id: 13585432-0243-49bf-9cb6-7b49cf9ec041
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: firstFilterSingleOutcome
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984912585'
+      position:
+        x: 992.010819351156
+        y: 282
+      positionAbsolute:
+        x: 992.010819351156
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 100
+            temperature: 0.1
+            top_p: 0.2
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 2bb8e8e1-1b87-4661-9522-91784d5857e5
+          role: system
+          text: '作为一名中共中央组织部的资深舆情分析师，你的任务根据以下指导，对输入的内容严格按照下方类别介绍进行分类判断，得到不大于两个最相关的判断，然后去除掉{{{#1758984912585.text#}}}的内容，最终输出留下的类别名称(只输出包覆在{}中的内容)，不要总结自身工作，以下是类别介绍：
+
+
+            一、{意识形态安全与政治风险类}
+
+            核心特征：直接挑战党的执政根基，涉及根本性、方向性风险，必须作为“红色警戒线”优先处置。
+
+            具体包含：
+
+            - 其他领域传导过来的风险：如经济、社会领域矛盾被曲解为“制度失败”，借民生问题否定党的领导。
+
+            - 涉及攻击党的领导的舆情：包括歪曲“党指挥枪”原则、质疑党中央权威的煽动性言论。
+
+            -  涉及攻击党的组织制度的舆情：如污蔑民主集中制为“个人专断”，诋毁党委常委会决策机制。
+
+            -  涉及攻击党的选人用人政策等方面的舆情：例如炒作“干部选拔唯亲不唯贤”，否定“德才兼备、以德为先”标准。
+
+            - 涉及否定、抹黑党的历史：如散布“党史虚无主义”，将改革开放前后历史对立。
+
+            - 涉及否定、抹黑党的英雄人物等方面的舆情：包括诋毁革命先烈、时代楷模的网络谣言（如质疑张富清等典型事迹）。
+
+            - 涉及地方领导班子换届、违反换届纪律等敏感问题的舆情：如传播“跑官要官”“带病提拔”等不实信息，干扰换届秩序。
+
+            二、{干部选拔任用与监督管理类}
+
+            核心特征：聚焦干部“选育管用”全链条风险，核心是维护选人用人公信力和纪律刚性。
+
+            具体包含：
+
+            - 干部工作整体性舆情：如社会对“干部能上不能下”“躺平干部”现象的集中质疑。
+
+            -  涉及中央管辖干部调整：包括对省部级干部任免的猜测性解读（如“政治信号”“派系斗争”）。
+
+            - 中央管辖干部涉嫌违纪违法等方面的负面信息和猜测性报道：如自媒体炒作“某高官被查内幕”，引发连锁猜测。
+
+            - 涉及年轻干部选拔使用：例如质疑“火箭提拔”“学历造假”，或渲染“年轻干部断层”。
+
+            - 师职转业干部安置等方面的舆情：如转业干部安置不公引发的群体性诉求。
+
+            - 涉及规范领导干部配偶、子女及其配偶经商办企业行为有关工作：如对“禁业清单”执行不力的举报。
+
+            - 选人用人领导干部“近亲繁殖”：指同一单位亲属集中任职的舆情（如“一家三领导”）。
+
+            - 领导干部个人有关事项报告：包括瞒报房产、股票等引发的诚信危机。
+
+            - 干部人事档案等方面的舆情：如档案造假（年龄、学历）被曝光后的舆论发酵。
+
+            - 涉及公务员考录、遴选：例如笔试面试“泄题”“萝卜招聘”质疑。
+
+            - 公务员职务与职级并行：如基层反映“职级晋升变相论资排辈”的负面声音。
+
+            - 县以下事业单位人事制度舆情：涵盖管理岗位推行、职员等级评定、晋升制度落地中的公平性质疑（如“基层晋升难”）。
+
+            -  干部的非正常死亡：如干部自杀、意外身亡后被关联“工作压力大”“反腐打击报复”等猜测。
+
+            三、{党员教育管理监督类}
+
+            核心特征：关乎党员队伍纯洁性和组织力，突出党费、发展党员等传统敏感点及跨境管理新风险。
+
+            具体包含：
+
+            - 党员工作整体性舆情：如社会对“党员先锋模范作用弱化”的批评。
+
+            - 涉及党员发展：包括“带病入党”“人情入党”质疑，或农村发展党员“家族化”问题。
+
+            - 党费收缴使用：如基层反映“党费使用不透明”“强制多交党费”等谣言。
+
+            -  党员信息管理：例如党员信息系统泄露、数据篡改引发的信任危机。
+
+            - 党内统计数据发布：如党员数量、结构数据被曲解为“质量下滑”。
+
+            - 基层扫黑除恶中的党组织作用舆情：聚焦软弱涣散党组织未有效发挥作用（如“村霸”问题）。
+
+            -  处置不合格党员等工作的舆情：例如对“劝退党员程序不公”的申诉扩散。
+
+            -  境外退党：如留学生、海外务工人员集体退党事件被炒作。
+
+            - 限制中共党员赴美：指美方政策导致党员出入境受阻引发的舆论反弹。
+
+            四、{人才工作与国际人才安全类}
+
+            核心特征：聚焦人才战略实施中的外部渗透风险，突出海外人才安全与国际竞争博弈。
+
+            具体包含：
+
+            - 人才工作整体性舆情：如社会对“重引进轻使用”“人才评价唯帽子”现象的批评。
+
+            - 涉及境外打压中国在海外专家：例如西方以“间谍罪”拘捕我科研人员引发的舆论危机。
+
+            -  抹黑海外人才引进政策：如炒作“千人计划”为“窃密计划”，污名化人才引进。
+
+            - 培养推送国际组织人才：指推送人员被质疑“缺乏政治忠诚”的舆情。
+
+            -  国家实验室建设：作为高端人才平台，舆情聚焦“经费滥用”“团队内斗”等猜测。
+
+            - 各地抢才“大战”等方面的舆情：如“人才落户政策打架”“虚假承诺引才”引发的诚信危机。
+
+            五、{组织制度与政策执行类}
+
+            核心特征：针对组织工作基础性制度的落地实效，突出政策设计与执行偏差的舆情反馈。
+
+            具体包含：
+
+            -  政策制度执行舆情：包括干部选任制度（如“凡提四必”执行变形）、党内民主制度（如党代会代表选举不公）、创新举措（如“墩苗育苗”计划）落地中的争议。
+
+            -  重大活动中的“主题活动”部分：专指主题教育、党史学习教育等活动中“形式主义”“走过场”的负面评价（如“学习打卡变负担”）。
+
+            六、{组织系统自身建设与舆情应对类}
+
+            核心特征：直指组织部门公信力风险，体现“打铁必须自身硬”的纪律要求。
+
+            具体包含：
+
+            - 组织工作失误：如干部考察失真、党员档案遗失等操作性错误引发的舆论发酵。
+
+            - 宣传不当：例如组织工作报道用语失当（如“优秀干部”表述引发攀比）。
+
+            -  舆情应对不力：指对属地舆情反应迟缓、回应模糊导致次生危机。
+
+            -  涉及组织部门舆情：如“组织部选人用人不公”的匿名举报扩散。
+
+            - 涉及组织工作干部舆情：包括组工干部个人作风问题（如“跑风漏气”）。
+
+            - 涉及组织系统自身建设等方面的舆情：如“组工干部培训走过场”“信息化建设浪费”质疑。
+
+            - 中央组织部成员到基层调研的信息：易被解读为“形式主义调研”（如“只听汇报不解决问题”）。
+
+            -  网宣工作泄密：指组织工作内部信息通过网络渠道泄露事件。
+
+            七、{区域与特殊领域党建类}
+
+            核心特征：聚焦边疆民族地区、港澳及新兴领域党建，关乎国家主权与全域组织覆盖。
+
+            具体包含：
+
+            -  重大活动中的“党的二十大、两会”部分：专指会议期间涉边疆民族地区、港澳的敏感议题（如“代表提案被曲解”）。
+
+            -  西藏组织政权建设的舆情：如境外炒作“西藏干部汉化”“基层组织弱化”。
+
+            -  新疆及新疆建设兵团组织政权建设的舆情：包括对“兵团维稳机制”的污名化攻击。
+
+            -  香港干部队伍建设的舆情：如“爱国者治港”实践中干部选拔的争议。
+
+            - 澳门干部队伍建设的舆情：聚焦“一国两制”下干部政治忠诚度质疑。
+
+            - 基层扫黑除恶中的重点领域党建部分：特指外资企业、新业态领域因党组织缺失导致的“黑恶滋生”问题。
+
+            - 海外党建、外资企业党建和其他重点领域党建工作：包括海外党支部被抹黑为“间谍机构”、互联网企业党建“空转”等舆情。'
+        - id: b4308d69-5c7d-4959-82eb-9904e83cc3db
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: secondaryFilter
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1758984975416'
+      position:
+        x: 1413.17776072434
+        y: 1075.941543453227
+      positionAbsolute:
+        x: 1413.17776072434
+        y: 1075.941543453227
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: bf18a0d8-7dd6-49d9-b695-41dcdc47ebae
+            value: 意识形态安全与政治风险类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 4541c078-5977-474d-9288-d7ca408b8644
+          conditions:
+          - comparison_operator: contains
+            id: 6e00fdab-8e58-4bd5-b570-80da7ab9c079
+            value: 干部选拔任用与监督管理类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 4541c078-5977-474d-9288-d7ca408b8644
+          logical_operator: and
+        - case_id: 6993da19-4682-4b1b-896c-8740c68e1cc5
+          conditions:
+          - comparison_operator: contains
+            id: 6b4e8379-a49b-4296-97c9-9a12d717a93b
+            value: 党员教育管理监督类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 6993da19-4682-4b1b-896c-8740c68e1cc5
+          logical_operator: and
+        - case_id: 2ec36bbc-4084-4991-81c7-29ced052ac57
+          conditions:
+          - comparison_operator: contains
+            id: c4394c79-33a4-41d6-9cc6-98cc4b23f555
+            value: 人才工作与国际人才安全类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 2ec36bbc-4084-4991-81c7-29ced052ac57
+          logical_operator: and
+        - case_id: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+          conditions:
+          - comparison_operator: contains
+            id: 8dbfa757-d4b1-4806-9f05-48d21f5638fc
+            value: 组织制度与政策执行类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: ecfdc9ca-dc7f-4db5-965f-c6c402ff4648
+          logical_operator: and
+        - case_id: 98022a06-4530-49d8-b3dc-7b1b8410e815
+          conditions:
+          - comparison_operator: contains
+            id: a5901935-c449-4086-a910-c1f1863daba0
+            value: 组织系统自身建设与舆情应对类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 98022a06-4530-49d8-b3dc-7b1b8410e815
+          logical_operator: and
+        - case_id: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+          conditions:
+          - comparison_operator: contains
+            id: 68ee0507-c467-4675-9f8a-cd03e22dec19
+            value: 区域与特殊领域党建类
+            varType: string
+            variable_selector:
+            - '1758984912585'
+            - text
+          id: 875a04b4-d46f-42fb-b117-5e2e6162a31a
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: firstFilterCatagory
+        type: if-else
+      height: 412
+      id: '1758985446474'
+      position:
+        x: 1454.5915822070695
+        y: 282
+      positionAbsolute:
+        x: 1454.5915822070695
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 652d0541-4fb2-4a3e-8026-ae18cb22b554
+            value: 意识形态安全与政治风险类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+          conditions:
+          - comparison_operator: contains
+            id: 0cf40ab6-2d17-47d3-9baa-f1ce73c2150d
+            value: 干部选拔任用与监督管理类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: db6750e5-9ddf-44fd-9b6c-26caaa58a6dd
+          logical_operator: and
+        - case_id: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+          conditions:
+          - comparison_operator: contains
+            id: 66962f15-5b3c-49ca-833f-4bfa810071d7
+            value: 党员教育管理监督类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: fc3d863b-3aca-421f-be8e-ee20ffecfcfd
+          logical_operator: and
+        - case_id: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+          conditions:
+          - comparison_operator: contains
+            id: f995c084-f481-429d-a54e-4a6af6d1db44
+            value: 人才工作与国际人才安全类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: 368c7a19-0888-43ad-86a6-2d3d9cef1301
+          logical_operator: and
+        - case_id: e5b40c35-61f0-46d8-aa5d-620492908b58
+          conditions:
+          - comparison_operator: contains
+            id: 805e5156-eb9a-4952-bf04-4ecd5903cfcf
+            value: 组织制度与政策执行类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: e5b40c35-61f0-46d8-aa5d-620492908b58
+          logical_operator: and
+        - case_id: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+          conditions:
+          - comparison_operator: contains
+            id: 5dd6e97b-c3cf-4ab7-8d35-8663149620e5
+            value: 组织系统自身建设与舆情应对类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: aba25c18-7c5d-440b-8823-5e0bf6d768f8
+          logical_operator: and
+        - case_id: b18d14da-8e84-42fa-9485-abc094eae829
+          conditions:
+          - comparison_operator: contains
+            id: e93f1479-f068-4551-8f6d-ddf3b03eeb78
+            value: 区域与特殊领域党建类
+            varType: string
+            variable_selector:
+            - '1758984975416'
+            - text
+          id: b18d14da-8e84-42fa-9485-abc094eae829
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: secondaryFilterCatagory
+        type: if-else
+      height: 412
+      id: '1758985458744'
+      position:
+        x: 1757.8546231944592
+        y: 1333.352484805567
+      positionAbsolute:
+        x: 1757.8546231944592
+        y: 1333.352484805567
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str) -> dict:\n    import re\n    if not isinstance(arg1,\
+          \ str):\n        arg1 = str(arg1)\n    numbers = re.findall(r\"-?\\d+\\\
+          .?\\d*\", arg1)\n    result = str(float(numbers[-1])) if numbers else \"\
+          \"\n    return {\n        \"result\": result,\n    }"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: '0'
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: numericalExtraction
+        type: code
+        variables:
+        - value_selector:
+          - '1758984876775'
+          - result
+          value_type: array[object]
+          variable: arg1
+      height: 88
+      id: '1758988504395'
+      position:
+        x: 1386.2425289212615
+        y: 94.0598459640091
+      positionAbsolute:
+        x: 1386.2425289212615
+        y: 94.0598459640091
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1\
+          \ + arg2,\n    }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: '0'
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: weightedValueCalculation
+        type: code
+        variables:
+        - value_selector:
+          - '1758988504395'
+          - result
+          value_type: number
+          variable: arg1
+        - value_selector:
+          - '1759942932849'
+          - text
+          value_type: string
+          variable: arg2
+      height: 88
+      id: '1758988549728'
+      position:
+        x: 2057.8546231944592
+        y: -32.77571487161319
+      positionAbsolute:
+        x: 2057.8546231944592
+        y: -32.77571487161319
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": \
+          \ \"情感阈值为：\" + arg1,\n    }\n"
+        code_language: python3
+        default_value:
+        - key: emotional_threshold
+          type: string
+          value: 情感阈值：0
+        desc: ''
+        error_strategy: default-value
+        outputs:
+          emotional_threshold:
+            children: null
+            type: string
+        selected: false
+        title: addTitle
+        type: code
+        variables:
+        - value_selector:
+          - '1758988549728'
+          - result
+          value_type: string
+          variable: arg1
+      height: 88
+      id: '1759163294478'
+      position:
+        x: 2437.162061987892
+        y: 94.0598459640091
+      positionAbsolute:
+        x: 2437.162061987892
+        y: 94.0598459640091
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 92cf37f3-d306-4d3e-9e25-cc80ed47709f
+          role: system
+          text: '{{#1760944648635.result#}}'
+        - id: dfd61b29-fcf6-4ccb-b303-775f91042f16
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: ideologicalSecurity
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217097057'
+      position:
+        x: 2204
+        y: 282
+      positionAbsolute:
+        x: 2204
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: cc6764a1-5e40-4dd1-9b1e-9e7e085136b7
+          role: system
+          text: '{{#1760945079948.result#}}'
+        - id: e0fa8681-b95f-4b1b-80d8-5d8f442aa5fa
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: cadreSelection
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217101296'
+      position:
+        x: 2204
+        y: 412.04060924326416
+      positionAbsolute:
+        x: 2204
+        y: 412.04060924326416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 70298d0e-c794-47b9-aa24-9971c90449c8
+          role: system
+          text: '{{#1760945082468.result#}}'
+        - id: 7f36085a-e203-4452-98d1-c920c9e0aa59
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: memberEducation
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217106732'
+      position:
+        x: 2204
+        y: 543.3279236021127
+      positionAbsolute:
+        x: 2204
+        y: 543.3279236021127
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 64cf5897-6fb3-4919-beba-d636de4b3ed9
+          role: system
+          text: '{{#1760945084825.result#}}'
+        - id: 576e2323-4ffe-4b8c-b550-bc3ce0cbcb6f
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: talentWork
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217111046'
+      position:
+        x: 2204
+        y: 666.4944041308652
+      positionAbsolute:
+        x: 2204
+        y: 666.4944041308652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 609b2659-f139-43ac-afe9-3e72d8355f45
+          role: system
+          text: '{{#1760945087687.result#}}'
+        - id: 98056695-0419-4017-ad60-4c78e5a7f7c9
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        structured_output_enabled: false
+        title: organizationalSystem
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217113396'
+      position:
+        x: 2204
+        y: 798
+      positionAbsolute:
+        x: 2204
+        y: 798
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 80268707-b812-41b9-b88e-aae9ee664b4b
+          role: system
+          text: '{{#1760945089853.result#}}'
+        - id: 03f71305-0b01-407e-99b9-ba4bd34e97eb
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: systemConstruction
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217115602'
+      position:
+        x: 2204
+        y: 928.5220333808395
+      positionAbsolute:
+        x: 2204
+        y: 928.5220333808395
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 349b9cb5-670d-47f2-80ab-c20aa915d20d
+          role: system
+          text: '{{#1760945092579.result#}}'
+        - id: 319ea0f3-235c-4a27-843d-7fae81b65f82
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: specialFields
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217117713'
+      position:
+        x: 2204
+        y: 1056
+      positionAbsolute:
+        x: 2204
+        y: 1056
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 3e8bc15c-1391-4c26-946d-39a6387cca1d
+          role: system
+          text: '{{#1760945207287.result#}}'
+        - id: be88fa0f-34a9-4857-8ce7-0094c94e255e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: ideologicalSecurity2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217146561'
+      position:
+        x: 2508
+        y: 1301.983119029519
+      positionAbsolute:
+        x: 2508
+        y: 1301.983119029519
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: e12a7f93-55ae-44bb-9f94-9d292249711a
+          role: system
+          text: '{{#1760945210353.result#}}'
+        - id: 54f41948-2f38-40f1-ba35-46160c5ae63e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: cadreSelection2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217202157'
+      position:
+        x: 2508
+        y: 1433.7719204208079
+      positionAbsolute:
+        x: 2508
+        y: 1433.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 62aea630-8a5b-4090-99e2-78e9e6a150b8
+          role: system
+          text: '{{#1760945212419.result#}}'
+        - id: e974a20e-2fad-4d8d-a214-3cae7de84d40
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: memberEducation2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217203813'
+      position:
+        x: 2508
+        y: 1562.7719204208079
+      positionAbsolute:
+        x: 2508
+        y: 1562.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: deb31cf8-5900-4b5e-8835-10f74c4c741b
+          role: system
+          text: '{{#1760945214364.result#}}'
+        - id: 3b38921e-a49b-447b-8ef3-632b01bfee89
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: talentWork2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217205646'
+      position:
+        x: 2508
+        y: 1691.7719204208079
+      positionAbsolute:
+        x: 2508
+        y: 1691.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 1d5c4502-1570-427f-8f2e-c8721b6dff87
+          role: system
+          text: '{{#1760945216486.result#}}'
+        - id: da2cb774-d3c5-4adf-9810-9d3d71e9a16d
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: organizationalSystem2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217208195'
+      position:
+        x: 2508
+        y: 1820.7719204208079
+      positionAbsolute:
+        x: 2508
+        y: 1820.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 90109adf-597e-4dd0-b703-019c3d797872
+          role: system
+          text: '{{#1760945218610.result#}}'
+        - id: 1a512ba8-611d-4a58-abe5-c47361b5b76e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: systemConstruction2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217211730'
+      position:
+        x: 2508
+        y: 1949.7719204208079
+      positionAbsolute:
+        x: 2508
+        y: 1949.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 4c30e433-6748-453e-b8c5-0a32a1a9763e
+          role: system
+          text: '{{#1760945220368.result#}}'
+        - id: ecf63eae-c162-4771-862a-a6dde7980430
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: specialFields2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1759217214055'
+      position:
+        x: 2508
+        y: 2078.771920420808
+      positionAbsolute:
+        x: 2508
+        y: 2078.771920420808
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # Parse the input strings\
+          \ as JSON objects\n    import json\n    try:\n        data1 = json.loads(arg1)\n\
+          \        data2 = json.loads(arg2)\n    except json.JSONDecodeError:\n  \
+          \      return {\"error\": \"Invalid JSON input\"}\n    \n    # Extract fields\n\
+          \    judgment1 = data1.get(\"judgment\", \"\")\n    judgment2 = data2.get(\"\
+          judgment\", \"\")\n    summary1 = data1.get(\"summary\", \"\")\n    summary2\
+          \ = data2.get(\"summary\", \"\")\n    risk_type1 = data1.get(\"risk_type\"\
+          , \"\")\n    risk_type2 = data2.get(\"risk_type\", \"\")\n    impact_level1\
+          \ = data1.get(\"impact_level\", \"\")\n    impact_level2 = data2.get(\"\
+          impact_level\", \"\")\n    evidence_level1 = data1.get(\"evidence_level\"\
+          , \"\")\n    evidence_level2 = data2.get(\"evidence_level\", \"\")\n   \
+          \ source_intent1 = data1.get(\"source_intent\", \"\")\n    source_intent2\
+          \ = data2.get(\"source_intent\", \"\")\n    \n    # Process judgment\n \
+          \   if judgment1 == judgment2:\n        judgment_result = \"\\u5224\\u5b9a\\\
+          u7ed3\\u679c\\uff1a\" + judgment1\n    else:\n        judgment_result =\
+          \ \"\\u53cc\\u4e13\\u5bb6\\u5224\\u65ad\\u4e0d\\u4e00\\u81f4\\uff0c\\u9700\\\
+          u4eba\\u5de5\\u5ba1\\u6838\"\n    \n    # Process summaries\n    summary1_result\
+          \ = summary1\n    summary2_result = summary2\n    \n    # Process risk types\n\
+          \    risk_types = list(set([risk_type1, risk_type2]))\n    risk_type_result\
+          \ = \"\\u98ce\\u9669\\u7c7b\\u578b\\uff1a\" + \" | \".join(risk_types)\n\
+          \    \n    # Process impact levels\n    impact_levels = list(set([impact_level1,\
+          \ impact_level2]))\n    impact_level_result = \"\\u5f71\\u54cd\\u7ea7\\\
+          u522b\\uff1a\" + \" | \".join(impact_levels)\n    \n    # Process evidence\
+          \ levels\n    evidence_levels = list(set([evidence_level1, evidence_level2]))\n\
+          \    evidence_level_result = \"\\u8bc1\\u636e\\u7ea7\\u522b\\uff1a\" + \"\
+          \ | \".join(evidence_levels)\n    \n    # Process source intents\n    source_intents\
+          \ = list(set([source_intent1, source_intent2]))\n    source_intent_result\
+          \ = \"\\u6765\\u6e90\\u610f\\u56fe\\uff1a\" + \" | \".join(source_intents)\n\
+          \    \n    return {\n        \"judgment\": judgment_result,\n        \"\
+          summary1\": summary1_result,\n        \"summary2\": summary2_result,\n \
+          \       \"risk_type\": risk_type_result,\n        \"impact_level\": impact_level_result,\n\
+          \        \"evidence_level\": evidence_level_result,\n        \"source_intent\"\
+          : source_intent_result\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          evidence_level:
+            children: null
+            type: string
+          impact_level:
+            children: null
+            type: string
+          judgment:
+            children: null
+            type: string
+          risk_type:
+            children: null
+            type: string
+          source_intent:
+            children: null
+            type: string
+          summary1:
+            children: null
+            type: string
+          summary2:
+            children: null
+            type: string
+        selected: false
+        title: variableMerging
+        type: code
+        variables:
+        - value_selector:
+          - '1759217536981'
+          - result
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217559900'
+          - result
+          value_type: string
+          variable: arg2
+      height: 52
+      id: '1759217413633'
+      position:
+        x: 3399.0681219603084
+        y: 805.6176580246755
+      positionAbsolute:
+        x: 3399.0681219603084
+        y: 805.6176580246755
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(judgment: str = '', text: str = '', risk_type: str = '', impact_level:\
+          \ str = '', evidence_level: str = '', source_intent: str = '', emotional_threshold:\
+          \ str = '') -> dict:\n    # Convert None values to empty strings to avoid\
+          \ concatenation errors\n    args = [judgment, emotional_threshold, risk_type,\
+          \ impact_level, evidence_level, source_intent, text]\n    cleaned_args =\
+          \ [arg if arg is not None else '' for arg in args]\n    # Add two newlines\
+          \ after each output variable\n    result = \"\\n\\n\".join(cleaned_args)\n\
+          \    return {\n        \"result\": result,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: totalOutput
+        type: code
+        variables:
+        - value_selector:
+          - '1759217413633'
+          - judgment
+          value_type: string
+          variable: judgment
+        - value_selector:
+          - '1759163294478'
+          - emotional_threshold
+          value_type: string
+          variable: emotional_threshold
+        - value_selector:
+          - '1759217413633'
+          - risk_type
+          value_type: string
+          variable: risk_type
+        - value_selector:
+          - '1759217413633'
+          - impact_level
+          value_type: string
+          variable: impact_level
+        - value_selector:
+          - '1759217413633'
+          - evidence_level
+          value_type: string
+          variable: evidence_level
+        - value_selector:
+          - '1759217413633'
+          - source_intent
+          value_type: string
+          variable: source_intent
+        - value_selector:
+          - '1759952773854'
+          - text
+          value_type: string
+          variable: text
+      height: 52
+      id: '1759217509549'
+      position:
+        x: 4438.2089822053185
+        y: 401.6176580246755
+      positionAbsolute:
+        x: 4438.2089822053185
+        y: 401.6176580246755
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str = '', arg2: str = '', arg3: str = '', arg4: str\
+          \ = '', arg5: str = '', arg6: str = '', arg7: str = '') -> dict:\n    #\
+          \ Convert None values to empty strings to avoid concatenation errors\n \
+          \   args = [arg1, arg2, arg3, arg4, arg5, arg6, arg7]\n    cleaned_args\
+          \ = [arg if arg is not None else '' for arg in args]\n    return {\n   \
+          \     \"result\": ''.join(cleaned_args),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 1stJsonExtract
+        type: code
+        variables:
+        - value_selector:
+          - '1759217097057'
+          - text
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217101296'
+          - text
+          value_type: string
+          variable: arg2
+        - value_selector:
+          - '1759217106732'
+          - text
+          value_type: string
+          variable: arg3
+        - value_selector:
+          - '1759217111046'
+          - text
+          value_type: string
+          variable: arg4
+        - value_selector:
+          - '1759217113396'
+          - text
+          value_type: string
+          variable: arg5
+        - value_selector:
+          - '1759217115602'
+          - text
+          value_type: string
+          variable: arg6
+        - value_selector:
+          - '1759217117713'
+          - text
+          value_type: string
+          variable: arg7
+      height: 52
+      id: '1759217536981'
+      position:
+        x: 2929.075570560737
+        y: 512.2184127557068
+      positionAbsolute:
+        x: 2929.075570560737
+        y: 512.2184127557068
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(arg1: str = '', arg2: str = '', arg3: str = '', arg4: str\
+          \ = '', arg5: str = '', arg6: str = '', arg7: str = '') -> dict:\n    #\
+          \ Convert None values to empty strings to avoid concatenation errors\n \
+          \   args = [arg1, arg2, arg3, arg4, arg5, arg6, arg7]\n    cleaned_args\
+          \ = [arg if arg is not None else '' for arg in args]\n    return {\n   \
+          \     \"result\": ''.join(cleaned_args),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 2ndJsonExtract
+        type: code
+        variables:
+        - value_selector:
+          - '1759217146561'
+          - text
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1759217202157'
+          - text
+          value_type: string
+          variable: arg2
+        - value_selector:
+          - '1759217203813'
+          - text
+          value_type: string
+          variable: arg3
+        - value_selector:
+          - '1759217205646'
+          - text
+          value_type: string
+          variable: arg4
+        - value_selector:
+          - '1759217208195'
+          - text
+          value_type: string
+          variable: arg5
+        - value_selector:
+          - '1759217211730'
+          - text
+          value_type: string
+          variable: arg6
+        - value_selector:
+          - '1759217214055'
+          - text
+          value_type: string
+          variable: arg7
+      height: 52
+      id: '1759217559900'
+      position:
+        x: 3073.075570560737
+        y: 1632.2172354369716
+      positionAbsolute:
+        x: 3073.075570560737
+        y: 1632.2172354369716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1759217509549'
+          - result
+          value_type: string
+          variable: totalOutput
+        - value_selector:
+          - '1759998137639'
+          - keywords
+          value_type: string
+          variable: keywords
+        selected: false
+        title: 结束
+        type: end
+      height: 114
+      id: '1759217615085'
+      position:
+        x: 4863.235389815527
+        y: 1009.6176580246755
+      positionAbsolute:
+        x: 4863.235389815527
+        y: 1009.6176580246755
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 20
+            temperature: 0.2
+            top_p: 0.3
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: aa15e2b9-73e4-4351-88e9-10e7e097d76c
+          role: system
+          text: '{{#1760945570866.result#}}'
+        - id: 8bcab9cc-fa47-4fac-96e8-772617e2172e
+          role: user
+          text: '{{#1758984707560.input#}}'
+        selected: false
+        title: thresholdJudgment
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1759942932849'
+      position:
+        x: 829.9937212767495
+        y: -32.77571487161319
+      positionAbsolute:
+        x: 829.9937212767495
+        y: -32.77571487161319
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 400
+            temperature: 0.4
+            top_p: 0.5
+          mode: chat
+          name: Qwen/Qwen3-30B-A3B-Instruct-2507
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 82bcc975-afd0-4406-ac43-173641feee43
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            请将两份舆情总结进行整合，生成一份完整、客观的合并版本。操作要求如下：1）必须保留两份总结中的所有观点和信息，不得删减任何内容；2）不得添加任何新信息、个人判断或主观评论；3）确保语言简洁、逻辑清晰，合并后总字数不超过200字；4）输出内容中不得包含任何XML标签或格式标记。输出内容前加上“舆情摘要:”
+
+            </instruction>
+
+            <input>
+
+            {{{#1759217413633.summary1#}}}: 第一份舆情总结内容
+
+            {{{#1759217413633.summary2#}}}: 第二份舆情总结内容
+
+            </input>
+
+            <output>
+
+            整合后的单一舆情总结，字数不超过200字，仅包含来自两份输入的客观信息，无任何额外内容。
+
+            </output>
+
+            ```'
+        selected: false
+        title: summaryIntegration
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1759952773854'
+      position:
+        x: 3757.4652621584773
+        y: 798
+      positionAbsolute:
+        x: 3757.4652621584773
+        y: 798
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"keywords\"\
+          : \"\\n\\n\" + \"关键词：\" + arg1,\n    }\n"
+        code_language: python3
+        outputs:
+          keywords:
+            children: null
+            type: string
+        selected: false
+        title: keywordsTrans
+        type: code
+        variables:
+        - value_selector:
+          - '1758984844397'
+          - text
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1759998137639'
+      position:
+        x: 1089.504021297486
+        y: 1217.4724895892489
+      positionAbsolute:
+        x: 1089.504021297486
+        y: 1217.4724895892489
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: ideologicalSecurity
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - ideologicalSecurity
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760944648635'
+      position:
+        x: 1904
+        y: 282
+      positionAbsolute:
+        x: 1904
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: cadreSelection
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - cadreSelection
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945079948'
+      position:
+        x: 1904
+        y: 412.04060924326416
+      positionAbsolute:
+        x: 1904
+        y: 412.04060924326416
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: memberEducation
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - memberEducation
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945082468'
+      position:
+        x: 1904
+        y: 543.3279236021127
+      positionAbsolute:
+        x: 1904
+        y: 543.3279236021127
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: talentWork
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - talentWork
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945084825'
+      position:
+        x: 1904
+        y: 666.4944041308652
+      positionAbsolute:
+        x: 1904
+        y: 666.4944041308652
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: organizationalSystem
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - organizationalSystem
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945087687'
+      position:
+        x: 1904
+        y: 798
+      positionAbsolute:
+        x: 1904
+        y: 798
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: systemConstruction
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - systemConstruction
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945089853'
+      position:
+        x: 1904
+        y: 928.5220333808395
+      positionAbsolute:
+        x: 1904
+        y: 928.5220333808395
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: specialFields
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - specialFields
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945092579'
+      position:
+        x: 1904
+        y: 1056
+      positionAbsolute:
+        x: 1904
+        y: 1056
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: ideologicalSecurity2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - ideologicalSecurity
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945207287'
+      position:
+        x: 2208
+        y: 1301.983119029519
+      positionAbsolute:
+        x: 2208
+        y: 1301.983119029519
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: cadreSelection2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - cadreSelection
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945210353'
+      position:
+        x: 2208
+        y: 1433.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1433.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: memberEducation2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - memberEducation
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945212419'
+      position:
+        x: 2208
+        y: 1562.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1562.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: talentWork2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - talentWork
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945214364'
+      position:
+        x: 2208
+        y: 1691.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1691.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: organizationalSystem2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - organizationalSystem
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945216486'
+      position:
+        x: 2208
+        y: 1820.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1820.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: systemConstruction2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - systemConstruction
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945218610'
+      position:
+        x: 2208
+        y: 1949.7719204208079
+      positionAbsolute:
+        x: 2208
+        y: 1949.7719204208079
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: specialFields2
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - specialFields
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945220368'
+      position:
+        x: 2208
+        y: 2078.771920420808
+      positionAbsolute:
+        x: 2208
+        y: 2078.771920420808
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import base64\n\ndef main(arg1: str) -> dict:\n    decoded_bytes =\
+          \ base64.b64decode(arg1)\n    decoded_str = decoded_bytes.decode('utf-8')\n\
+          \    return {'result': decoded_str}"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: thresholdJudgment
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - thresholdJudgment
+          value_type: string
+          variable: arg1
+      height: 52
+      id: '1760945570866'
+      position:
+        x: 516.4330666275766
+        y: -32.77571487161319
+      positionAbsolute:
+        x: 516.4330666275766
+        y: -32.77571487161319
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 138.48875200394977
+      y: 127.47743244527521
+      zoom: 0.2649068636217649
+  rag_pipeline_variables: []
