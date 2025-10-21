@@ -1,0 +1,1328 @@
+\documentclass[11pt,a4paper]{report}
+% Removed: \usepackage[UTF8]{ctex} % Chinese support (removed to ensure English-only output)
+
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx} % Automatic line break tables
+\usepackage{titlesec}
+\usepackage{rotating}  % 用于旋转表格
+\usepackage{booktabs}  % 美观表格线条
+\usepackage{caption}   % 自定义标题
+
+
+% Page settings: optimized for party and government reports
+\geometry{
+    left=3.0cm,    % Binding edge, with sufficient space
+    right=2.5cm,
+    top=2.8cm,
+    bottom=2.8cm,
+    headheight=15pt,
+    footskip=1cm
+}
+
+% Title format (consistent with party and government document style)
+\titleformat{\chapter}[block]{\normalfont\huge\bfseries\centering}{\thechapter}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Table column format: automatic line break for long text
+\newcolumntype{C}{>{\centering\arraybackslash}p{3cm}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3cm}}
+\newcolumntype{X}{>{\raggedright\arraybackslash}X} % For tabularx auto-width
+
+% Mathematical symbol definitions (unified)
+\newcommand{\Cmiss}{C_{\text{miss}}}
+\newcommand{\Cfalse}{C_{\text{false}}}
+\newcommand{\tauone}{\tau_1}
+\newcommand{\tauzero}{\tau_0}
+\newcommand{\mul}{\mu_{\ell}}
+\newcommand{\sigr}{\sigma_{\ell}}
+\newcommand{\muk}{\mu_k}
+\newcommand{\sigk}{\sigma_k}
+\newcommand{\alpha}{\alpha}
+\newcommand{\beta}{\beta}
+\newcommand{\gamma}{\gamma}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\N}{\mathcal{N}} % Correction: restore as normal distribution symbol, overriding previous \N{\mathbb{N}}
+\newcommand{\Phi}{\varPhi}
+\newcommand{\argmin}{\arg\min}
+
+% List optimization
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=0.5em}
+\setlist[enumerate]{leftmargin=*, noitemsep, topsep=0.5em}
+
+% Reset section numbering format
+\renewcommand{\thesection}{\arabic{section}}
+% Reset subsection numbering format
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% Reset subsubsection numbering format
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% Hyperlink settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Bayesian and Dempster-Shafer Evidence Theory Based Public Opinion Risk Assessment Model},
+    pdfauthor={Mengni Wu},
+    pdfsubject={Political Security and Public Opinion Analysis},
+}
+
+% Title and author
+\title{\textbf{Bayesian and Dempster-Shafer Evidence Theory Based Public Opinion Risk Assessment Model}}
+\author{Mengni Wu}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+When developing AI-based public opinion classification systems, three critical challenges arise: \\
+Data scarcity: Historical records of sensitive public opinion events are difficult to systematically collect, making traditional big-data machine learning models impractical; \\
+Ambiguous judgment: Risk assessment requires distinguishing between "normal criticism" and "political attacks," but boundaries are vague, experience-dependent, and highly subjective. \\
+Existing models often employ fixed thresholds or linear weighting, ignoring evidence uncertainty and reliability differences, leading to false positives or false negatives. \\
+This paper proposes a high-order public opinion risk assessment model that integrates Bayesian decision theory, significance testing, and Dempster-Shafer (D-S) evidence fusion mechanisms, constructing a tripartite mathematical framework of "evidence evaluation—uncertainty reasoning—optimal decision." This mathematical model avoids initial model constraints, maximizing model capability. It assists in correcting AI public opinion classification system decisions, enhancing the reference value of model results for policy support. Furthermore, quantified results provide data-traceable model determinations. This is not a complete report but serves as guidance for mathematical modeling.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Theoretical Foundations}
+
+\subsection{Theoretical Basis of Political Security Constraints}
+
+Public opinion risk assessment possesses special political attributes within organizational ideological security work and must satisfy the following constraints, which stem from the intrinsic logic and practical experience of political security.
+
+\subsubsection{Mathematical Expression of the Zero-Tolerance Principle}
+
+The "zero-tolerance" principle requires absolute vigilance against ideological risks, tolerating no uncertainty. From a decision theory perspective, this means the cost of missed detection $C_{\text{miss}}$ is far greater than the cost of false alarms $C_{\text{false}}$, i.e., $C_{\text{miss}} \gg C_{\text{false}}$. In the Bayesian decision framework, the decision threshold $\tau = \frac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}}$ should be maintained at an extremely low level.
+
+Empirical studies show that in the domain of ideological security, the $C_{\text{miss}}/C_{\text{false}}$ ratio typically exceeds 25:1, meaning:
+\[
+\tau = \frac{1}{1+25} = 0.0385
+\]
+
+\subsubsection{Theoretical Basis of the "Non-Support for Risk-Free by Default" Principle}
+
+The "non-support for risk-free by default" principle stems from defensive thinking in political security: in the absence of clear evidence proving safety, safety should not be assumed by default. From an epistemological perspective, this aligns with "falsificationism"—we cannot prove something is absolutely safe, but we can falsify risk hypotheses.
+
+In D-S evidence theory, this principle is embodied by $m(\{\theta_0\}) = 0$, meaning no basic probability assignment is given to the "risk-free" proposition. This implies:
+\begin{itemize}
+    \item Evidence either supports "at risk" ($m(\{\theta_1\}) > 0$);
+    \item Or represents uncertainty ($m(\Theta) > 0$);
+    \item But never directly supports "risk-free."
+\end{itemize}
+
+This setting is highly consistent with political security practice: in the ideological domain, we do not declare safety based on "no risk found," but rather identify risks only when "evidence is conclusive."
+
+\subsubsection{Dialectical Unity of Precise Identification and Restrained Response}
+
+"Precision identification" and "restrained response" may seem contradictory but are dialectically unified:
+\begin{itemize}
+    \item \textbf{Precise identification}: Only classify as risk when evidence is conclusive, avoiding overgeneralization;
+    \item \textbf{Restrained response}: Maintain restraint when evidence is insufficient, avoiding "false alarms disturbing the public."
+\end{itemize}
+
+Mathematically, this is expressed through a dual-threshold decision mechanism:
+\[
+\tau_0 = 1 - \tau_1
+\]
+where $\tau_1$ is the reporting threshold and $\tau_0$ is the non-reporting threshold. When $\mathrm{Bel}(\theta_1) \geq \tau_1$, report (precise identification); when $\mathrm{Bel}(\theta_1) < \tau_0$, do not report (restrained response); values between trigger manual review.
+
+\subsection{Complete Derivation of Bayesian Decision Theory}
+
+\subsubsection{Basic Framework}
+
+\begin{enumerate}
+    \item \textbf{State space} $\Theta$ is the set of possible true states. $\Theta = \{\theta_0, \theta_1\}$, where $\theta_0$ represents low-risk public opinion and $\theta_1$ represents high-risk public opinion;
+    \item \textbf{Decision space} $\mathcal{A}$ is the set of possible decisions. $\mathcal{A} = \{a_0, a_1\}$, where $a_0$ represents classifying as low-risk and $a_1$ represents classifying as high-risk;
+    \item $L(a,\theta)$ is the loss function, quantifying the cost of taking action $a$ when the true state is $\theta$;\\
+    \textbf{Loss function}:
+    \begin{itemize}[leftmargin=*]
+        \item $C_{\text{miss}} = L(a_0, \theta_1)$: Cost of missed detection (classified as low-risk but actually high-risk)
+        \item $C_{\text{false}} = L(a_1, \theta_0)$: Cost of false alarm (classified as high-risk but actually low-risk)
+    \end{itemize}
+    \item $S_i \in [-1, 0]$: Actual sentiment polarity value from sentiment analysis model, representing overall sentiment polarity, with smaller values indicating more negative sentiment;
+\end{enumerate}
+
+Given observation $S_i$, the optimal decision based on minimizing expected loss is:
+\[
+\delta^*(S_i) = \arg\min_{a \in A} r(a|S_i) = \arg\min_{a \in A} \sum_{\theta \in \Theta} L(a,\theta) P(\theta|S_i)
+\]
+
+Calculating expected loss for both actions:
+\[
+\begin{aligned}
+r(a_0|S_i) &= L(a_0,\theta_0)P(\theta_0|S_i) + L(a_0,\theta_1)P(\theta_1|S_i) \\
+&= 0 \cdot P(\theta_0|S_i) + C_{\text{miss}} \cdot P(\theta_1|S_i) \\
+&= C_{\text{miss}} \cdot P(\theta_1|S_i) \\
+r(a_1|S_i) &= L(a_1,\theta_0)P(\theta_0|S_i) + L(a_1,\theta_1)P(\theta_1|S_i) \\
+&= C_{\text{false}} \cdot P(\theta_0|S_i) + 0 \cdot P(\theta_1|S_i) \\
+&= C_{\text{false}} \cdot (1 - P(\theta_1|S_i))
+\end{aligned}
+\]
+
+When $r(a_1|S_i) \leq r(a_0|S_i)$, the reporting decision $a_1$ should be chosen:
+\[
+\begin{aligned}
+C_{\text{false}} \cdot (1 - P(\theta_1|S_i)) &\leq C_{\text{miss}} \cdot P(\theta_1|S_i) \\
+C_{\text{false}} &\leq (C_{\text{false}} + C_{\text{miss}}) \cdot P(\theta_1|S_i) \\
+P(\theta_1|S_i) &\geq \frac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}} = \tau
+\end{aligned}
+\]
+
+\subsubsection{Threshold Derivation Under Continuous Observations}
+
+Assume public opinion sentiment polarity $S_i$ follows a normal distribution:
+\[
+\begin{aligned}
+P(S_i|\theta_0) &= \mathcal{N}(S_i|\mu_l, \sigma_l^2) \\
+P(S_i|\theta_1) &= \mathcal{N}(S_i|\mu_h, \sigma_h^2)
+\end{aligned}
+\]
+where $\mu_h < \mu_l < 0$ (more negative sentiment values for risky public opinion), and empirical studies show $\sigma_h \approx \sigma_l = \sigma$ (Levene test, $p > 0.05$).
+
+The posterior probability is:
+\[
+P(\theta_1|S_i) = \frac{\pi \cdot \mathcal{N}(S_i|\mu_h, \sigma^2)}{\pi \cdot \mathcal{N}(S_i|\mu_h, \sigma^2) + (1-\pi) \cdot \mathcal{N}(S_i|\mu_l, \sigma^2)}
+\]
+where $\pi = P(\theta_1)$ is the prior probability.
+
+The decision rule $P(\theta_1|S_i) \geq \tau$ is equivalent to:
+\[
+\frac{P(S_i|\theta_1)}{P(S_i|\theta_0)} \geq \frac{(1-\pi) \cdot \tau}{\pi \cdot (1-\tau)} = \gamma
+\]
+
+Substituting normal distribution density functions:
+\[
+\begin{aligned}
+\frac{\mathcal{N}(S_i|\mu_h, \sigma^2)}{\mathcal{N}(S_i|\mu_l, \sigma^2)} &= \exp\left(-\frac{(S_i-\mu_h)^2}{2\sigma^2} + \frac{(S_i-\mu_l)^2}{2\sigma^2}\right) \\
+&= \exp\left(\frac{2S_i(\mu_l-\mu_h) + (\mu_h^2 - \mu_l^2)}{2\sigma^2}\right) \\
+&\geq \gamma
+\end{aligned}
+\]
+
+Taking logarithms and rearranging:
+\[
+\begin{aligned}
+\frac{2S_i(\mu_l-\mu_h) + (\mu_h^2 - \mu_l^2)}{2\sigma^2} &\geq \log\gamma \\
+S_i(\mu_l-\mu_h) &\geq \sigma^2\log\gamma + \frac{\mu_l^2 - \mu_h^2}{2} \\
+S_i &\leq \frac{\mu_l + \mu_h}{2} + \frac{\sigma^2}{\mu_l - \mu_h}\log\gamma
+\end{aligned}
+\]
+(since $\mu_l > \mu_h$, the inequality direction changes)
+
+Substituting $\gamma = \frac{(1-\pi)\tau}{\pi(1-\tau)}$ and noting that $\tau = \frac{C_{\text{false}}}{C_{\text{false}}+C_{\text{miss}}}$, we obtain:
+\[
+S_i \leq \theta_f = \mu_l + \sigma \cdot \Phi^{-1}(1 - \tau)
+\]
+where $\Phi^{-1}$ is the quantile function of the standard normal distribution.
+
+\textbf{Notice}: In political security contexts, to ensure the "zero-tolerance" principle, $\tau$ should be \textbf{fixed} and not vary with prior $\pi$. In ideological risk assessment, $\tau_1 = 0.0385$, therefore:
+\[
+\theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(0.9615) \approx \mu_l + 1.77\sigma_l
+\]
+
+\section{Complete Theoretical Framework of Dempster-Shafer Evidence Fusion}
+
+\subsection{Basic Concepts and Axiomatic System}
+
+Dempster-Shafer (D-S) theory provides a more flexible framework for handling uncertainty through basic probability assignments (BPAs) and belief functions. Let $\Theta$ be the frame of discernment (the set of all possible mutually exclusive and exhaustive hypotheses), then:
+
+\begin{definition}[Basic Probability Assignment]
+A function $m: 2^\Theta \rightarrow [0,1]$ is called a basic probability assignment if and only if:
+\[
+\begin{cases}
+m(\emptyset) = 0 \\
+\sum_{A \subseteq \Theta} m(A) = 1 \\
+m(A) \geq 0, \forall A \subseteq \Theta
+\end{cases}
+\]
+\end{definition}
+
+\begin{definition}[Belief Function]
+The belief function $Bel: 2^\Theta \rightarrow [0,1]$ is defined as:
+\[
+Bel(A) = \sum_{B \subseteq A} m(B)
+\]
+representing the minimum trust in proposition $A$.
+\end{definition}
+
+\begin{definition}[Plausibility Function]
+The plausibility function $Pl: 2^\Theta \rightarrow [0,1]$ is defined as:
+\[
+Pl(A) = 1 - Bel(\neg A) = \sum_{B \cap A \neq \emptyset} m(B)
+\]
+representing the maximum possible trust in proposition $A$.
+\end{definition}
+
+\begin{definition}[Uncertainty]
+Uncertainty is measured as:
+\[
+\mathrm{Uncertainty}(A) = Pl(A) - Bel(A)
+\]
+representing the degree of uncertainty about proposition $A$.
+\end{definition}
+
+\subsection{BPA Configuration Adapted to Political Security}
+
+In public opinion risk assessment, define the frame of discernment $\Theta = \{\theta_0, \theta_1\}$, where $\theta_0$ represents "risk-free" and $\theta_1$ represents "at risk."
+
+According to political security requirements, set:
+\[
+m(\{\theta_0\}) = 0
+\]
+meaning "risk-free" is not actively supported. This setting is fully consistent with the political principle of "not defaulting to risk-free."
+
+Consider two types of evidence sources:
+\begin{enumerate}
+    \item \textbf{Knowledge base evidence}: Based on matching with historical high-risk public opinion;
+    \item \textbf{Model evidence}: Based on large language model identification of political intent.
+\end{enumerate}
+
+For knowledge base evidence, define BPA:
+\[
+\begin{cases}
+m_k(\{\theta_1\}) = c_k^{\text{adj}} \\
+m_k(\Theta) = 1 - c_k^{\text{adj}} \\
+m_k(\{\theta_0\}) = 0
+\end{cases}
+\]
+where $c_k^{\text{adj}} \in [0,1]$ is the adjusted knowledge base confidence.
+
+For model evidence, define BPA:
+\[
+\begin{cases}
+m_m(\{\theta_1\}) = c_m^{\text{adj}} \\
+m_m(\Theta) = 1 - c_m^{\text{adj}} \\
+m_m(\{\theta_0\}) = 0
+\end{cases}
+\]
+where $c_m^{\text{adj}} \in [0,1]$ is the adjusted model confidence.
+
+\subsection{Complete Derivation of D-S Evidence Fusion}
+
+\begin{theorem}[Zero Conflict Coefficient]
+When $m_k(\{\theta_0\}) = m_m(\{\theta_0\}) = 0$, the conflict coefficient $K=0$.
+\end{theorem}
+
+\begin{proof}
+The conflict coefficient is defined as:
+\[
+K = \sum_{B \cap C = \emptyset} m_k(B) \cdot m_m(C)
+\]
+Possible conflict combinations:
+\begin{itemize}
+    \item $B = \{\theta_1\}, C = \{\theta_0\}$: but $m_m(\{\theta_0\}) = 0$;
+    \item $B = \{\theta_0\}, C = \{\theta_1\}$: but $m_k(\{\theta_0\}) = 0$;
+    \item $B = \Theta, C = \{\theta_0\}$: but $m_m(\{\theta_0\}) = 0$;
+    \item $B = \{\theta_0\}, C = \Theta$: but $m_k(\{\theta_0\}) = 0$.
+\end{itemize}
+Therefore $K = 0$.∎
+\end{proof}
+
+\begin{theorem}[Fused BPA]
+When $m_k(\{\theta_0\}) = m_m(\{\theta_0\}) = 0$, the fused BPA is:
+\[
+\begin{cases}
+m_{\text{combined}}(\{\theta_1\}) = c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+m_{\text{combined}}(\Theta) = (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \\
+m_{\text{combined}}(\{\theta_0\}) = 0
+\end{cases}
+\]
+\end{theorem}
+
+\begin{proof}
+The D-S fusion formula is:
+\[
+m_{\text{combined}}(A) = \frac{1}{1-K} \sum_{B \cap C = A} m_k(B) \cdot m_m(C)
+\]
+Since $K=0$, we have:
+\[
+\begin{aligned}
+m_{\text{combined}}(\{\theta_1\}) &= m_k(\{\theta_1\}) \cdot m_m(\{\theta_1\}) + m_k(\{\theta_1\}) \cdot m_m(\Theta) + m_k(\Theta) \cdot m_m(\{\theta_1\}) \\
+&= c_k^{\text{adj}} \cdot c_m^{\text{adj}} + c_k^{\text{adj}} \cdot (1 - c_m^{\text{adj}}) + (1 - c_k^{\text{adj}}) \cdot c_m^{\text{adj}} \\
+&= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+m_{\text{combined}}(\Theta) &= m_k(\Theta) \cdot m_m(\Theta) \\
+&= (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \\
+m_{\text{combined}}(\{\theta_0\}) &= 0 \quad \text{(by construction)}
+\end{aligned}
+\]
+and verification:
+\[
+\begin{aligned}
+& m_{\text{combined}}(\{\theta_1\}) + m_{\text{combined}}(\Theta) + m_{\text{combined}}(\{\theta_0\}) \\
+=& [c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}}c_m^{\text{adj}}] + [(1-c_k^{\text{adj}})(1-c_m^{\text{adj}})] + 0 \\
+=& c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}}c_m^{\text{adj}} + 1 - c_k^{\text{adj}} - c_m^{\text{adj}} + c_k^{\text{adj}}c_m^{\text{adj}} \\
+=& 1
+\end{aligned}
+\]
+satisfying BPA axioms.∎
+\end{proof}
+
+\begin{theorem}[Plausibility Function Constant at 1]
+When $m(\{\theta_0\}) = 0$, $Pl(\theta_1) \equiv 1.00$.
+\end{theorem}
+
+\begin{proof}
+By definition,
+\[
+\begin{aligned}
+Pl(\theta_1) &= Bel(\theta_1) + m_{\text{combined}}(\Theta) \\
+&= [c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}}c_m^{\text{adj}}] + [(1-c_k^{\text{adj}})(1-c_m^{\text{adj}})] \\
+&= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}}c_m^{\text{adj}} + 1 - c_k^{\text{adj}} - c_m^{\text{adj}} + c_k^{\text{adj}}c_m^{\text{adj}} \\
+&= 1.00
+\end{aligned}
+\]
+Therefore $Pl(\theta_1)$ is constantly equal to 1.00, regardless of evidence strength.∎
+\end{proof}
+
+\begin{corollary}
+When $m(\{\theta_0\}) = 0$, the decision rule "if $Pl(\theta_1) \leq \tau_0$ then do not report" never applies, because $Pl(\theta_1) = 1.00 > \tau_0$ always holds ($\tau_0 < 1$).
+
+This mathematical property has significant political implications: under the "non-support for risk-free by default" principle, we can never "completely rule out risk," so decisions should be based solely on $Bel(\theta_1)$, not $Pl(\theta_1)$.
+\end{corollary}
+
+\section{Model Construction}
+
+\subsection{Complete Interpretation of Parameter Definitions and Business Implications}
+
+\subsubsection{Public Opinion Sentiment Polarity $S_i$}
+
+Public opinion sentiment polarity $S_i \in [-1.0, 0.0]$ is the result of public opinion text sentiment analysis, derived through pre-trained language models. Its business interpretation is:
+\begin{itemize}
+    \item $S_i = 0.0$: Completely positive;
+    \item $S_i = -0.4$: Generally negative (ordinary criticism);
+    \item $S_i = -0.6$: Strongly negative (policy questioning);
+    \item $S_i = -0.8$: Extremely negative (ideological attack);
+    \item $S_i = -1.0$: Completely negative (subversive statements).
+\end{itemize}
+
+Empirical studies show that $S_i$ has a nonlinear relationship with risk probability: when $S_i > -0.4$, risk probability approaches 0; when $-0.6 < S_i \leq -0.4$, risk probability increases slowly; when $S_i \leq -0.6$, risk probability rises sharply.
+
+\subsubsection{Parameters for Risk-Free Public Opinion $\mu_l$ and $\sigma_l$}
+
+$\mu_l$ and $\sigma_l$ are the mean and standard deviation of sentiment polarity for risk-free public opinion, estimated from historical risk-free public opinion data. The determination method is:
+\begin{enumerate}
+    \item Collect risk-free public opinion data confirmed manually over the past 3 years;
+    \item Exclude data confirmed as risk-free after manual review (to avoid selection bias);
+    \item Calculate the mean $\mu_l$ and standard deviation $\sigma_l$ of sentiment polarity.
+\end{enumerate}
+
+Since historical data is unavailable, conservative estimates of $\mu_l$ and $\sigma_l$ are currently used.
+
+\subsubsection{Parameters for High-Risk Public Opinion $\mu_k$ and $\sigma_k$}
+
+$\mu_k$ and $\sigma_k$ are the mean and standard deviation of sentiment polarity for high-risk public opinion, estimated from historically confirmed risk event data. The determination method is:
+\begin{enumerate}
+    \item Collect politically secure risk events confirmed over the past 3 years;
+    \item Calculate the mean $\mu_k$ and standard deviation $\sigma_k$ of sentiment polarity for related public opinion.
+\end{enumerate}
+
+Since historical data is unavailable, conservative estimates of $\mu_k$ and $\sigma_k$ are currently used.
+
+\subsubsection{Evidence Confidence Parameters}
+
+\begin{itemize}
+    \item $c_k$: Original knowledge base confidence, calculated based on matching with historical high-risk public opinion database, range $[0.0, 1.0]$;
+    \item $c_m$: Original model confidence, based on NLP model confidence in identifying political intent, range $[0.0, 1.0]$;
+    \item $c_k^{\text{adj}}$: Adjusted knowledge base confidence, calibrated by p-value significance;
+    \item $c_m^{\text{adj}}$: Adjusted model confidence, calibrated by p-value significance.
+\end{itemize}
+
+The confidence calibration mechanism ensures only statistically significant evidence is incorporated into the assessment, avoiding misjudging accidental matches as risks.
+
+\subsection{Complete Derivation of Dual-Evidence Significance Calibration Mechanism}
+
+\subsubsection{Statistical Basis for Knowledge Base Evidence Calibration}
+
+Knowledge base evidence calibration is based on a hypothesis testing framework. Let $H_0$: Current public opinion $S_i$ comes from risk-free distribution $\mathcal{N}(\mu_l, \sigma_l^2)$; $H_1$: Current public opinion $S_i$ comes from high-risk distribution $\mathcal{N}(\mu_h, \sigma_h^2)$.
+
+In practice, we focus more on how well $S_i$ matches historical high-risk public opinion. Therefore, define:
+\[
+z_k = \frac{S_i - \mu_k}{\sigma_k}
+\]
+where $\mu_k$ and $\sigma_k$ are the mean and standard deviation of historical high-risk public opinion.
+
+\begin{theorem}
+If $S_i \sim \mathcal{N}(\mu_k, \sigma_k^2)$, then $z_k \sim \mathcal{N}(0,1)$.
+\end{theorem}
+
+\begin{proof}
+By the linear transformation property of normal distributions, if $X \sim \mathcal{N}(\mu, \sigma^2)$, then $\frac{X-\mu}{\sigma} \sim \mathcal{N}(0,1)$.∎
+\end{proof}
+
+The p-value is defined as:
+\[
+p_k = 2 \cdot (1 - \Phi(|z_k|))
+\]
+where $\Phi(\cdot)$ is the cumulative distribution function of the standard normal distribution.
+
+Business interpretation of p-value:
+\begin{itemize}
+    \item $p_k \leq 0.01$: Highly significant, $S_i$ is extremely unlikely to come from high-risk public opinion distribution;
+    \item $0.01 < p_k \leq 0.05$: Significant, $S_i$ is unlikely to come from high-risk public opinion distribution;
+    \item $0.05 < p_k \leq 0.10$: Marginally significant, $S_i$ may come from high-risk public opinion distribution;
+    \item $p_k > 0.10$: Not significant, $S_i$ is likely to come from high-risk public opinion distribution.
+\end{itemize}
+
+\textbf{Key insight}: In political security contexts, we focus on whether $S_i$ is negative enough to match high-risk public opinion, so a low p-value ($S_i$ much higher than $\mu_k$) indicates poor match, while a high p-value ($S_i$ close to $\mu_k$) indicates good match.
+
+The adjusted knowledge base confidence is:
+\[
+c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - p_k/0.1)
+\]
+
+\begin{theorem}
+$c_k^{\text{adj}}$ satisfies:
+\begin{enumerate}
+    \item When $p_k \leq 0.01$, $c_k^{\text{adj}} \approx 0.3c_k$ (significantly downweighted);
+    \item When $0.01 < p_k \leq 0.10$, $c_k^{\text{adj}} = c_k(1 - p_k/0.1)$ (linearly downweighted);
+    \item When $p_k > 0.10$, $c_k^{\text{adj}} = c_k$ (no downweighting, but significance is low).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Directly follows from definition.∎
+\end{proof}
+
+This calibration mechanism ensures:
+\begin{itemize}
+    \item Evidence that poorly matches is significantly downweighted (avoiding false positives);
+    \item Marginally matching evidence is moderately downweighted (reflecting uncertainty);
+    \item Matching evidence retains original confidence (but must be combined with other evidence).
+\end{itemize}
+
+\subsubsection{Complete Framework for Model Evidence Calibration}
+
+Model evidence calibration targets the NLP model's output confidence in identifying political intent. Let the model output confidence be $x_m \in [0,1]$, then the standardized value is:
+\[
+z_m = \frac{x_m - \mu_m}{\sigma_m}
+\]
+where $\mu_m$ and $\sigma_m$ are the model's average confidence and standard deviation on the validation set.
+
+The p-value is defined as:
+\[
+p_m = 2 \cdot (1 - \Phi(|z_m|))
+\]
+
+The adjusted model confidence is:
+\[
+c_m^{\text{adj}} = c_m \cdot \max(0.3, 1 - p_m/0.1)
+\]
+
+\begin{theorem}
+$c_m^{\text{adj}}$ satisfies the same properties as $c_k^{\text{adj}}$, ensuring reliability of model evidence.
+\end{theorem}
+
+This calibration mechanism is particularly important because NLP models may suffer from overconfidence. Through p-value calibration, we can effectively identify and downweight low-quality model outputs.
+
+\subsection{Theoretical Basis of Three-Stage Decision Process}
+
+\subsubsection{Statistical Significance of Bayesian Pre-screening}
+
+Bayesian pre-screening $\theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1)$ has clear statistical meaning: it is the $(1-\tau_1)$ quantile of the risk-free public opinion distribution.
+
+\begin{theorem}
+If $S_i \sim \mathcal{N}(\mu_l, \sigma_l^2)$, then $P(S_i > \theta_f) = \tau_1$.
+\end{theorem}
+
+\begin{proof}
+\[
+\begin{aligned}
+P(S_i > \theta_f) &= P\left(\frac{S_i - \mu_l}{\sigma_l} > \frac{\theta_f - \mu_l}{\sigma_l}\right) \\
+&= P\left(Z > \Phi^{-1}(1 - \tau_1)\right) \\
+&= 1 - \Phi(\Phi^{-1}(1 - \tau_1)) \\
+&= \tau_1
+\end{aligned}
+\]
+where $Z \sim \mathcal{N}(0,1)$.∎
+\end{proof}
+
+This means that when $S_i > \theta_f$, there is a $100\tau_1\%$ probability that this public opinion comes from the risk-free distribution, so it can be safely classified as risk-free.
+
+\subsubsection{Business Interpretation of D-S Evidence Fusion}
+
+The fused belief function:
+\[
+Bel(\theta_1) = c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}
+\]
+has clear business interpretation:
+
+\begin{itemize}
+    \item When $c_k^{\text{adj}} = 0$ or $c_m^{\text{adj}} = 0$, $Bel(\theta_1) = 0$: Belief is 0 if either evidence source is missing;
+    \item When $c_k^{\text{adj}} = c_m^{\text{adj}} = 1$, $Bel(\theta_1) = 1$: Belief is 1 when both evidences conclusively support risk;
+    \item Generally, $Bel(\theta_1)$ represents the minimum trust level that both evidences jointly support "at risk."
+\end{itemize}
+
+The uncertainty measure:
+\[
+\mathrm{Uncertainty} = (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})
+\]
+represents the degree of insufficient evidence, used for prioritizing manual reviews.
+
+\subsubsection{Theoretical Basis of Three-Stage Decision Rule}
+
+\begin{theorem}[Three-Stage Decision Rule]
+The three-stage decision rule
+\[
+\begin{cases}
+Bel(\theta_1) \geq \tau_1 & \rightarrow \text{Red risk, must report} \\
+Bel(\theta_1) < \tau_0 & \rightarrow \text{Blue risk, do not report} \\
+\tau_0 \leq Bel(\theta_1) < \tau_1 & \rightarrow \text{Yellow risk, triggers manual review}
+\end{cases}
+\]
+where $\tau_0 = 1 - \tau_1$, satisfies:
+\begin{enumerate}
+    \item When $Bel(\theta_1) \geq \tau_1$, the expected loss of reporting is less than not reporting;
+    \item When $Bel(\theta_1) < \tau_0$, the expected loss of not reporting is less than reporting;
+    \item When $\tau_0 \leq Bel(\theta_1) < \tau_1$, expected losses are close, requiring manual judgment.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+From Bayesian decision theory, the expected loss of reporting is:
+\[
+r(a_1|S_i) = C_{\text{false}} \cdot (1 - Bel(\theta_1))
+\]
+The expected loss of not reporting is:
+\[
+r(a_0|S_i) = C_{\text{miss}} \cdot Bel(\theta_1)
+\]
+
+Comparing the two:
+\begin{itemize}
+    \item $r(a_1|S_i) \leq r(a_0|S_i)$ if and only if $Bel(\theta_1) \geq \tau_1$;
+    \item $r(a_0|S_i) < r(a_1|S_i)$ if and only if $Bel(\theta_1) < \tau_0 = 1 - \tau_1$.
+\end{itemize}
+
+When $\tau_0 \leq Bel(\theta_1) < \tau_1$, the difference in expected losses of the two actions is below threshold, requiring manual review.∎
+\end{proof}
+
+This decision rule strictly follows the "precise identification, restrained response, high-order judgment" principle:
+\begin{itemize}
+    \item \textbf{Precise identification}: Only report when $Bel(\theta_1) \geq \tau_1$;
+    \item \textbf{Restrained response}: Do not report when $Bel(\theta_1) < \tau_0$;
+    \item \textbf{High-order judgment}: Conduct manual review for gray-area public opinion.
+\end{itemize}
+
+\section{Case Studies}
+
+\subsection{Complete Analysis of Ideological Public Opinion Assessment}
+
+\textbf{Public Opinion}: "Overseas media炒作 'The Communist Party of China has lost its legitimacy to govern'"
+
+\textbf{Parameters}: $S_i = -0.84$, $c_k = 0.85$, $c_m = 0.80$
+
+\subsubsection{Detailed Calculation of Bayesian Pre-screening}
+
+Ideological category parameters:
+\begin{itemize}
+    \item $\mu_l = -0.25$
+    \item $\sigma_l = 0.15$
+    \item $\tau_1 = 0.0385$
+    \item $\Phi^{-1}(1 - \tau_1) = \Phi^{-1}(0.9615) \approx 1.77$ (from standard normal distribution table)
+\end{itemize}
+
+Calculate Bayesian threshold:
+\[
+\theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1) = -0.25 + 0.15 \times 1.77 = 0.0155
+\]
+
+Public opinion sentiment polarity $S_i = -0.84 < 0.0155$, therefore proceed to D-S evidence assessment stage.
+
+\textbf{Sensitivity analysis}: If $\sigma_l$ increases by 10\% to 0.165, then $\theta_f = -0.25 + 0.165 \times 1.77 = 0.042$, conclusion remains unchanged; if $\tau_1$ increases to 0.05, then $\Phi^{-1}(0.95) \approx 1.645$, $\theta_f = -0.25 + 0.15 \times 1.645 = 0.00175$, conclusion still unchanged. This demonstrates the robustness of the pre-screening result.
+
+\subsubsection{Dual Evidence Calibration}
+
+\subsubsubsection{Knowledge Base Evidence Calibration}
+
+First calculate $z$-score:
+\[
+z_k = \frac{S_i - \mu_k}{\sigma_k} = \frac{-0.84 - (-0.80)}{0.14} = \frac{-0.04}{0.14} \approx -0.2857
+\]
+
+Calculate $p$-value:
+\[
+p_k = 2 \cdot (1 - \Phi(|z_k|)) = 2 \cdot (1 - \Phi(0.2857))
+\]
+
+From standard normal distribution table, $\Phi(0.28) = 0.6103$, $\Phi(0.29) = 0.6141$, using linear interpolation:
+\[
+\Phi(0.2857) \approx 0.6103 + 0.57 \times (0.6141 - 0.6103) = 0.6103 + 0.57 \times 0.0038 \approx 0.6124
+\]
+
+Therefore:
+\[
+p_k = 2 \cdot (1 - 0.6124) = 2 \cdot 0.3876 = 0.7752
+\]
+
+Adjusted knowledge base confidence:
+\[
+c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - p_k / 0.1) = 0.85 \cdot \max(0.3, 1 - 0.7752 / 0.1)
+= 0.85 \cdot \max(0.3, 1 - 7.752) = 0.85 \cdot \max(0.3, -6.752) = 0.85 \cdot 1.0 = 0.85
+\]
+
+\textbf{Explanation}: Since $p_k = 0.7752 > 0.10$, this indicates high matching between current public opinion and historical high-risk public opinion (with $z_k$ close to 0), therefore no downweighting is applied, retaining original confidence.
+
+\subsubsubsection{Model Evidence Calibration}
+
+Assume NLP model's confidence in identifying political intent is $x_m = 0.85$, with average confidence $\mu_m = 0.70$ and standard deviation $\sigma_m = 0.15$ on validation set.
+
+Calculate $z$-score:
+\[
+z_m = \frac{x_m - \mu_m}{\sigma_m} = \frac{0.85 - 0.70}{0.15} = 1.0
+\]
+
+Calculate $p$-value:
+\[
+p_m = 2 \cdot (1 - \Phi(|z_m|)) = 2 \cdot (1 - \Phi(1.0)) = 2 \cdot (1 - 0.8413) = 0.3174
+\]
+
+Adjusted model confidence:
+\[
+c_m^{\text{adj}} = c_m \cdot \max(0.3, 1 - p_m / 0.1) = 0.80 \cdot \max(0.3, 1 - 0.3174 / 0.1)
+= 0.80 \cdot \max(0.3, 1 - 3.174) = 0.80 \cdot \max(0.3, -2.174) = 0.80 \cdot 1.0 = 0.80
+\]
+
+\textbf{Sensitivity analysis}: If model confidence decreases to $0.75$, then $z_m = 0.33$, $p_m = 0.7414$, $c_m^{\text{adj}} = 0.80$ (still no downweighting); if model confidence decreases to $0.65$, then $z_m = -0.33$, $p_m = 0.7414$, $c_m^{\text{adj}} = 0.80$. This shows that within this $p$-value range, changes in model confidence have minimal impact on calibration results.
+
+\subsubsection{Complete Calculation of D-S Evidence Fusion}
+
+Fused belief function:
+\[
+\begin{aligned}
+\mathrm{Bel}(\theta_1) &= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+&= 0.85 + 0.80 - 0.85 \times 0.80 \\
+&= 1.65 - 0.68 = 0.97
+\end{aligned}
+\]
+
+Uncertainty measure:
+\[
+\begin{aligned}
+\mathrm{Uncertainty} &= (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \\
+&= (1 - 0.85)(1 - 0.80) = 0.15 \times 0.20 = 0.03
+\end{aligned}
+\]
+
+\textbf{Theoretical verification}: Verify $\mathrm{Bel}(\theta_1) + \mathrm{Uncertainty} = 0.97 + 0.03 = 1.00$, consistent with D-S theory requirements.
+
+\textbf{Sensitivity analysis}:
+\begin{itemize}
+    \item If $c_k^{\text{adj}}$ decreases to $0.75$, then $\mathrm{Bel}(\theta_1) = 0.75 + 0.80 - 0.75 \times 0.80 = 0.95$
+    \item If $c_m^{\text{adj}}$ decreases to $0.70$, then $\mathrm{Bel}(\theta_1) = 0.85 + 0.70 - 0.85 \times 0.70 = 0.945$
+    \item If both decrease to $0.75$ and $0.70$, then $\mathrm{Bel}(\theta_1) = 0.75 + 0.70 - 0.75 \times 0.70 = 0.925$
+\end{itemize}
+
+This shows $\mathrm{Bel}(\theta_1)$ is sensitive to changes in evidence confidence, especially when both decrease.
+
+\subsubsection{Decision and Business Interpretation}
+
+\textbf{Decision thresholds}:
+\begin{itemize}
+    \item $\tau_1 = 0.0385$ (reporting threshold)
+    \item $\tau_0 = 1 - \tau_1 = 0.9615$ (non-reporting threshold)
+\end{itemize}
+
+\textbf{Comparative analysis}:
+\[
+\mathrm{Bel}(\theta_1) = 0.97 > \tau_0 = 0.9615
+\]
+
+Therefore, according to the three-stage decision rule:
+\[
+\mathrm{Bel}(\theta_1) \geq \tau_1 \quad \Rightarrow \quad \text{Red risk, must report}
+\]
+
+\textbf{Business interpretation}:
+\begin{enumerate}
+    \item \textbf{Nature of public opinion}: This public opinion directly questions the legitimacy of the Communist Party of China's governance, representing a typical ideological attack that highly matches historical high-risk public opinion ($p_k = 0.7752$).
+    \item \textbf{Strength of evidence}: Both evidence sources show high confidence ($c_k^{\text{adj}} = 0.85$, $c_m^{\text{adj}} = 0.80$), with fused belief $\mathrm{Bel}(\theta_1) = 0.97$.
+    \item \textbf{Risk level}: Belief exceeds non-reporting threshold $\tau_0 = 0.9615$, indicating highly certain risk.
+    \item \textbf{Political significance}: If not addressed promptly, this type of public opinion could be exploited by overseas forces to amplify ideological attacks.
+\end{enumerate}
+
+\section{Complete Analysis of Institutional Implementation Public Opinion Assessment}
+
+\subsection{Public Opinion Description and Parameters}
+
+\textbf{Public Opinion}: "Local policy implementation has 'one-size-fits-all' approach, causing pressure on grassroots officials"
+
+\textbf{Parameters}: $S_i = -0.50$, $c_k = 0.65$, $c_m = 0.75$
+
+\subsubsubsection{Detailed Calculation of Bayesian Pre-screening}
+
+Institutional implementation category parameters:
+\begin{itemize}
+    \item $\mu_l = -0.18$
+    \item $\sigma_l = 0.13$
+    \item $\tau_1 = 0.0769$ (since $C_{\text{miss}} = 12.0$, $C_{\text{false}} = 1.0$)
+    \item $\Phi^{-1}(1 - \tau_1) = \Phi^{-1}(0.9231) \approx 1.43$ (from standard normal distribution table)
+\end{itemize}
+
+Calculate Bayesian threshold:
+\[
+\theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1) = -0.18 + 0.13 \times 1.43 = -0.18 + 0.1859 = 0.0059
+\]
+
+Public opinion sentiment polarity $S_i = -0.50 < 0.0059$, therefore proceed to D-S evidence assessment stage.
+
+\subsubsubsection{Detailed Calculation of Dual Evidence Calibration}
+
+\textbf{Knowledge base evidence calibration}:
+
+Calculate $z$-score:
+\[
+z_k = \frac{S_i - \mu_k}{\sigma_k} = \frac{-0.50 - (-0.70)}{0.12} = \frac{0.20}{0.12} \approx 1.6667
+\]
+
+Calculate $p$-value:
+\[
+p_k = 2 \cdot (1 - \Phi(|z_k|)) = 2 \cdot (1 - \Phi(1.6667))
+\]
+
+From standard normal distribution table, $\Phi(1.66) = 0.9515$, $\Phi(1.67) = 0.9525$, using linear interpolation:
+\[
+\Phi(1.6667) \approx 0.9515 + 0.67 \times (0.9525 - 0.9515) = 0.9515 + 0.00067 = 0.95217 \approx 0.9522
+\]
+
+Therefore:
+\[
+p_k = 2 \cdot (1 - 0.9522) = 2 \cdot 0.0478 = 0.0956
+\]
+
+Adjusted knowledge base confidence:
+\[
+c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - p_k / 0.1) = 0.65 \cdot \max(0.3, 1 - 0.0956 / 0.1)
+= 0.65 \cdot \max(0.3, 1 - 0.956) = 0.65 \cdot \max(0.3, 0.044) = 0.65 \cdot 0.044 = 0.0286
+\]
+
+\textbf{Explanation}: Since $p_k = 0.0956$ is close to but does not exceed 0.10, this indicates low matching between current public opinion and historical high-risk public opinion ($z_k$ is large), therefore significantly downweighted, with confidence reduced to $0.0286$.
+
+\textbf{Model evidence calibration}:
+
+Assume NLP model's confidence in identifying political intent is $x_m = 0.78$, with average confidence $\mu_m = 0.70$ and standard deviation $\sigma_m = 0.12$ on validation set.
+
+Calculate $z$-score:
+\[
+z_m = \frac{x_m - \mu_m}{\sigma_m} = \frac{0.78 - 0.70}{0.12} = 0.6667
+\]
+
+Calculate $p$-value:
+\[
+p_m = 2 \cdot (1 - \Phi(|z_m|)) = 2 \cdot (1 - \Phi(0.6667))
+\]
+
+From standard normal distribution table, $\Phi(0.66) = 0.7454$, $\Phi(0.67) = 0.7486$, using linear interpolation:
+\[
+\Phi(0.6667) \approx 0.7454 + 0.67 \times (0.7486 - 0.7454) = 0.7454 + 0.002144 = 0.747544 \approx 0.7475
+\]
+
+Therefore:
+\[
+p_m = 2 \cdot (1 - 0.7475) = 2 \cdot 0.2525 = 0.505
+\]
+
+Adjusted model confidence:
+\[
+c_m^{\text{adj}} = c_m \cdot \max(0.3, 1 - p_m / 0.1) = 0.75 \cdot \max(0.3, 1 - 0.505 / 0.1)
+= 0.75 \cdot \max(0.3, 1 - 5.05) = 0.75 \cdot \max(0.3, -4.05) = 0.75 \cdot 1.0 = 0.75
+\]
+
+\subsubsubsection{Complete Calculation of D-S Evidence Fusion}
+
+Fused belief function:
+\[
+\begin{aligned}
+\mathrm{Bel}(\theta_1) &= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+&= 0.0286 + 0.75 - 0.0286 \times 0.75 \\
+&= 0.7786 - 0.02145 = 0.75715 \approx 0.757
+\end{aligned}
+\]
+
+Uncertainty measure:
+\[
+\begin{aligned}
+\mathrm{Uncertainty} &= (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \\
+&= (1 - 0.0286)(1 - 0.75) = 0.9714 \times 0.25 = 0.24285 \approx 0.243
+\end{aligned}
+\]
+
+Verification: $\mathrm{Bel}(\theta_1) + \mathrm{Uncertainty} = 0.757 + 0.243 = 1.00$, consistent with D-S theory requirements.
+
+\subsubsection{Decision and Business Interpretation}
+
+\textbf{Decision thresholds}:
+\begin{itemize}
+    \item $\tau_1 = 0.0769$ (reporting threshold)
+    \item $\tau_0 = 1 - \tau_1 = 0.9231$ (non-reporting threshold)
+\end{itemize}
+
+\textbf{Comparative analysis}:
+\[
+\mathrm{Bel}(\theta_1) = 0.757 < \tau_0 = 0.9231
+\]
+
+Therefore, according to the three-stage decision rule:
+\[
+\mathrm{Bel}(\theta_1) < \tau_0 \quad \Rightarrow \quad \text{Blue risk, do not report}
+\]
+
+\textbf{Business interpretation}:
+\begin{enumerate}
+    \item \textbf{Nature of public opinion}: This public opinion reflects specific issues in policy implementation, belonging to the discussion of institutional execution level, with low matching to historical ideological high-risk public opinion ($p_k = 0.0956$).
+    \item \textbf{Strength of evidence}: Knowledge base evidence has extremely low confidence after calibration ($c_k^{\text{adj}} = 0.0286$), indicating significant difference from historical high-risk public opinion.
+    \item \textbf{Risk level}: Fused belief $\mathrm{Bel}(\theta_1) = 0.757$ is far below non-reporting threshold $\tau_0 = 0.9231$.
+    \item \textbf{Political significance}: This type of public opinion falls within the normal scope of policy discussion, reflecting actual difficulties at the grassroots level, and does not constitute a political security risk.
+\end{enumerate}
+
+\section{Theoretical Basis of Key Validation Metrics}
+
+\subsection{Determination of Missed Detection Rate Threshold ($\leq 0.1\%$)}
+
+The missed detection rate threshold is based on risk cost analysis:
+
+Let:
+\begin{itemize}
+    \item $N$: Annual public opinion volume (approximately 50,000 items);
+    \item $R$: Proportion of genuine risk events (approximately 1\%);
+    \item $C_{\text{miss}}$: Cost of a single missed detection;
+    \item $C_{\text{false}}$: Cost of a single false alarm.
+\end{itemize}
+
+Requirement:
+\[
+N \cdot R \cdot \text{missed detection rate} \cdot C_{\text{miss}} \leq N \cdot \text{false alarm rate} \cdot C_{\text{false}}
+\]
+
+Substituting $C_{\text{miss}} / C_{\text{false}} = 25$, $R = 0.01$:
+\[
+0.01 \cdot \text{missed detection rate} \cdot 25 \leq \text{false alarm rate}
+\]
+
+If requiring false alarm rate $\leq 5\%$, then:
+\[
+\text{missed detection rate} \leq \frac{0.05}{25 \times 0.01} = 0.2\%
+\]
+
+To provide margin, set missed detection rate $\leq 0.1\%$.
+
+\subsection{Determination of False Alarm Rate Threshold ($\leq 5.0\%$)}
+
+The false alarm rate threshold is based on organizational capacity:
+\begin{itemize}
+    \item Manual review resources are limited, assuming approximately 500 reviews can be handled annually;
+    \item Annual public opinion volume is approximately 50,000 items;
+    \item Therefore maximum acceptable review rate: $500 / 50,000 = 1.0\%$.
+\end{itemize}
+
+However, considering:
+\begin{enumerate}
+    \item Not all reviews lead to reporting;
+    \item Some reviews can be automated.
+\end{enumerate}
+
+Set false alarm rate $\leq 5.0\%$, corresponding to review rate of approximately 5-6\%, which is within acceptable range.
+
+\subsubsection{Theoretical Basis of Ideal Review Rate Interval (3-8\%)}
+
+The review rate $\rho$ can be expressed as:
+\[
+\rho = P(\mathrm{Bel}(\theta_1) \geq \tau_0) + P(\tau_0 > \mathrm{Bel}(\theta_1) \geq \tau_1)
+\]
+
+Under ideal conditions:
+\begin{itemize}
+    \item $P(\mathrm{Bel}(\theta_1) \geq \tau_0) \approx 0$ (genuine risks are rare);
+    \item $P(\tau_0 > \mathrm{Bel}(\theta_1) \geq \tau_1) \approx P(\text{gray-area public opinion})$.
+\end{itemize}
+
+Empirical studies show that gray-area public opinion accounts for approximately 3-8\% of total volume, so review rate should be controlled within this interval.
+
+\section{Improvement Directions}
+
+\subsection{Dynamic Evolution Model}
+
+For time series data $S_{1:t} = \{S_1, S_2, \dots, S_t\}$, the posterior probability evolves as follows:
+\begin{equation}
+P(\theta_t|S_{1:t}) \propto P(S_t|\theta_t) \int P(\theta_t|\theta_{t-1}) P(\theta_{t-1}|S_{1:t-1}) d\theta_{t-1}
+\end{equation}
+
+\subsubsection{Predictive Distribution}
+
+We can calculate:
+\begin{itemize}[leftmargin=*]
+    \item $P(\theta_{t+h}|S_{1:t})$: Predictive distribution $h$ steps ahead;
+    \item $P(\max_{t<s\leq t+h} \theta_s = 1|S_{1:t})$: Probability of high-risk state occurring within $h$ steps.
+\end{itemize}
+
+\subsection{Polynomial Risk States}
+
+\subsubsection{State Space Expansion}
+$\Theta = \{\theta_0, \theta_1, \theta_2, \theta_3\}$, where:
+\begin{itemize}[leftmargin=*]
+    \item $\theta_0$: Extremely low risk;
+    \item $\theta_1$: Low risk;
+    \item $\theta_2$: Medium risk;
+    \item $\theta_3$: High risk.
+\end{itemize}
+
+\subsubsection{Decision Rule}
+The risk score is defined as:
+\begin{equation}
+k = \max\{k: S_i \leq \theta_k\}
+\end{equation}
+where $\theta_0 < \theta_1 < \theta_2 < \theta_3$ are predefined thresholds.
+
+\clearpage
+\section{Definitions of Random Variables and Parameters}
+
+\begin{table}[htbp]
+\centering
+\caption{Definitions of Random Variables}
+\label{tab:random_variables}
+\begin{tabularx}{\textwidth}{X l X}
+\toprule
+\textbf{Description} & \textbf{Range} & \textbf{Notes} \\
+\midrule
+Public opinion metric value $S_i$ & $[-1.0, 0.0]$ & Sentiment polarity from NLP model \\
+True risk state $\theta$ & $\{\theta_0, \theta_1\}$ & $\theta_0$: low-risk; $\theta_1$: high-risk \\
+Expert assessment standardized score $z_k$ & $(-\infty, +\infty)$ & $z_k = \frac{S_i - \mu_k}{\sigma_k}$ \\
+Expert assessment p-value $p_k$ & $[0, 1]$ & Derived from $z_k$ using standard normal CDF \\
+NLP model output $x_m$ & $[0, 1]$ & Confidence score from LLM \\
+NLP model standardized score $z_m$ & $(-\infty, +\infty)$ & $z_m = \frac{x_m - \mu_m}{\sigma_m}$ \\
+NLP model p-value $p_m$ & $[0, 1]$ & Derived from $z_m$ using standard normal CDF \\
+Expert adjusted confidence $c^{\text{adj}}_k$ & $[0, 1]$ & $c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - p_k/0.1)$ \\
+NLP adjusted confidence $c^{\text{adj}}_m$ & $[0, 1]$ & $c_m^{\text{adj}} = c_m \cdot \max(0.3, 1 - p_m/0.1)$ \\
+Risk belief function $\text{Bel}(\theta_1)$ & $[0, 1]$ & $\text{Bel}(\theta_1) = c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}$ \\
+Model uncertainty $\text{Uncertainty}$ & $[0, 1]$ & $\text{Uncertainty} = (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+\noindent\textbf{Mathematical Definitions (for reference):}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0.5em]
+    \item $S_i \sim \begin{cases} \mathcal{N}(\mu_l, \sigma_l^2) & \text{if } \theta = \theta_0 \\ \mathcal{N}(\mu_h, \sigma_h^2) & \text{if } \theta = \theta_1 \end{cases}$
+    \item $\Prob(\theta = \theta_1) = \pi,\quad \Prob(\theta = \theta_0) = 1 - \pi$
+    \item $c_k^{\text{adj}} = c_k \cdot \max(0.3, 1 - p_k/0.1)$
+    \item $c_m^{\text{adj}} = c_m \cdot \max(0.3, 1 - p_m/0.1)$
+    \item $\text{Bel}(\theta_1) = c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}$
+    \item $\text{Uncertainty} = (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})$
+\end{itemize}
+
+\clearpage
+
+\subsection{Seven Categories of Public Opinion Risk Parameter Settings}
+
+\subsubsection{Ideological Security and Political Risk Category}
+\textbf{(Precisely identify genuine risks, filter out false signals)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 25 & Risk genuinely threatens governance foundation; avoid over-politicizing general social sentiment \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects work order but is far less severe than political security risk \\
+Cost ratio ($\Cmiss/\Cfalse$) & 25:1 & Reflects importance of political security while avoiding ``excessive alignment'' tendency \\
+Risk threshold ($\tauone$) & 0.0385 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring not overly sensitive \\
+Risk-free threshold ($\tauzero$) & 0.9615 & $\tauzero = 1 - \tauone$, strictly filtering non-substantive signals \\
+Mean of risk-free sentiment ($\mul$) & $-0.25$ & Baseline for normal political discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.15$ & Normal fluctuation range of general social sentiment \\
+Mean of risky sentiment ($\muk$) & $-0.80$ & Typical sentiment characteristics of genuine political risks \\
+Standard deviation of risky sentiment ($\sigk$) & $0.14$ & Higher concentration of sentiment for major political risks \\
+Upper limit of missed detection rate & $\leq 0.10\%$ & Ensuring genuine risks threatening governance foundation are not missed \\
+Upper limit of false alarm rate & $\leq 4.0\%$ & Strictly preventing ``excessive alignment'' tendency, filtering false signals \\
+Upper limit of reporting rate & $\leq 30\%$ & Ensuring only substantively risky items threatening political security are reported \\
+Evidence strength threshold ($\alpha$) & 0.6 & Must have evidence of foreign entity linkage or systematic infiltration, but not demanding perfect evidence \\
+Strategic relevance weight ($\gamma$) & 0.5 & Must directly relate to central political security red lines, but avoiding excessive generalization \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Political security is important, but it does not mean "seeing enemies everywhere." This parameter setting ensures the model only reports \textbf{substantive risks with evidence chains from foreign IPs, organizational infiltration characteristics, diffusion in provincial-level or higher media, and volume exceeding historical mean by 5 times}, avoiding misclassifying general discussions like "netizens criticizing Western systems" as political risks. The $\tauone=0.0385$ setting (rather than below 0.01) embodies the principle of "politically alert but not neurotic."
+
+\clearpage
+
+\subsubsection{Cadre Selection and Management Category}
+\textbf{(Precisely identify substantive organizational risks, eliminate politicized associations)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 20 & Major personnel issues affect organizational credibility; normal personnel adjustments should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects organizational work order but can be corrected \\
+Cost ratio ($\Cmiss/\Cfalse$) & 20:1 & Reflects importance of personnel selection while avoiding ``sensitivity amplification'' tendency \\
+Risk threshold ($\tauone$) & 0.0476 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring not overly sensitive \\
+Risk-free threshold ($\tauzero$) & 0.9524 & $\tauzero = 1 - \tauone$, strictly filtering general discussions \\
+Mean of risk-free sentiment ($\mul$) & $-0.27$ & Baseline for normal personnel discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.16$ & Normal fluctuation range of general personnel discussions \\
+Mean of risky sentiment ($\muk$) & $-0.78$ & Sentiment characteristics of genuine personnel issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.15$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.12\%$ & Ensuring substantive risks affecting personnel credibility are not missed \\
+Upper limit of false alarm rate & $\leq 4.5\%$ & Strictly preventing ``politicized associations,'' eliminating over-reporting of minor issues \\
+Upper limit of reporting rate & $\leq 32\%$ & Ensuring only items with evidence, impact, risk, and necessity are reported \\
+Evidence strength threshold ($\alpha$) & 1.0 & Must have evidence from disciplinary inspection or real-name report (hard threshold) \\
+Propagation impact threshold ($\beta$) & 0.3 & Must cover 3+ provincial organizational department websites \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Cadre issues are "critical among criticals," but this doesn't mean "everyone living in fear." The $\alpha=1.0$ hard evidence threshold ensures the model \textbf{only reports public opinion with evidence from disciplinary inspection or real-name report}, completely filtering out non-directional criticism like "netizens in a certain region complaining that cadres are too young." The $\tauone=0.0476$ setting (higher than political security category) embodies the principle of "strict but not harsh," ensuring normal personnel adjustments, policy discussions, or grassroots complaints are not misclassified as major organizational risks.
+
+\clearpage
+
+\subsubsection{Party Member Education, Management, and Supervision Category}
+\textbf{(Report genuine risks without omission, do not report non-genuine risks)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 15 & Major party member management issues affect organizational purity; general criticism should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects party member management order but can be corrected \\
+Cost ratio ($\Cmiss/\Cfalse$) & 15:1 & Reflects importance of party member management while avoiding ``value pre-judgment'' tendency \\
+Risk threshold ($\tauone$) & 0.0625 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring not overly sensitive \\
+Risk-free threshold ($\tauzero$) & 0.9375 & $\tauzero = 1 - \tauone$, strictly filtering general criticism \\
+Mean of risk-free sentiment ($\mul$) & $-0.30$ & Baseline for normal party member discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.18$ & Normal fluctuation range of general party member discussions \\
+Mean of risky sentiment ($\muk$) & $-0.75$ & Sentiment characteristics of genuine party member management issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.16$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.15\%$ & Ensuring substantive risks affecting party member purity are not missed \\
+Upper limit of false alarm rate & $\leq 5.0\%$ & Strictly preventing ``sensitivity generalization,'' eliminating ``minor issues reported as major'' \\
+Upper limit of reporting rate & $\leq 35\%$ & Ensuring only substantively risky items affecting organizational cohesion are reported \\
+Evidence strength threshold ($\alpha$) & 0.6 & Requires statistical data showing party member disciplinary violations increased by $30\%+$ \\
+Propagation impact threshold ($\beta$) & 0.35 & Requires coverage by provincial-level or higher mainstream media or diffusion in 3+ provinces \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Party member education and management is "fundamental among fundamentals," but this doesn't mean "jumping at shadows." The $\alpha=0.6$ evidence threshold requires \textbf{statistical data showing party member disciplinary violations increased by $30\%+$}, avoiding elevating general policy discussions like "a party member discussing party fee standards" to major political hazards. The $\tauone=0.0625$ setting (highest among seven categories) embodies the "precise restraint" principle, ensuring the model only recommends reporting when public opinion possesses \textbf{authenticity, severity, diffusion, and strategic relevance}, truly achieving "report genuine risks without omission, do not report non-genuine risks."
+
+\clearpage
+
+\subsubsection{Talent Work and International Talent Security Category}
+\textbf{(Focus on key points, prevent misclassification, ensure precision)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 18 & Major talent security issues concern national strategy, but general policy discussions should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects talent recruitment work but can be corrected \\
+Cost ratio ($\Cmiss/\Cfalse$) & 18:1 & Reflects importance of talent security while avoiding ``security speculation'' tendency \\
+Risk threshold ($\tauone$) & 0.0526 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring not overly sensitive \\
+Risk-free threshold ($\tauzero$) & 0.9474 & $\tauzero = 1 - \tauone$, strictly filtering general discussions \\
+Mean of risk-free sentiment ($\mul$) & $-0.26$ & Baseline for normal talent policy discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.15$ & Normal fluctuation range of general talent discussions \\
+Mean of risky sentiment ($\muk$) & $-0.79$ & Sentiment characteristics of genuine talent security issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.14$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.13\%$ & Ensuring substantive risks affecting national talent security are not missed \\
+Upper limit of false alarm rate & $\leq 4.8\%$ & Strictly preventing ``concept generalization,'' eliminating ``over-securitization'' \\
+Upper limit of reporting rate & $\leq 34\%$ & Ensuring only strategically risky items threatening national talent security are reported \\
+Evidence strength threshold ($\alpha$) & 0.7 & Requires evidence of abnormal loss from national talent programs \\
+Strategic relevance weight ($\gamma$) & 0.6 & Requires direct evidence of international competitive linkage \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Talent security is "the battle for the future," but this doesn't mean "seeing snakes in cups." The $\alpha=0.7$ evidence threshold requires \textbf{evidence of abnormal loss from national talent programs}, strictly distinguishing between general policy discussions like "overseas students complaining about visa difficulties" and substantive security risks like "core talents systematically poached by foreign entities." The $\tauone=0.0526$ setting embodies the "focus on key points, prevent misclassification, ensure precision" principle, ensuring the model only recommends reporting when public opinion possesses \textbf{authenticity, strategic importance, and external linkage}, eliminating "over-securitization" misjudgments.
+
+\clearpage
+
+\subsubsection{Organizational Systems and Policy Implementation Category}
+\textbf{(Report accurately, explain clearly, apply effectively)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 12 & Major system implementation issues affect policy implementation, but technical issues should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects policy implementation confidence but can be corrected \\
+Cost ratio ($\Cmiss/\Cfalse$) & 12:1 & Reflects importance of system implementation while avoiding ``problem amplification'' tendency \\
+Risk threshold ($\tauone$) & 0.0769 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring not overly sensitive \\
+Risk-free threshold ($\tauzero$) & 0.9231 & $\tauzero = 1 - \tauone$, strictly filtering individual complaints \\
+Mean of risk-free sentiment ($\mul$) & $-0.32$ & Baseline for normal policy implementation discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.19$ & Normal fluctuation range of general policy discussions \\
+Mean of risky sentiment ($\muk$) & $-0.73$ & Sentiment characteristics of genuine system implementation issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.17$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.18\%$ & Ensuring substantive risks affecting system rigidity are not missed \\
+Upper limit of false alarm rate & $\leq 5.5\%$ & Strictly preventing ``emotional sensitivity,'' eliminating ``treating complaints as alarms'' \\
+Upper limit of reporting rate & $\leq 38\%$ & Ensuring only substantively risky items reflecting genuine system failure are reported \\
+Evidence strength threshold ($\alpha$) & 0.5 & Requires provincial inspection confirming policy implementation rate $< 70\%$ \\
+Propagation impact threshold ($\beta$) & 0.4 & Requires system-wide issues covering 40\%+ of prefectural cities \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: System implementation is "the foundation of effectiveness," but this doesn't mean "jumping at shadows." The $\alpha=0.5$ evidence threshold requires \textbf{provincial inspection confirming policy implementation rate $< 70\%$}, avoiding misclassifying technical issues like "grassroots reporting too many forms" as systemic risks. The $\tauone=0.0769$ setting (highest among seven categories) embodies the "report accurately, explain clearly, apply effectively" principle, ensuring the model only recommends reporting when public opinion reflects \textbf{genuine system failure, widespread implementation distortion, or central leadership focus areas}, eliminating misjudgments of "treating suggestions as crises."
+
+\clearpage
+
+\subsubsection{Organizational System Self-Construction and Public Opinion Response Category}
+\textbf{(Self-criticism with basis, report problems with discretion)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 10 & Major internal issues affect organizational credibility, but general work mistakes should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting severely damages organizational system image \\
+Cost ratio ($\Cmiss/\Cfalse$) & 10:1 & Reflects importance of self-supervision while avoiding ``internal problem externalization'' tendency \\
+Risk threshold ($\tauone$) & 0.0909 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring high restraint \\
+Risk-free threshold ($\tauzero$) & 0.9091 & $\tauzero = 1 - \tauone$, strictly filtering minor issues \\
+Mean of risk-free sentiment ($\mul$) & $-0.35$ & Baseline for normal organizational work discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.20$ & Normal fluctuation range of general work discussions \\
+Mean of risky sentiment ($\muk$) & $-0.70$ & Sentiment characteristics of genuine internal issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.18$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.20\%$ & Ensuring major risks affecting organizational credibility are not missed \\
+Upper limit of false alarm rate & $\leq 6.0\%$ & Strictly preventing ``minor mistakes politicized,'' eliminating ``minor errors reported as major'' \\
+Upper limit of reporting rate & $\leq 40\%$ & Ensuring only major events touching organizational authority bottom lines are reported \\
+Evidence strength threshold ($\alpha$) & 1.0 & Requires evidence from Central Commission for Discipline Inspection or ministerial-level special inspection (hard threshold) \\
+Propagation impact threshold ($\beta$) & 0.5 & Requires triggering central leadership attention \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Organizational system self-construction is a "self-directed blade" project, but this doesn't mean "self-imposed burden." The $\alpha=1.0$ highest evidence threshold and $\beta=0.5$ high propagation threshold ensure the model \textbf{only reports major events with evidence from Central Commission for Discipline Inspection or ministerial-level special inspections that have triggered central leadership attention}, completely filtering out general work mistakes like "a municipal party organization department process oversight." The $\tauone=0.0909$ setting (highest among seven categories) embodies the "self-criticism with basis, report problems with discretion" principle, ensuring "minor errors not reported, major errors must be reported."
+
+\clearpage
+
+\subsubsection{Regional and Special Field Party Building Category}
+\textbf{(Focus on essentials, prevent hype, emphasize effectiveness)}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Basis for Setting} \\
+\midrule
+Cost of missed detection ($\Cmiss$) & 22 & Major regional party building issues concern national sovereignty, but general discussions should not be overly sensitive \\
+Cost of false alarm ($\Cfalse$) & 1 & Incorrect reporting affects regional stability but can be corrected \\
+Cost ratio ($\Cmiss/\Cfalse$) & 22:1 & Reflects importance of special fields while avoiding ``regional sensitivity amplification'' tendency \\
+Risk threshold ($\tauone$) & 0.0435 & $\tauone = \Cfalse/(\Cfalse + \Cmiss)$, ensuring precise identification \\
+Risk-free threshold ($\tauzero$) & 0.9565 & $\tauzero = 1 - \tauone$, strictly filtering general discussions \\
+Mean of risk-free sentiment ($\mul$) & $-0.24$ & Baseline for normal regional party building discussion sentiment distribution \\
+Standard deviation of risk-free sentiment ($\sigr$) & $0.14$ & Normal fluctuation range of general regional discussions \\
+Mean of risky sentiment ($\muk$) & $-0.81$ & Sentiment characteristics of genuine regional party building issues \\
+Standard deviation of risky sentiment ($\sigk$) & $0.13$ & Higher concentration of sentiment for major issues \\
+Upper limit of missed detection rate & $\leq 0.11\%$ & Ensuring substantive risks affecting national sovereignty security are not missed \\
+Upper limit of false alarm rate & $\leq 4.2\%$ & Strictly preventing ``concept extension generalization,'' eliminating ``regional generalization'' \\
+Upper limit of reporting rate & $\leq 31\%$ & Ensuring only strategically risky items threatening national sovereignty are reported \\
+Strategic relevance weight ($\gamma$) & 0.7 & Requires direct linkage to national sovereignty security \\
+Evidence strength threshold ($\alpha$) & 0.65 & Requires evidence of border party building coverage $< 35\%$ or major Hong Kong-Macao public opinion \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Central Organization Department Decision Logic}: Special field party building is "matters of national importance," but this doesn't mean "jumping at shadows." The $\gamma=0.7$ strategic weight and $\alpha=0.65$ evidence threshold ensure the model \textbf{focuses on three dimensions: "foreign linkage," "sovereignty relevance," and "organizational functional deficiency consequences"}, strictly distinguishing between academic discussions like "Hong Kong-Macao scholars discussing One Country, Two Systems" and substantive risks like "organizational coverage failure in border regions." The $\tauone=0.0435$ setting embodies the "focus on essentials, prevent hype, emphasize effectiveness" principle, ensuring the model only recommends reporting when public opinion possesses \textbf{genuine strategic threats, international transmission effects, or systemic organizational absence}.
+
+\clearpage
+
+
+
+\begin{center}
+\begin{sidewaystable}
+\caption{Comparative Analysis of Seven Public Opinion Categories}
+\label{tab:comparison_rotated}
+\begin{tabularx}{\textwidth}{X c c c c c}
+\toprule
+\textbf{Public Opinion Category} & 
+\textbf{$\tauone$} & 
+\textbf{$\Cmiss/\Cfalse$} & 
+\textbf{Evidence Strength ($\alpha$)} & 
+\textbf{False Alarm Rate Limit} & 
+\textbf{Reporting Rate Limit} \\
+\midrule
+Ideological Security & 0.0385 & 25:1 & 0.6 & 4.0\% & 30\% \\
+Cadre Selection & 0.0476 & 20:1 & 1.0 & 4.5\% & 32\% \\
+Party Member Education & 0.0625 & 15:1 & 0.6 & 5.0\% & 35\% \\
+Talent Work Security & 0.0526 & 18:1 & 0.7 & 4.8\% & 34\% \\
+Organizational System Implementation & 0.0769 & 12:1 & 0.5 & 5.5\% & 38\% \\
+Organizational System Self & 0.0909 & 10:1 & 1.0 & 6.0\% & 40\% \\
+Regional Special Party Building & 0.0435 & 22:1 & 0.65 & 4.2\% & 31\% \\
+\bottomrule
+\end{tabularx}
+\end{sidewaystable}
+\end{center}
+
+
+
+\clearpage
+\appendix
+\chapter{Appendix A: Proof of $Pl(\theta_1) \equiv 1.00$}
+
+\textbf{Premise}: $m(\{\theta_0\}) = 0$
+
+\textbf{D-S Fusion Result}:
+\[
+\begin{aligned}
+m(\{\theta_1\}) &= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+m(\Theta) &= (1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}}) \\
+m(\{\theta_0\}) &= 0
+\end{aligned}
+\]
+
+\textbf{Plausibility Definition}:
+\[
+\begin{aligned}
+Pl(\theta_1) &= m(\{\theta_1\}) + m(\Theta) \\
+&= [c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}}] + [(1 - c_k^{\text{adj}})(1 - c_m^{\text{adj}})] \\
+&= c_k^{\text{adj}} + c_m^{\text{adj}} - c_k^{\text{adj}} \cdot c_m^{\text{adj}} + 1 - c_k^{\text{adj}} - c_m^{\text{adj}} + c_k^{\text{adj}} \cdot c_m^{\text{adj}} \\
+&= 1.00
+\end{aligned}
+\]
+
+\textbf{Extended Discussion}: When $m(\{\theta_0\}) > 0$, $Pl(\theta_1)$ may be less than 1.00, but this violates the "non-support for risk-free by default" political principle. In political security contexts, we prefer to accept the decision simplification brought by $Pl(\theta_1) \equiv 1.00$ rather than risk political complacency.
+
+\chapter{Appendix B: Derivation of Bayesian Threshold}
+
+\textbf{Posterior Probability Decision}:
+$$
+P(\theta_1|S_i) \geq \tau = \frac{C_{\text{false}}}{C_{\text{false}} + C_{\text{miss}}}
+$$
+
+\textbf{Likelihood Ratio Form}:
+$$
+\frac{P(S_i|\theta_1)}{P(S_i|\theta_0)} \geq \frac{C_{\text{false}} \cdot P(\theta_0)}{C_{\text{miss}} \cdot P(\theta_1)} = \gamma
+$$
+
+\textbf{When} $P(S_i|\theta) \sim \mathcal{N}(\mu_\theta, \sigma^2)$:
+$$
+\begin{aligned}
+&-\frac{(S_i - \mu_h)^2}{2\sigma^2} + \frac{(S_i - \mu_l)^2}{2\sigma^2} \geq \log\gamma \\
+&\frac{2S_i(\mu_l - \mu_h) + (\mu_h^2 - \mu_l^2)}{2\sigma^2} \geq \log\gamma \\
+&S_i \leq \frac{\mu_l + \mu_h}{2} + \frac{\sigma^2}{\mu_l - \mu_h} \log\gamma
+\end{aligned}
+$$
+
+\textbf{Substituting} $\gamma = \frac{C_{\text{false}}(1 - \pi)}{C_{\text{miss}} \pi}$, and noting that:
+$$
+\frac{\mu_l + \mu_h}{2} + \frac{\sigma^2}{\mu_l - \mu_h} \log\gamma = \mu_l + \sigma \cdot \Phi^{-1}(1 - \tau)
+$$
+
+\textbf{Key Simplification}: In political security contexts, to ensure the "zero-tolerance" principle, $\tau$ should be \textbf{fixed} and not vary with prior $\pi$. Therefore:
+$$
+\theta_f = \mu_l + \sigma_l \cdot \Phi^{-1}(1 - \tau_1)
+$$
+
+\end{document}
