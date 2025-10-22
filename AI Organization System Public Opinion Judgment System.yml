@@ -1,5 +1,5 @@
 app:
-  description: '251020'
+  description: '251023'
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
@@ -902,7 +902,7 @@ workflow:
       positionAbsolute:
         x: -80.07620578725425
         y: 282
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1655,7 +1655,7 @@ workflow:
       positionAbsolute:
         x: 1386.2425289212615
         y: 94.0598459640091
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2426,11 +2426,11 @@ workflow:
       height: 52
       id: '1759217509549'
       position:
-        x: 4438.2089822053185
-        y: 401.6176580246755
+        x: 4278.2089822053185
+        y: 485.6176580246755
       positionAbsolute:
-        x: 4438.2089822053185
-        y: 401.6176580246755
+        x: 4278.2089822053185
+        y: 485.6176580246755
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3184,7 +3184,7 @@ workflow:
       type: custom
       width: 242
     viewport:
-      x: 138.48875200394977
-      y: 127.47743244527521
-      zoom: 0.2649068636217649
+      x: -502.2640960452286
+      y: 155.89470135467303
+      zoom: 0.5647401780742349
   rag_pipeline_variables: []
